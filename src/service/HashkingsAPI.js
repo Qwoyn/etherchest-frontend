@@ -2,7 +2,7 @@ import axios from "axios";
 import { format as formatTimeAgo } from "timeago.js";
 
 export class HashkingsAPI {
-  baseUrl = "https://hive-hashkings.herokuapp.com/"; // main api
+  baseUrl = "https://etherchest-backend.herokuapp.com/"; // main api
   
   get(suffix) {
     return axios.get(this.baseUrl + suffix).then(res => res.data);
