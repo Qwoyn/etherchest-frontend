@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -77,8 +77,8 @@ export default function Trending() {
   const {steemConnectAPI} = useContext(StateContext);
 
   useEffect(() => {
-    const hashkingsAPI = new HashkingsAPI();
-    hashkingsAPI.getTrending().then(setTrending);
+    const etherchestAPI = new EtherchestAPI();
+    etherchestAPI.getTrending().then(setTrending);
   }, []);
 
   if (!trending) return <SkeletonPage />;
