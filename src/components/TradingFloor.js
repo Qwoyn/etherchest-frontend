@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {StateContext} from "../App";
 import { Redirect } from 'react-router';
 import SwipeableViews from 'react-swipeable-views';
-import {gemTypes} from '../service/HashkingsAPI';
+import {gemTypes} from '../service/EtherchestAPI';
 import {sign} from "hivesigner";
 import useSteemKeychain from "../hooks/useSteemKeychain"; 
 import { makeStyles, useTheme } from '@material-ui/core/styles';

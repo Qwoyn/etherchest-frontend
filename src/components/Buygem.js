@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-import {gemNames, gemTypes} from "../service/HashkingsAPI";
+import {gemNames, gemTypes} from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {sign} from "hivesigner";
 import useSteemKeychain from "../hooks/useSteemKeychain";

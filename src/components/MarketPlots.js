@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
-import {HashkingsAPI} from "../service/HashkingsAPI";
+import {HashkingsAPI} from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import BuyGarden from "./BuyGarden";

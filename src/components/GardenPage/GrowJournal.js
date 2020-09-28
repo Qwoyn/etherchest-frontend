@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, gemNames } from "../../service/HashkingsAPI";
+import { EtherchestAPI, gemNames } from "../../service/EtherchestAPI";
 import {StateContext} from "../../App";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -203,17 +203,17 @@ export const HashkingsTemplate = () => {
     const [loading, setLoading] = useState(false);
     const [setNoMoreHistory] = useState(false);
   
-    const hashkingsApi = new HashkingsAPI();
+    const EtherchestAPI = new EtherchestAPI();
   
     useEffect(() => {
       if (username) {
         setLoading(true);
-        hashkingsApi.getDGPO().then(dgpo => {
+        EtherchestAPI.getDGPO().then(dgpo => {
           const spv =
             parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
             parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
           Promise.all([
-            hashkingsApi
+            EtherchestAPI
               .getAccountHistory(spv, username, false)
               .then(
                 ({
@@ -229,7 +229,7 @@ export const HashkingsTemplate = () => {
                   }*/
                 }
               ),
-            hashkingsApi.getUserGarden(username).then(garden => {
+            EtherchestAPI.getUserGarden(username).then(garden => {
               setGardens(garden.activeGardens);
             })
           ]).then(() => setLoading(false));

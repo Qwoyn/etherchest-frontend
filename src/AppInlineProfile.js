@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { HashkingsAPI } from "./HashkingsAPI";
+import { HashkingsAPI } from "./EtherchestAPI";
 import api from './service/SteemConnectAPI';
 import Modal from '@material-ui/core/Modal';
 import Profile from './components/Profile.js';

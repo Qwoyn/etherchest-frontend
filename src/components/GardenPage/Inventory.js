@@ -1,5 +1,5 @@
 import React from "react";
-import { gardenNames, gemNames, gardenLinkNames, gemLinkNames } from "../../service/HashkingsAPI";
+import { gardenNames, gemNames, gardenLinkNames, gemLinkNames } from "../../service/EtherchestAPI";
 import {  makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';

@@ -12,7 +12,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 
 function Copyright() {
   return (

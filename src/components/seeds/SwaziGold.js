@@ -22,7 +22,7 @@ import useSteemKeychain from "../../hooks/useSteemKeychain";
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import gemGifting from './gemGifting';
-import {gemTypes} from '../../service/HashkingsAPI';
+import {gemTypes} from '../../service/EtherchestAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
 function TabPanel(props) {

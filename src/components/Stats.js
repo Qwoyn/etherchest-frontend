@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { Button } from "primereact/button";
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 import { StateContext } from "../App";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";

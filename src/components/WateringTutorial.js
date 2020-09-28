@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { WaterIcon } from './Icons';
 import WaterModal from "./WaterModal";
-import { HashkingsAPI, gemNames } from "../service/HashkingsAPI";
+import { HashkingsAPI, gemNames } from "../service/EtherchestAPI";
 
 export const WateringTutorial = () => {
   const {username} = useContext(StateContext);

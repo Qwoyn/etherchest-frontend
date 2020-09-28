@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import ProfileDetails from './ProfileDetails.js';
-import { HashkingsAPI } from '../service/HashkingsAPI';
+import { HashkingsAPI } from '../service/EtherchestAPI';
  
 const useStyles = makeStyles(theme => ({
   root: {

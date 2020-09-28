@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, gemNames} from "../service/HashkingsAPI";
+import {gardenNames, gemNames} from "../service/EtherchestAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";

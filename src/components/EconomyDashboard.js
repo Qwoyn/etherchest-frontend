@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Redirect } from 'react-router';
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {withRouter} from "react-router-dom";
 import { makeStyles, withStyles } from '@material-ui/core/styles';

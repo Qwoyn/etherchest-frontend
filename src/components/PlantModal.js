@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, gemNames} from "../service/HashkingsAPI";
+import {gardenNames, gemNames} from "../service/EtherchestAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";

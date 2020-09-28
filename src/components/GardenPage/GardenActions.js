@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
-import { HashkingsAPI } from "../../service/HashkingsAPI";
+import { EtherchestAPI } from "../../service/EtherchestAPI";
 import {StateContext} from "../../App";
 import PlantModal from "../PlantModal";
 import PollinateModal from "../PollinateModal";
@@ -209,11 +209,11 @@ export const GardenActions = () => {
   
     const [headBlockNum, setHeadBlockNum] = useState(0);
   
-    const hashkingsApi = new HashkingsAPI();
+    const EtherchestAPI = new EtherchestAPI();
   
     useEffect(() => {
       if (username) {
-        hashkingsApi.getUserGarden(username).then(garden => {
+        EtherchestAPI.getUserGarden(username).then(garden => {
           const {headBlockNum, ...user} = garden;
           setUser(user);
           setHeadBlockNum(headBlockNum);
@@ -224,12 +224,12 @@ export const GardenActions = () => {
     useEffect(() => {
       if (username) {
         setLoading(true);
-        hashkingsApi.getDGPO().then(dgpo => {
+        EtherchestAPI.getDGPO().then(dgpo => {
           const spv =
             parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
             parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
           Promise.all([
-            hashkingsApi
+            EtherchestAPI
               .getAccountHistory(spv, username, false)
               .then(
                 ({
@@ -245,7 +245,7 @@ export const GardenActions = () => {
                   }
                 }
               ),
-            hashkingsApi.getUserGarden(username).then(garden => {
+            EtherchestAPI.getUserGarden(username).then(garden => {
               setGardens(garden.activeGardens);
             })
           ]).then(() => setLoading(false));

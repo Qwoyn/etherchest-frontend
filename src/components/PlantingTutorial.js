@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { GerminateIcon } from './Icons';
 import PlantModal from "./PlantModal";
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 
 const useStyles = makeStyles(theme => ({
   button: {

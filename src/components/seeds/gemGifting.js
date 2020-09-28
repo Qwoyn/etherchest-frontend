@@ -1,5 +1,5 @@
 import React, {useContext, useState, useRef, useEffect} from "react";
-import {gemNames, HashkingsAPI} from "../../service/HashkingsAPI";
+import {gemNames, HashkingsAPI} from "../../service/EtherchestAPI";
 import {StateContext} from "../../App";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';

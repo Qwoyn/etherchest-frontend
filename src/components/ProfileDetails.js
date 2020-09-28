@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';

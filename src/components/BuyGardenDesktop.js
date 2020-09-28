@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-import {gardenNames} from "../service/HashkingsAPI";
+import {gardenNames} from "../service/EtherchestAPI";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 import {sign} from "hivesigner";
 import { makeStyles } from '@material-ui/core/styles';

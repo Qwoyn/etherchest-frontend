@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import { HashkingsAPI } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";

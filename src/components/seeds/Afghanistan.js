@@ -15,9 +15,9 @@ import useSteemKeychain from "../../hooks/useSteemKeychain";
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import gemGifting from './gemGifting';
-import {gemTypes, gardenNames} from '../../service/HashkingsAPI';
+import {gemTypes, gardenNames} from '../../service/EtherchestAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
-import {} from "../../service/HashkingsAPI";
+import {} from "../../service/EtherchestAPI";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
