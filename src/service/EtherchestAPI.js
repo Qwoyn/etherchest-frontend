@@ -1,7 +1,7 @@
 import axios from "axios";
 import { format as formatTimeAgo } from "timeago.js";
 
-export class HashkingsAPI {
+export class EtherchestAPI {
   baseUrl = "https://etherchest-backend.herokuapp.com/"; // main api
   
   get(suffix) {
