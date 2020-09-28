@@ -40,56 +40,56 @@ import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
 import {GardenPage} from "./components/GardenPage";
 import {MarketPlots} from "./components/MarketPlots";
-import {MarketSeeds} from "./components/MarketSeeds";
+import {Marketgems} from "./components/Marketgems";
 import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import {TwitchStreams} from './components/TwitchStreams.js';
 import { BoardMemberApp } from "./components/BoardMemberApp";
 import { HomePage } from "./components/HomePage";
 
-import { MazariSharif } from "./components/seeds/MazariSharif";
-import { PanamaRed } from "./components/seeds/PanamaRed";
-import { SwaziGold } from "./components/seeds/SwaziGold";
-import { ColombianGold } from "./components/seeds/ColombianGold";
-import { Malawi } from "./components/seeds/Malawi";
-import { Kilimanjaro } from "./components/seeds/Kilimanjaro";
-import { KingsBread } from "./components/seeds/KingsBread";
-import { AcapulcoGold } from "./components/seeds/AcapulcoGold";
-import { LambsBread } from "./components/seeds/LambsBread";
-import { HinduKush } from "./components/seeds/HinduKush";
-import { DurbanPoison } from "./components/seeds/DurbanPoison";
-import { ChocolateThai } from "./components/seeds/ChocolateThai";
-import { Thai } from "./components/seeds/Thai";
-import { Afghani } from "./components/seeds/Afghani";
-import { LashkarGah } from "./components/seeds/LashkarGah";
-import { Aceh } from "./components/seeds/Aceh";
-import { SteemOG } from "./components/seeds/SteemOG";
+import { MazariSharif } from "./components/gems/MazariSharif";
+import { PanamaRed } from "./components/gems/PanamaRed";
+import { SwaziGold } from "./components/gems/SwaziGold";
+import { ColombianGold } from "./components/gems/ColombianGold";
+import { Malawi } from "./components/gems/Malawi";
+import { Kilimanjaro } from "./components/gems/Kilimanjaro";
+import { KingsBread } from "./components/gems/KingsBread";
+import { AcapulcoGold } from "./components/gems/AcapulcoGold";
+import { LambsBread } from "./components/gems/LambsBread";
+import { HinduKush } from "./components/gems/HinduKush";
+import { DurbanPoison } from "./components/gems/DurbanPoison";
+import { ChocolateThai } from "./components/gems/ChocolateThai";
+import { Thai } from "./components/gems/Thai";
+import { Afghani } from "./components/gems/Afghani";
+import { LashkarGah } from "./components/gems/LashkarGah";
+import { Aceh } from "./components/gems/Aceh";
+import { SteemOG } from "./components/gems/SteemOG";
 
-import Afghanistan from './components/seeds/Afghanistan';
-import Africa from './components/seeds/Africa';
-import Jamaica from './components/seeds/Jamaica';
-import CentralAmerica from './components/seeds/CentralAmerica';
-import Asia from './components/seeds/Asia';
-import Mexico from './components/seeds/Mexico';
+import Afghanistan from './components/gems/Afghanistan';
+import Africa from './components/gems/Africa';
+import Jamaica from './components/gems/Jamaica';
+import CentralAmerica from './components/gems/CentralAmerica';
+import Asia from './components/gems/Asia';
+import Mexico from './components/gems/Mexico';
 
-import { MazariSharifpollen } from "./components/seeds/MazariSharifpollen";
-import { PanamaRedpollen } from "./components/seeds/PanamaRedpollen";
-import { SwaziGoldpollen } from "./components/seeds/SwaziGoldpollen";
-import { ColombianGoldpollen } from "./components/seeds/ColombianGoldpollen";
-import { Malawipollen } from "./components/seeds/Malawipollen";
-import { Kilimanjaropollen } from "./components/seeds/Kilimanjaropollen";
-import { KingsBreadpollen } from "./components/seeds/KingsBreadpollen";
-import { AcapulcoGoldpollen } from "./components/seeds/AcapulcoGoldpollen";
-import { LambsBreadpollen } from "./components/seeds/LambsBreadpollen";
-import { HinduKushpollen } from "./components/seeds/HinduKushpollen";
-import { DurbanPoisonpollen } from "./components/seeds/DurbanPoisonpollen";
-import { ChocolateThaipollen } from "./components/seeds/ChocolateThaipollen";
-import { Thaipollen } from "./components/seeds/Thaipollen";
-import { Afghanipollen } from "./components/seeds/Afghanipollen";
-import { LashkarGahpollen } from "./components/seeds/LashkarGahpollen";
-import { Acehpollen } from "./components/seeds/Acehpollen";
+import { MazariSharifpollen } from "./components/gems/MazariSharifpollen";
+import { PanamaRedpollen } from "./components/gems/PanamaRedpollen";
+import { SwaziGoldpollen } from "./components/gems/SwaziGoldpollen";
+import { ColombianGoldpollen } from "./components/gems/ColombianGoldpollen";
+import { Malawipollen } from "./components/gems/Malawipollen";
+import { Kilimanjaropollen } from "./components/gems/Kilimanjaropollen";
+import { KingsBreadpollen } from "./components/gems/KingsBreadpollen";
+import { AcapulcoGoldpollen } from "./components/gems/AcapulcoGoldpollen";
+import { LambsBreadpollen } from "./components/gems/LambsBreadpollen";
+import { HinduKushpollen } from "./components/gems/HinduKushpollen";
+import { DurbanPoisonpollen } from "./components/gems/DurbanPoisonpollen";
+import { ChocolateThaipollen } from "./components/gems/ChocolateThaipollen";
+import { Thaipollen } from "./components/gems/Thaipollen";
+import { Afghanipollen } from "./components/gems/Afghanipollen";
+import { LashkarGahpollen } from "./components/gems/LashkarGahpollen";
+import { Acehpollen } from "./components/gems/Acehpollen";
 
-import GiftSeed from "./components/GiftSeed";
+import Giftgem from "./components/Giftgem";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -228,8 +228,8 @@ class App extends Component {
             to: "/market/farmplots"
           },
           {
-            label: "Seeds",
-            to: "/market/seedbank"
+            label: "gems",
+            to: "/market/gembank"
           },
         ]
       },
@@ -372,7 +372,7 @@ class App extends Component {
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
-            <Route path="/market/seedbank" component={MarketSeeds} />
+            <Route path="/market/gembank" component={Marketgems} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/accounting" component={Stats} />
@@ -382,25 +382,25 @@ class App extends Component {
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
-            <Route path="/markets" component={GiftSeed} />
+            <Route path="/markets" component={Giftgem} />
 
-            <Route path="/seeds/steem-og" component={SteemOG} />
-            <Route path="/seeds/afghani" component={Afghani} />
-            <Route path="/seeds/colombian-gold" component={ColombianGold} />
-            <Route path="/seeds/lashkar-gah" component={LashkarGah} />
-            <Route path="/seeds/chocolate-thai" component={ChocolateThai} />
-            <Route path="/seeds/thai" component={Thai} />
-            <Route path="/seeds/swazi-gold" component={SwaziGold} />
-            <Route path="/seeds/malawi" component={Malawi} />
-            <Route path="/seeds/kings-bread" component={KingsBread} />
-            <Route path="/seeds/kilimanjaro" component={Kilimanjaro} />
-            <Route path="/seeds/acapulco-gold" component={AcapulcoGold} />
-            <Route path="/seeds/durban-poison" component={DurbanPoison} />
-            <Route path="/seeds/lambs-bread" component={LambsBread} />
-            <Route path="/seeds/mazar-i-sharif" component={MazariSharif} />
-            <Route path="/seeds/hindu-kush" component={HinduKush} />
-            <Route path="/seeds/panama-red" component={PanamaRed} />
-            <Route path="/seeds/aceh" component={Aceh} />
+            <Route path="/gems/steem-og" component={SteemOG} />
+            <Route path="/gems/afghani" component={Afghani} />
+            <Route path="/gems/colombian-gold" component={ColombianGold} />
+            <Route path="/gems/lashkar-gah" component={LashkarGah} />
+            <Route path="/gems/chocolate-thai" component={ChocolateThai} />
+            <Route path="/gems/thai" component={Thai} />
+            <Route path="/gems/swazi-gold" component={SwaziGold} />
+            <Route path="/gems/malawi" component={Malawi} />
+            <Route path="/gems/kings-bread" component={KingsBread} />
+            <Route path="/gems/kilimanjaro" component={Kilimanjaro} />
+            <Route path="/gems/acapulco-gold" component={AcapulcoGold} />
+            <Route path="/gems/durban-poison" component={DurbanPoison} />
+            <Route path="/gems/lambs-bread" component={LambsBread} />
+            <Route path="/gems/mazar-i-sharif" component={MazariSharif} />
+            <Route path="/gems/hindu-kush" component={HinduKush} />
+            <Route path="/gems/panama-red" component={PanamaRed} />
+            <Route path="/gems/aceh" component={Aceh} />
 
             <Route path="/pollen/colombian-gold" component={ColombianGoldpollen} />
             <Route path="/pollen/lashkar-gah" component={LashkarGahpollen} />
