@@ -61,7 +61,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 const etherchestApi = new EtherchestAPI();
 
-export default function gemGifting() {
+export default function GemGifting() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [gem, setgem] = useState();

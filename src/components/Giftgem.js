@@ -1,5 +1,5 @@
 import React, {useContext, useState, useRef, useEffect} from "react";
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -47,7 +47,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-const hashkingsApi = new HashkingsAPI();
+const etherchestApi = new EtherchestAPI();
 
 export default function Giftgem() {
   const classes = useStyles();
@@ -63,7 +63,7 @@ export default function Giftgem() {
   const [usergems, setUsergems] = useState([]);
 
   useEffect(() => {
-    hashkingsApi.getUserGarden(username).then(garden => {
+    etherchestApi.getUserGarden(username).then(garden => {
       setUsergems(garden.availablegems);
     });
   }, [username]);
@@ -80,7 +80,7 @@ export default function Giftgem() {
   };
 
   useEffect(() => {
-    hashkingsApi.steemUserExists(to).then(username => {
+    etherchestApi.steemUserExists(to).then(username => {
       if (username && username === to) {
         setValidatedTo(username);
       } else {

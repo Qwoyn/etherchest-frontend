@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
-import {HashkingsAPI} from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -100,13 +100,13 @@ export const MarketPlots = () => {
     setExpanded(!expanded);
   };
 
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
 
   useEffect(() => {
     if (username) {
       Promise.all([
-        hashkingsApi.getUserDelegation(username),
-        hashkingsApi.getStats()
+        etherchestApi.getUserDelegation(username),
+        etherchestApi.getStats()
       ])
         .then(([delegation, stats]) => {
           if (delegation && delegation.delegator) {

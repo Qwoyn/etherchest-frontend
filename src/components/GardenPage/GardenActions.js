@@ -37,7 +37,7 @@ import { WaterIcon,
          DippedIcon, 
          BluntIcon } from '../Icons';
 import Box from '@material-ui/core/Box';
-import gemGifting from '../gems/gemGifting.js';
+import GemGifting from '../gems/GemGifting.js';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
@@ -649,7 +649,7 @@ export const GardenActions = () => {
                   <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
                     <ThemeProvider theme={theme}>
-                    <gemGifting />
+                    <GemGifting />
                         </ThemeProvider>
                         </Paper>
                         </Box>

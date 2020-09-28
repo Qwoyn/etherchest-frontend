@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Redirect } from 'react-router';
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {withRouter} from "react-router-dom";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -73,7 +73,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-const hashkingsApi = new HashkingsAPI();
+const etherchestApi = new EtherchestAPI();
 
 export const EconomyDashboard = () => {
     const {username} = useContext(StateContext);
@@ -105,7 +105,7 @@ export const EconomyDashboard = () => {
   
     useEffect(() => {
       if (username) {
-        hashkingsApi.getUserGarden(username).then(garden => {
+        etherchestApi.getUserGarden(username).then(garden => {
           const {headBlockNum, ...user} = garden;
           setUser(user);
           setHeadBlockNum(headBlockNum);
@@ -114,7 +114,7 @@ export const EconomyDashboard = () => {
     }, [username]);
   
     useEffect(() => {
-      hashkingsApi
+      etherchestApi
         .getDashboardStats(username)
         .then(stats => {
           if (username) {
@@ -134,12 +134,12 @@ export const EconomyDashboard = () => {
     useEffect(() => {
       if (username) {
         setLoading(true);
-        hashkingsApi.getDGPO().then(dgpo => {
+        etherchestApi.getDGPO().then(dgpo => {
           const spv =
             parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
             parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
           Promise.all([
-            hashkingsApi
+            etherchestApi
               .getAccountHistory(spv, username, false)
               .then(
                 ({
@@ -155,7 +155,7 @@ export const EconomyDashboard = () => {
                   }
                 }
               ),
-            hashkingsApi.getUserGarden(username).then(garden => {
+            etherchestApi.getUserGarden(username).then(garden => {
               setGardens(garden.activeGardens);
             })
           ]).then(() => setLoading(false));
@@ -176,7 +176,7 @@ if (username) {
                     title={
                     <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Total Number of Active Farmers</u></Typography>
-                    <em><a href="/market/gembank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
+                    <em><a href="/market/gembank">{"This is your community!"}</a></em> <b>{"Say hi to them in the etherchest Discord"}</b>
                     </React.Fragment>
                     }
                     placement="bottom-start"

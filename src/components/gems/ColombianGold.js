@@ -21,7 +21,7 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import gemGifting from './gemGifting';
+import GemGifting from './GemGifting';
 import {gemTypes} from '../../service/EtherchestAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
@@ -261,7 +261,7 @@ export const ColombianGold = () => {
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <gemGifting />
+          <GemGifting />
         </TabPanel>
       </SwipeableViews>
     </div>

@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
@@ -67,10 +67,10 @@ export const MarketSupplies = () => {
     leaderboard: []
   });
 
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
 
   useEffect(() => {
-    hashkingsApi
+    etherchestApi
       .getDashboardStats(username)
       .then(stats => {
         if (username) {

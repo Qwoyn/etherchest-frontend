@@ -24,7 +24,7 @@ const rows = [
   createData('Buds', 10),
 ];
 
-export default function gemsTable() {
+export default function GemsTable() {
   const classes = useStyles();
 
   return (

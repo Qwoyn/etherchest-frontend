@@ -17,7 +17,7 @@ import { slideInRight } from 'react-animations';
 import { WaterIcon, GerminateIcon, HarvestIcon, PollinateIcon } from './Icons';
 import Box from '@material-ui/core/Box';
 import TableContainer from '@material-ui/core/TableContainer';
-import gemsTable from './gemsTable.js';
+import gemsTable from './GemsTable.js';
 import FriendsTable from './FriendsTable';
 import BadgeTable from './BadgeTable';
 

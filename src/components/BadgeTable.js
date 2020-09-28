@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -116,11 +116,11 @@ export const GardenActions = () => {
   
     const [headBlockNum, setHeadBlockNum] = useState(0);
   
-    const hashkingsApi = new HashkingsAPI();
+    const etherchestApi = new EtherchestAPI();
   
     useEffect(() => {
       if (username) {
-        hashkingsApi.getUserGarden(username).then(garden => {
+        etherchestApi.getUserGarden(username).then(garden => {
           const {headBlockNum, ...user} = garden;
           setUser(user);
           setHeadBlockNum(headBlockNum);
@@ -129,7 +129,7 @@ export const GardenActions = () => {
     }, [username]);
   
     useEffect(() => {
-      hashkingsApi
+      etherchestApi
         .getDashboardStats(username)
         .then(stats => {
           if (username) {
@@ -149,12 +149,12 @@ export const GardenActions = () => {
     useEffect(() => {
       if (username) {
         setLoading(true);
-        hashkingsApi.getDGPO().then(dgpo => {
+        etherchestApi.getDGPO().then(dgpo => {
           const spv =
             parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
             parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
           Promise.all([
-            hashkingsApi
+            etherchestApi
               .getAccountHistory(spv, username, false)
               .then(
                 ({
@@ -170,7 +170,7 @@ export const GardenActions = () => {
                   }
                 }
               ),
-            hashkingsApi.getUserGarden(username).then(garden => {
+            etherchestApi.getUserGarden(username).then(garden => {
               setGardens(garden.activeGardens);
             })
           ]).then(() => setLoading(false));

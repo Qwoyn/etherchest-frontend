@@ -12,14 +12,14 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://hive.hashkings.app">
-        Qwoyn.io
+      <Link color="inherit" href="https://etherchest.com">
+        Etherchest.com
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const LoginPage = ({history}) => {
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
@@ -106,7 +106,7 @@ export const LoginPage = ({history}) => {
   const [validatedTo, setValidatedTo] = useState();
 
   useEffect(() => {
-    hashkingsApi.steemUserExists(username).then(username => {
+    etherchestApi.steemUserExists(username).then(username => {
       if (username) {
         setValidatedTo(username);
       } else {
@@ -143,7 +143,7 @@ export const LoginPage = ({history}) => {
     <div className={classes.paper}>
       <center>
       <img
-        alt="Hashkings Banner"
+        alt="etherchest Banner"
         src={`https://i.imgur.com/jvJLKua.png`}
         />
       </center>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { Button } from "primereact/button";
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 import { StateContext } from "../App";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -73,12 +73,12 @@ export default function() {
     new Date(Date.now()).toDateString()
   );
 
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
 
   useEffect(() => {
     if (username) {
       setLoading(true);
-      hashkingsApi.getDGPO().then(dgpo => {
+      etherchestApi.getDGPO().then(dgpo => {
         const spv =
           parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
           parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
@@ -86,7 +86,7 @@ export default function() {
         setSteemPerVest(spv);
 
         Promise.all([
-          hashkingsApi
+          etherchestApi
             .getAccountHistory(spv, username, false)
             .then(
               ({
@@ -111,7 +111,7 @@ export default function() {
                 }
               }
             ),
-          hashkingsApi.getUserGarden(username).then(garden => {
+          etherchestApi.getUserGarden(username).then(garden => {
             setGardens(garden.activeGardens);
           })
         ]).then(() => setLoading(false));
@@ -129,7 +129,7 @@ export default function() {
 
   function fetchMore() {
     setLoading(true);
-    hashkingsApi
+    etherchestApi
       .getAccountHistory(steemPerVest, username, fetchAll, oldestId)
       .then(
         ({ payouts, oldestId, stop, date, landPurchases, gemPurchases }) => {

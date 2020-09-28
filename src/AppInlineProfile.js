@@ -63,7 +63,7 @@ paper: {
 }));
 
 export const AppInlineProfile = () => {
-  const etherChestApi = new EtherchestAPI();
+  const etherchestApi = new EtherchestAPI();
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [validatedTo, setValidatedTo] = useState();

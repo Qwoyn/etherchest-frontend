@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { GerminateIcon } from './Icons';
 import PlantModal from "./PlantModal";
-import { HashkingsAPI } from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const PlantingTutorial = () => {
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
   const {username} = useContext(StateContext);
   const classes = useStyles();
   
@@ -114,7 +114,7 @@ export const PlantingTutorial = () => {
 
   useEffect(() => {
     if (username) {
-      hashkingsApi.getUserGarden(username).then(garden => {
+      etherchestApi.getUserGarden(username).then(garden => {
         const {headBlockNum, ...user} = garden;
         setUser(user);
         setHeadBlockNum(headBlockNum);
@@ -123,7 +123,7 @@ export const PlantingTutorial = () => {
   }, [username]);
 
   useEffect(() => {
-    hashkingsApi
+    etherchestApi
       .getDashboardStats(username)
       .then(stats => {
         if (username) {
@@ -143,12 +143,12 @@ export const PlantingTutorial = () => {
   useEffect(() => {
     if (username) {
       setLoading(true);
-      hashkingsApi.getDGPO().then(dgpo => {
+      etherchestApi.getDGPO().then(dgpo => {
         const spv =
           parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
           parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
         Promise.all([
-          hashkingsApi
+          etherchestApi
             .getAccountHistory(spv, username, false)
             .then(
               ({
@@ -164,7 +164,7 @@ export const PlantingTutorial = () => {
                 }
               }
             ),
-          hashkingsApi.getUserGarden(username).then(garden => {
+          etherchestApi.getUserGarden(username).then(garden => {
             setGardens(garden.activeGardens);
           })
         ]).then(() => setLoading(false));
@@ -210,7 +210,7 @@ export const PlantingTutorial = () => {
         <font color="DFB17B">When you click the button you will see a popup. Please follow the directions.</font>
       </Typography>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">Original first round of gems, purchased in the Hashkings gem Bank or bought from other players. 
+        <font color="DFB17B">Original first round of gems, purchased in the etherchest gem Bank or bought from other players. 
         These limited edition gems cannot be grown and are limited in number. We call 
         them the Genesis gems because they are the first ones and give life to the beta gems after harvest.</font>
       </Typography>

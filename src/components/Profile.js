@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import ProfileDetails from './ProfileDetails.js';
-import { HashkingsAPI } from '../service/EtherchestAPI';
+import { EtherchestAPI } from '../service/EtherchestAPI';
  
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +43,7 @@ export default function Profile() {
   const theme = useTheme();
   const {username} = useState();
   const [headBlockNum, setHeadBlockNum] = useState(0);
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
 
   const [user, setUser] = useState({
     availablegems: [],
@@ -71,7 +71,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (username) {
-      hashkingsApi.getUserGarden(username).then(garden => {
+      etherchestApi.getUserGarden(username).then(garden => {
         const {headBlockNum, ...user} = garden;
         setUser(user);
         setHeadBlockNum(headBlockNum);
