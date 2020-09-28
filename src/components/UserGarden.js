@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {withRouter} from "react-router-dom";
 import Inventory from "./GardenPage/Inventory";
-import {HashkingsAPI} from "../service/EtherchestAPI";
+import { EtherchestAPI } from "../service/EtherchestAPI";
 
 function UserGarden({
   match: {
@@ -15,13 +15,13 @@ function UserGarden({
     userExists: undefined
   });
 
-  const hashkingsAPI = new HashkingsAPI();
+  const etherchestAPI = new EtherchestAPI();
 
   useEffect(() => {
     if (username) {
-      hashkingsAPI.userExists(username).then(exists => {
+      etherchestAPI.userExists(username).then(exists => {
         if (exists) {
-          hashkingsAPI.getUserGarden(username).then(garden => {
+          etherchestAPI.getUserGarden(username).then(garden => {
             setUser({...garden, userExists: true});
           });
         } else {

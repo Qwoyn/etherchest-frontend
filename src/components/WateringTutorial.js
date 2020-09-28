@@ -10,11 +10,11 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { WaterIcon } from './Icons';
 import WaterModal from "./WaterModal";
-import { HashkingsAPI, gemNames } from "../service/EtherchestAPI";
+import { EtherchestAPI, gemNames } from "../service/EtherchestAPI";
 
 export const WateringTutorial = () => {
   const {username} = useContext(StateContext);
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new EtherchestAPI();
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
     gardens: 0,
@@ -155,7 +155,7 @@ export const WateringTutorial = () => {
 
   useEffect(() => {
     if (username) {
-      hashkingsApi.getUserGarden(username).then(garden => {
+      etherchestApi.getUserGarden(username).then(garden => {
         const {headBlockNum, ...user} = garden;
         setUser(user);
         setHeadBlockNum(headBlockNum);
@@ -164,7 +164,7 @@ export const WateringTutorial = () => {
   }, [username]);
 
   useEffect(() => {
-    hashkingsApi
+    etherchestApi
       .getDashboardStats(username)
       .then(stats => {
         if (username) {
@@ -184,12 +184,12 @@ export const WateringTutorial = () => {
   useEffect(() => {
     if (username) {
       setLoading(true);
-      hashkingsApi.getDGPO().then(dgpo => {
+      etherchestApi.getDGPO().then(dgpo => {
         const spv =
           parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
           parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
         Promise.all([
-          hashkingsApi
+          etherchestApi
             .getAccountHistory(spv, username, false)
             .then(
               ({
@@ -205,7 +205,7 @@ export const WateringTutorial = () => {
                 }
               }
             ),
-          hashkingsApi.getUserGarden(username).then(garden => {
+          etherchestApi.getUserGarden(username).then(garden => {
             setGardens(garden.activeGardens);
           })
         ]).then(() => setLoading(false));
