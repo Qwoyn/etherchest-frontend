@@ -209,11 +209,11 @@ export const GardenActions = () => {
   
     const [headBlockNum, setHeadBlockNum] = useState(0);
   
-    const EtherchestAPI = new EtherchestAPI();
+    const etherchestAPI = new EtherchestAPI();
   
     useEffect(() => {
       if (username) {
-        EtherchestAPI.getUserGarden(username).then(garden => {
+        etherchestAPI.getUserGarden(username).then(garden => {
           const {headBlockNum, ...user} = garden;
           setUser(user);
           setHeadBlockNum(headBlockNum);
@@ -224,12 +224,12 @@ export const GardenActions = () => {
     useEffect(() => {
       if (username) {
         setLoading(true);
-        EtherchestAPI.getDGPO().then(dgpo => {
+        etherchestAPI.getDGPO().then(dgpo => {
           const spv =
             parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
             parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
           Promise.all([
-            EtherchestAPI
+            etherchestAPI
               .getAccountHistory(spv, username, false)
               .then(
                 ({
@@ -245,7 +245,7 @@ export const GardenActions = () => {
                   }
                 }
               ),
-            EtherchestAPI.getUserGarden(username).then(garden => {
+            etherchestAPI.getUserGarden(username).then(garden => {
               setGardens(garden.activeGardens);
             })
           ]).then(() => setLoading(false));

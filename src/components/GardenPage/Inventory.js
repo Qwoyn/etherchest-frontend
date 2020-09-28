@@ -451,7 +451,7 @@ export default function Inventory({user}) {
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent={user.availableGems.length} color="primary">
+                <Badge className={classes.margin} badgeContent={user.availablegems.length} color="primary">
                   <gemSvgIcon  />
                 </Badge>
                 </Typography>
