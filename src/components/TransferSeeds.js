@@ -41,7 +41,7 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-export default function TransferSeeds() {
+export default function Transfergems() {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([]);
   const [left, setLeft] = React.useState([0, 1, 2, 3]);
@@ -127,7 +127,7 @@ export default function TransferSeeds() {
 
   return (
     <Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
-      <Grid item>{customList('Available Seeds', left)}</Grid>
+      <Grid item>{customList('Available gems', left)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button

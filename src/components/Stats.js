@@ -46,12 +46,12 @@ export default function() {
   const { username } = useContext(StateContext);
   const payoutsTable = useRef(null);
   const landPurchasesTable = useRef(null);
-  const seedPurchasesTable = useRef(null);
+  const gemPurchasesTable = useRef(null);
 
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
     gardens: 0,
-    availableSeeds: 0,
+    availablegems: 0,
     activeGardens: 0,
     availableGardens: 0,
     activity: [],
@@ -62,7 +62,7 @@ export default function() {
   const [gardens, setGardens] = useState([]);
   const [recentPayouts, setRecentPayouts] = useState([]);
   const [recentLandPurchases, setRecentLandPurchases] = useState([]);
-  const [recentSeedPurchases, setRecentSeedPurchases] = useState([]);
+  const [recentgemPurchases, setRecentgemPurchases] = useState([]);
   const [oldestId, setOldestId] = useState(-1);
   const [loading, setLoading] = useState(false);
   const [noMoreHistory, setNoMoreHistory] = useState(false);
@@ -95,12 +95,12 @@ export default function() {
                 stop,
                 date,
                 landPurchases,
-                seedPurchases
+                gemPurchases
               }) => {
                 setOldestId(oldestId);
                 setRecentPayouts(payouts);
                 setRecentLandPurchases(landPurchases);
-                setRecentSeedPurchases(seedPurchases);
+                setRecentgemPurchases(gemPurchases);
 
                 if (stop) {
                   setNoMoreHistory(true);
@@ -132,11 +132,11 @@ export default function() {
     hashkingsApi
       .getAccountHistory(steemPerVest, username, fetchAll, oldestId)
       .then(
-        ({ payouts, oldestId, stop, date, landPurchases, seedPurchases }) => {
+        ({ payouts, oldestId, stop, date, landPurchases, gemPurchases }) => {
           setOldestId(oldestId);
           setRecentPayouts([...recentPayouts, ...payouts]);
           setRecentLandPurchases([...recentLandPurchases, ...landPurchases]);
-          setRecentSeedPurchases([...recentSeedPurchases, ...seedPurchases]);
+          setRecentgemPurchases([...recentgemPurchases, ...gemPurchases]);
 
           if (stop) {
             setNoMoreHistory(true);
@@ -267,21 +267,21 @@ export default function() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                  <Typography className={classes.heading}><font color="DFB17B">Seed Purchases</font></Typography>
+                  <Typography className={classes.heading}><font color="DFB17B">gem Purchases</font></Typography>
                   </ExpansionPanelSummary>
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
-                  onClick={() => seedPurchasesTable.current.exportCSV()}
+                  onClick={() => gemPurchasesTable.current.exportCSV()}
                 />
                 <ExpansionPanelDetails>
               <DataTable
-                value={recentSeedPurchases}
+                value={recentgemPurchases}
                 loading={loading}
                 emptyMessage="No purchases found"
                 responsive={true}
-                ref={seedPurchasesTable}
+                ref={gemPurchasesTable}
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column field="strain" header="Strain" filter={true} />

@@ -21,8 +21,8 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import SeedGifting from './SeedGifting';
-import {seedTypes} from '../../service/HashkingsAPI';
+import gemGifting from './gemGifting';
+import {gemTypes} from '../../service/HashkingsAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
 import Table from '@material-ui/core/Table';
@@ -114,7 +114,7 @@ function createData(name, calories) {
 
 const rows = [
   createData('Family Tree', 'Steem Original'),
-  createData('Max Yield', '2 seeds/pollen'),
+  createData('Max Yield', '2 gems/pollen'),
   createData('Sex', 'Random'),
 ];
 
@@ -134,7 +134,7 @@ export const SteemOG = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
@@ -151,9 +151,9 @@ export const SteemOG = () => {
     if (username) {
       setIsSubmitting(true);
 
-      const memo = `spseed sog`;
+      const memo = `spgem sog`;
       const to = "hashkings";
-      const amount = seedTypes["s"].str;
+      const amount = gemTypes["s"].str;
       const currency = "STEEM";
 
       if (hasSteemKeychain()) {
@@ -177,7 +177,7 @@ export const SteemOG = () => {
             );
           });
           setIsSubmitting(false);
-          setSeed();
+          setgem();
         } catch {
           setIsSubmitting(false);
         }
@@ -191,8 +191,8 @@ export const SteemOG = () => {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/seedbank`
-            : "http://localhost:3000/market/seedbank"
+            ? `${process.env.REACT_APP_URL}/market/gembank`
+            : "http://localhost:3000/market/gembank"
         );
       }
     }
@@ -303,12 +303,12 @@ export const SteemOG = () => {
           <Card className={classes.card} raised={true}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>
+              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis gem</font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
               <font color="DFB17B" className={classes.font}>
-                This seed is part of the first round of seeds and extremely rare. 
-                It can be used to make beta seeds of Steem OG and can be combined with other strains.
+                This gem is part of the first round of gems and extremely rare. 
+                It can be used to make beta gems of Steem OG and can be combined with other strains.
               </font>
               </Typography>
               <br/>
@@ -330,7 +330,7 @@ export const SteemOG = () => {
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <SeedGifting />
+          <gemGifting />
         </TabPanel>
       </SwipeableViews>
     </div>

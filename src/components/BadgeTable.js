@@ -89,7 +89,7 @@ export const GardenActions = () => {
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
-      availableSeeds: 0,
+      availablegems: 0,
       activeGardens: 0,
       availableGardens: 0,
       activity: [],
@@ -97,12 +97,12 @@ export const GardenActions = () => {
       leaderboard: []
     });
   
-    const [plantSeedModal, setPlantSeedModal] = useState(false);
-    const [pollinateSeedModal, setPollinateSeedModal] = useState(false);
+    const [plantgemModal, setPlantgemModal] = useState(false);
+    const [pollinategemModal, setPollinategemModal] = useState(false);
     const [waterModal, setWaterModal] = useState(false);
     const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
-      availableSeeds: [],
+      availablegems: [],
       activeGardens: [],
       availablePollen: [],
       availableBuds: [],
@@ -192,7 +192,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Planting</u></Typography>
-                    <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                    <em><a href="/market/gembank">{"Did you get gems?"}</a></em> <b>{"plant some Crops!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
@@ -216,7 +216,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Planting</u></Typography>
-                    <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                    <em><a href="/market/gembank">{"Did you get gems?"}</a></em> <b>{"plant some Crops!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
@@ -240,7 +240,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Water</u></Typography>
-                    <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                    <em><a href="/market/gembank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                   </React.Fragment>
                   }
                   placement="right"
@@ -264,7 +264,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Water</u></Typography>
-                    <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                    <em><a href="/market/gembank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                   </React.Fragment>
                   }
                   placement="right"
@@ -288,7 +288,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Pollinate</u></Typography>
-                    <em><a href="/market/seedbank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
+                    <em><a href="/market/gembank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
@@ -312,7 +312,7 @@ export const GardenActions = () => {
                         title={
                           <React.Fragment>
                             <Typography color="error" className={classes.font}><u>Harvest</u></Typography>
-                            <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
+                            <em><a href="/market/gembank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
                           </React.Fragment>
                         }
                         placement="top"

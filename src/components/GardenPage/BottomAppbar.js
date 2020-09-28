@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 export default function IconTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [plantSeedModal, setPlantSeedModal] = useState(false);
+  const [plantgemModal, setPlantgemModal] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -29,7 +29,7 @@ export default function IconTabs() {
       <Tabs
         value={value}
         onChange={handleChange}
-        onClick={() => setPlantSeedModal(!plantSeedModal)}
+        onClick={() => setPlantgemModal(!plantgemModal)}
         variant="fullWidth"
         indicatorColor="primary"
         textColor="primary"
@@ -41,10 +41,10 @@ export default function IconTabs() {
       </Tabs>
     </Paper>
     <PlantModal
-    isOpen={plantSeedModal}
-    toggleModal={() => setPlantSeedModal(!plantSeedModal)}
+    isOpen={plantgemModal}
+    toggleModal={() => setPlantgemModal(!plantgemModal)}
     availableGardens={user.availableGardens}
-    availableSeeds={user.availableSeeds}
+    availablegems={user.availablegems}
     username={username}
   />
   </div>

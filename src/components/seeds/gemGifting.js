@@ -1,5 +1,5 @@
 import React, {useContext, useState, useRef, useEffect} from "react";
-import {seedNames, HashkingsAPI} from "../../service/HashkingsAPI";
+import {gemNames, HashkingsAPI} from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -61,28 +61,28 @@ const HtmlTooltip = withStyles(theme => ({
 
 const hashkingsApi = new HashkingsAPI();
 
-export default function SeedGifting() {
+export default function gemGifting() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [buds, setBuds] = useState();
   const [pollen, setPollen] = useState();
   const [to, setTo] = useState("");
   const [validatedTo, setValidatedTo] = useState();
-  const [isSubmittingSeeds, setIsSubmittingSeeds] = useState(false);
+  const [isSubmittinggems, setIsSubmittinggems] = useState(false);
   const [isSubmittingBuds, setIsSubmittingBuds] = useState(false);
   const [isSubmittingPollen, setIsSubmittingPollen] = useState(false);
   const {steemConnectAPI} = useContext(StateContext);
   const growl = useRef(null);
-  const seedBackground = "https://wallpaperaccess.com/full/816276.jpg";
+  const gemBackground = "https://wallpaperaccess.com/full/816276.jpg";
 
-  const [userSeeds, setUserSeeds] = useState([]);
+  const [usergems, setUsergems] = useState([]);
   const [userBuds, setUserBuds] = useState([]);
   const [userPollen, setUserPollen] = useState([]);
 
   useEffect(() => {
     hashkingsApi.getUserGarden(username).then(garden => {
-      setUserSeeds(garden.availableSeeds);
+      setUsergems(garden.availablegems);
     });
   }, [username]);
 
@@ -106,7 +106,7 @@ export default function SeedGifting() {
         detail: "Please try again"
       });
     }
-    setIsSubmittingSeeds(false);
+    setIsSubmittinggems(false);
     setIsSubmittingBuds(false);
     setIsSubmittingPollen(false);
   };
@@ -121,15 +121,15 @@ export default function SeedGifting() {
     });
   }, [to]);
 
-  const handleSubmitSeeds = async () => {
-    if (validatedTo && username && seed) {
-      setIsSubmittingSeeds(true);
+  const handleSubmitgems = async () => {
+    if (validatedTo && username && gem) {
+      setIsSubmittinggems(true);
 
-      const custom_json_id = "qwoyn_give_seed";
+      const custom_json_id = "qwoyn_give_gem";
       const custom_JSON = JSON.stringify({
         to: validatedTo,
-        seed: seed.strain,
-        qual: seed.xp
+        gem: gem.strain,
+        qual: gem.xp
       });
 
       steemConnectAPI.customJson(
@@ -185,7 +185,7 @@ export default function SeedGifting() {
   };
 
   let buttonLabel = "Send";
-  if (isSubmittingSeeds) buttonLabel = "Sending Seeds";
+  if (isSubmittinggems) buttonLabel = "Sending gems";
   if (isSubmittingBuds) buttonLabel = "Sending Buds";
   if (isSubmittingPollen) buttonLabel = "Sending Pollen";
   if (!username) buttonLabel = "Please sign in to send items";
@@ -204,7 +204,7 @@ export default function SeedGifting() {
           <HtmlTooltip
           title={
             <React.Fragment>
-            <em><a href="/market/seedbank">{"Do you have extra items?"}</a></em><b>{"Enter the recipients username, choose the seed/pollen/buds and click send"}</b>
+            <em><a href="/market/gembank">{"Do you have extra items?"}</a></em><b>{"Enter the recipients username, choose the gem/pollen/buds and click send"}</b>
             </React.Fragment>
           }
           placement="top"
@@ -215,7 +215,7 @@ export default function SeedGifting() {
             <Paper className={classes.paper}>
             <Grid container spacing={1}>
               <Grid item xs>
-                <Typography>Send a Seed to another Farmer</Typography>
+                <Typography>Send a gem to another Farmer</Typography>
                 <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
@@ -245,25 +245,25 @@ export default function SeedGifting() {
                 <Grid item xs>
                   <Dropdown
                     className="form-input"
-                    disabled={isSubmittingSeeds || !username}
+                    disabled={isSubmittinggems || !username}
                     optionLabel="name"
-                    value={seed}
+                    value={gem}
                     id="name"
-                    options={userSeeds.map(seed => ({
-                      ...seed,
-                      name: `${seedNames[seed.strain]} - ${seed.traits}`
+                    options={usergems.map(gem => ({
+                      ...gem,
+                      name: `${gemNames[gem.strain]} - ${gem.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={f => {
-                      setSeed(f.value);
+                      setgem(f.value);
                     }}
-                    placeholder="Choose a seed..."
+                    placeholder="Choose a gem..."
                   />
                   <br/>
                   <Button
-                    disabled={isSubmittingSeeds || !username || !validatedTo | !seed}
+                    disabled={isSubmittinggems || !username || !validatedTo | !gem}
                     label={buttonLabel}
-                    onClick={handleSubmitSeeds}
+                    onClick={handleSubmitgems}
                   />
                 </Grid>
               </Grid>
@@ -316,7 +316,7 @@ export default function SeedGifting() {
                     id="name"
                     options={userBuds.map(buds => ({
                       ...buds,
-                      name: `${seedNames[buds.strain]} - ${buds.traits}`
+                      name: `${gemNames[buds.strain]} - ${buds.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={g => {
@@ -380,7 +380,7 @@ export default function SeedGifting() {
                     id="name"
                     options={userPollen.map(pollen => ({
                       ...pollen,
-                      name: `${seedNames[pollen.strain]} - ${pollen.traits}`
+                      name: `${gemNames[pollen.strain]} - ${pollen.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={e => {

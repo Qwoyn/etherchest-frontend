@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BuySeed from "./BuySeed";
+import Buygem from "./Buygem";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
@@ -51,9 +51,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const MarketSeeds = () => {
+export const Marketgems = () => {
   const {username} = useContext(StateContext);
-  const seedBackground = "https://i.imgur.com/Kio2LW4.jpg";
+  const gemBackground = "https://i.imgur.com/Kio2LW4.jpg";
 
   const theme = createMuiTheme({
     palette: {
@@ -66,14 +66,14 @@ export const MarketSeeds = () => {
   if (username) {
   return(
     <Paper className={classes.paperBlacky}>
-      <Parallax blur={1} bgImage={seedBackground} strength={500}>
+      <Parallax blur={1} bgImage={gemBackground} strength={500}>
     <Grid container spacing={2}>
       <Grid item xs={12}>
       <Box boxShadow={4}>
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B" className={classes.font}><u>Welcome to the Seedbank</u></font></b>
+              <b><font color="#DFB17B" className={classes.font}><u>Welcome to the gembank</u></font></b>
             </Typography>
           </ThemeProvider>
         </Paper>
@@ -88,17 +88,17 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Genesis Seeds</font>
+          <font color="DFB17B" className={classes.font}>Genesis gems</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
+          <font color="DFB17B" className={classes.font}>These gems are the first round of gems, are extremely rare and are used to make beta gems.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
           <font color="DFB17B" className={classes.font}><b>Price: 5 Hive</b></font>
           </Typography>
               <label htmlFor="multiselect" />
-            <BuySeed type="t" />
+            <Buygem type="t" />
         </CardContent>
       </Card>
       </Box> 
@@ -108,20 +108,20 @@ export const MarketSeeds = () => {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
+          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-gems-101-all-you-need-to-know-and-more.jpg"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Beta Seeds</font>
+          <font color="DFB17B" className={classes.font}>Beta gems</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>This is the second round of seeds, acquired through growing a genesis seed into a mature plant and harvesting.</font>
+          <font color="DFB17B" className={classes.font}>This is the second round of gems, acquired through growing a genesis gem into a mature plant and harvesting.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
           <font color="DFB17B" className={classes.font}><b><i>Only Available through trade. Please visit the <a href="https://discord.gg/hWJed7s">Discord Server</a></i></b></font>
           </Typography>
-          {/*<BuySeed type="m" />*/}
+          {/*<Buygem type="m" />*/}
         </CardContent>
       </Card>
       </Box>
@@ -135,17 +135,17 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>HK Seeds</font>
+          <font color="DFB17B" className={classes.font}>HK gems</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>These are the full version seeds not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
-          These seeds will be also broken down in to Sativa, Indica and Ruderalis.</font>
+          <font color="DFB17B" className={classes.font}>These are the full version gems not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
+          These gems will be also broken down in to Sativa, Indica and Ruderalis.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
           <font color="DFB17B" className={classes.font}><b>Price: TBD</b></font>
           </Typography>
-          {/*<BuySeed type="r" />*/}
+          {/*<Buygem type="r" />*/}
         </CardContent>
       </Card>
       </Box>

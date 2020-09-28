@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, seedNames} from "../service/HashkingsAPI";
+import {gardenNames, gemNames} from "../service/HashkingsAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";
@@ -61,7 +61,7 @@ export default function WaterModal({
       plantSex = garden.sex;
     }
 
-    let name = `${seedNames[garden.strain]} - ${plantSex} - ${garden.traits} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
+    let name = `${gemNames[garden.strain]} - ${plantSex} - ${garden.traits} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
 
     const waterActions = garden.care
       .filter(care => care[1] === "watered")

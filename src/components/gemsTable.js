@@ -19,12 +19,12 @@ function createData(name, total) {
 }
 
 const rows = [
-  createData('Seeds', 4),
+  createData('gems', 4),
   createData('Pollen', 6),
   createData('Buds', 10),
 ];
 
-export default function SeedsTable() {
+export default function gemsTable() {
   const classes = useStyles();
 
   return (

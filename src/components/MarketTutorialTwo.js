@@ -150,7 +150,7 @@ export const MarketPlotsTwo = () => {
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Leasing</u></Typography>
-                      <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 Hive each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with Hive below"}</b>
+                      <em><a href="/market/gembank">{"Claim your leased plots for 0.5 Hive each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with Hive below"}</b>
                     </React.Fragment>
                   }
                   placement="left"

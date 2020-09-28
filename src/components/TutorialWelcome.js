@@ -62,7 +62,7 @@ export const TutorialWelcome = () => {
 
   const [waterModal, setWaterModal] = useState(false);
   const [user] = useState({
-    availableSeeds: [],
+    availablegems: [],
     activeGardens: [],
     availableGardens: [],
     headBlockNum: undefined
@@ -80,7 +80,7 @@ export const TutorialWelcome = () => {
       <Typography paragraph>
         <font color="DFB17B" className={classes.font}>HashKings® is a Crypto Cannabis Farming and Trading Game, 
         Curation Trail and Community on the HIVE Blockchain. Users delegate HIVE Power, 
-        purchase seeds and propagate plants for daily rewards.</font>
+        purchase gems and propagate plants for daily rewards.</font>
       </Typography>
       <Typography paragraph>
         <font color="DFB17B" className={classes.font}>As a Hashkings Farmer you will grow unique 

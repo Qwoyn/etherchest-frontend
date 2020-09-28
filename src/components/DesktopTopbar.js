@@ -113,14 +113,14 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Starter Seeds</Typography>
+                  <Typography color="error" className={classes.font}>Starter gems</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/market/seedbank">
-            <SeedIcon />
+            <IconButton className="layout-menu-button" component={Link1} to="/market/gembank">
+            <gemIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid> */}

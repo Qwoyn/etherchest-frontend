@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import { HashkingsAPI, gemNames } from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 const marks = [
   {
     value: 25,
-    label: 'Seedling',
+    label: 'gemling',
   },
   {
     value: 28.57,
@@ -188,7 +188,7 @@ export const HashkingsTemplate = () => {
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
-      availableSeeds: 0,
+      availablegems: 0,
       availablePollen: 0,
       availableBuds: 0,
       activeGardens: 0,
@@ -254,7 +254,7 @@ if (username) {
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Plot Progress</u></Typography>
-                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?"}</b>
+                      <em><a href="/market/gembank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?"}</b>
                     </React.Fragment>
                   }
                   placement="left-start"
@@ -274,14 +274,14 @@ if (username) {
                 loading={loading}
                 className={classes.font}
                 responsive={true}
-                emptyMessage="Please plant some seeds or visit our market to get more plots"                
+                emptyMessage="Please plant some gems or visit our market to get more plots"                
               >
                 <Column field="id" header="Plot #" className={classes.font} sortable={false} style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}} />
                 <Column
                   field="strain"
                   header="Strain"
                   sortable={false}
-                  body={({ strain }) => seedNames[strain]}
+                  body={({ strain }) => gemNames[strain]}
                   style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}}
                   className={classes.font}
                 />
@@ -330,7 +330,7 @@ if (username) {
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Recent Waterings and Plantings</u></Typography>
-                      <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
+                      <em><a href="/market/gembank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
                     </React.Fragment>
                   }
                   placement="left"
@@ -362,7 +362,7 @@ if (username) {
               {action.type.charAt(0).toUpperCase() +
                         action.type.slice(1)}
               </TableCell>
-              <TableCell align="right" className={classes.font}>{seedNames[action.strain]}</TableCell>
+              <TableCell align="right" className={classes.font}>{gemNames[action.strain]}</TableCell>
               <TableCell align="right" className={classes.font}>{action.when}</TableCell>
               <TableCell align="right" className={classes.font}>{action.id}</TableCell>
             </TableRow>

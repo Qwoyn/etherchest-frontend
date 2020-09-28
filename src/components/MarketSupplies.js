@@ -59,7 +59,7 @@ export const MarketSupplies = () => {
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
     gardens: 0,
-    availableSeeds: 0,
+    availablegems: 0,
     activeGardens: 0,
     availableGardens: 0,
     activity: [],

@@ -87,9 +87,9 @@ export const PlantingTutorial = () => {
     },
   }))(Tooltip);
 
-  const [plantSeedModal, setPlantSeedModal] = useState(false);
+  const [plantgemModal, setPlantgemModal] = useState(false);
   const [user, setUser] = useState({
-    availableSeeds: [],
+    availablegems: [],
     activeGardens: [],
     availableGardens: [],
     headBlockNum: undefined
@@ -98,7 +98,7 @@ export const PlantingTutorial = () => {
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
     gardens: 0,
-    availableSeeds: 0,
+    availablegems: 0,
     activeGardens: 0,
     availableGardens: 0,
     activity: [],
@@ -183,7 +183,7 @@ export const PlantingTutorial = () => {
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Planting</u></Typography>
-                      <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                      <em><a href="/market/gembank">{"Did you get gems?"}</a></em> <b>{"plant some Crops!"}</b>
                     </React.Fragment>
                   }
                   placement="left"
@@ -192,7 +192,7 @@ export const PlantingTutorial = () => {
                   <Fab
                     variant="contained" 
                     color="primary"
-                    onClick={() => setPlantSeedModal(!plantSeedModal)}
+                    onClick={() => setPlantgemModal(!plantgemModal)}
                     className={classes.button}
                   ><GerminateIcon />
                   </Fab>
@@ -203,16 +203,16 @@ export const PlantingTutorial = () => {
     <Grid item xs={8}>
       <Paper className={classes.paper}>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">The next step is to plant your seed on your plot of land. 
+        <font color="DFB17B">The next step is to plant your gem on your plot of land. 
         </font>
       </Typography>
       <Typography paragraph className={classes.font}>
         <font color="DFB17B">When you click the button you will see a popup. Please follow the directions.</font>
       </Typography>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">Original first round of seeds, purchased in the Hashkings Seed Bank or bought from other players. 
-        These limited edition seeds cannot be grown and are limited in number. We call 
-        them the Genesis Seeds because they are the first ones and give life to the beta seeds after harvest.</font>
+        <font color="DFB17B">Original first round of gems, purchased in the Hashkings gem Bank or bought from other players. 
+        These limited edition gems cannot be grown and are limited in number. We call 
+        them the Genesis gems because they are the first ones and give life to the beta gems after harvest.</font>
       </Typography>
       <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>
@@ -222,10 +222,10 @@ export const PlantingTutorial = () => {
     </Grid>
     </Paper>
     <PlantModal
-          isOpen={plantSeedModal}
-          toggleModal={() => setPlantSeedModal(!plantSeedModal)}
+          isOpen={plantgemModal}
+          toggleModal={() => setPlantgemModal(!plantgemModal)}
           availableGardens={user.availableGardens}
-          availableSeeds={user.availableSeeds}
+          availablegems={user.availablegems}
           username={username}
         />
   </Paper>

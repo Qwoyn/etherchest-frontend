@@ -64,7 +64,7 @@ export const FAQPage = () => {
         <ExpansionPanelDetails>
           <Typography>
 		  Hashkings is a virtual Cannabis farming game on the HIVE blockchain. 
-		  You can lease plots of land, buy seeds and grow your own plants which are then 
+		  You can lease plots of land, buy gems and grow your own plants which are then 
 		  harvested and sold at market. 
           </Typography>
         </ExpansionPanelDetails>
@@ -102,7 +102,7 @@ export const FAQPage = () => {
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
 		  Yes, there is an initial leasing fee and a 20 SP delegation for each plot
-			  seeds also cost a small amount of HIVE to purchase.
+			  gems also cost a small amount of HIVE to purchase.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -127,7 +127,7 @@ export const FAQPage = () => {
           aria-controls="panel6bh-content"
           id="panel6bh-header"
         >
-          <Typography className={classes.heading}><b>What should I do after I plant my seeds?</b></Typography>
+          <Typography className={classes.heading}><b>What should I do after I plant my gems?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
@@ -170,13 +170,13 @@ export const FAQPage = () => {
           aria-controls="panel9bh-content"
           id="panel9bh-header"
         >
-          <Typography className={classes.heading}><b>What are the differences between seeds?</b></Typography>
+          <Typography className={classes.heading}><b>What are the differences between gems?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
             Please visit 
-          <a href="https://steempeak.com/hashkings/@hashkings/hashkings-seeds-small-overview">
-            Our Seeds overview</a> on steempeak to learn more.
+          <a href="https://steempeak.com/hashkings/@hashkings/hashkings-gems-small-overview">
+            Our gems overview</a> on steempeak to learn more.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -186,11 +186,11 @@ export const FAQPage = () => {
           aria-controls="panel10bh-content"
           id="panel10bh-header"
         >
-          <Typography className={classes.heading}><b>How many garden plots/seeds can I own?</b></Typography>
+          <Typography className={classes.heading}><b>How many garden plots/gems can I own?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			There are a total of 2520 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds as your green thumb can handle.
+			There are a total of 2520 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many gems as your green thumb can handle.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

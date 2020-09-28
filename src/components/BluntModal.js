@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {seedNames} from "../service/HashkingsAPI";
+import {gemNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
@@ -90,7 +90,7 @@ export default function BluntModal({
               options={_.uniqBy(availableBuds, bud => bud.strain).map(
                 bud => ({
                   ...bud,
-                  name: `${seedNames[bud.strain]}`
+                  name: `${gemNames[bud.strain]}`
                 })
               )}
               style={{width: "100%"}}

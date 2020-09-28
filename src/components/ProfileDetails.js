@@ -17,7 +17,7 @@ import { slideInRight } from 'react-animations';
 import { WaterIcon, GerminateIcon, HarvestIcon, PollinateIcon } from './Icons';
 import Box from '@material-ui/core/Box';
 import TableContainer from '@material-ui/core/TableContainer';
-import SeedsTable from './SeedsTable.js';
+import gemsTable from './gemsTable.js';
 import FriendsTable from './FriendsTable';
 import BadgeTable from './BadgeTable';
 
@@ -103,13 +103,13 @@ export const ProfileDetails = ({user}) => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Planting</u></Typography>
-                    <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                    <em><a href="/market/gembank">{"Did you get gems?"}</a></em> <b>{"plant some Crops!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
                 TransitionComponent={Zoom}
                 >
-                <SeedsTable />
+                <gemsTable />
                 </HtmlTooltip>
               </ThemeProvider>
                 </Paper>
@@ -124,7 +124,7 @@ export const ProfileDetails = ({user}) => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Water</u></Typography>
-                    <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                    <em><a href="/market/gembank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                   </React.Fragment>
                   }
                   placement="right"
@@ -145,7 +145,7 @@ export const ProfileDetails = ({user}) => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Pollinate</u></Typography>
-                    <em><a href="/market/seedbank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
+                    <em><a href="/market/gembank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
                   </React.Fragment>
                 }
                 placement="left"

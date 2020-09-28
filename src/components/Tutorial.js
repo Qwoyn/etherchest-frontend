@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { MarketPlots } from './MarketTutorial.js';
 import { MarketPlotsTwo } from './MarketTutorialTwo.js';
-import { MarketSeeds } from './MarketSeedsTutorial.js';
+import { Marketgems } from './MarketgemsTutorial.js';
 import { PlantingTutorial } from './PlantingTutorial.js';
 import { WateringTutorial } from './WateringTutorial.js';
 import { TutorialWelcome } from './TutorialWelcome.js';
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Welcome', 'Delegate', 'Pay Lease', 'Buy Seed', 'Plant Seed', 'Water'];
+  return ['Welcome', 'Delegate', 'Pay Lease', 'Buy gem', 'Plant gem', 'Water'];
 }
 
 function getStepContent(stepIndex) {
@@ -59,7 +59,7 @@ function getStepContent(stepIndex) {
     case 2:
       return (<MarketPlotsTwo />);
     case 3:
-      return (<MarketSeeds />);
+      return (<Marketgems />);
     case 4:
       return (<PlantingTutorial />);
     case 5:

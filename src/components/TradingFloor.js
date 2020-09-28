@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {StateContext} from "../App";
 import { Redirect } from 'react-router';
 import SwipeableViews from 'react-swipeable-views';
-import {seedTypes} from '../service/HashkingsAPI';
+import {gemTypes} from '../service/HashkingsAPI';
 import {sign} from "hivesigner";
 import useSteemKeychain from "../hooks/useSteemKeychain"; 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -127,7 +127,7 @@ export default function TradingFloor() {
   const [value, setValue] = React.useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
-  const seedBackground = "https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg";
+  const gemBackground = "https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg";
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -144,7 +144,7 @@ export default function TradingFloor() {
 
       const memo = `papers`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -196,7 +196,7 @@ export default function TradingFloor() {
 
       const memo = `bluntwraps`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -248,7 +248,7 @@ export default function TradingFloor() {
 
       const memo = `kiefbox`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -300,7 +300,7 @@ export default function TradingFloor() {
 
       const memo = `hempwraps`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -352,7 +352,7 @@ export default function TradingFloor() {
 
       const memo = `vacoven`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -404,7 +404,7 @@ export default function TradingFloor() {
 
       const memo = `hempwraps`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -492,8 +492,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/HIVE-og" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/HIVE-og" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -521,8 +521,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/hindu-kush" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/hindu-kush" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -551,8 +551,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/lashkar-gah" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/lashkar-gah" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -579,8 +579,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/afghani" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/afghani" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -608,8 +608,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/mazar-i-sharif" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/mazar-i-sharif" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -636,8 +636,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/lambs-bread" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/lambs-bread" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -665,8 +665,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/durban-poison" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/durban-poison" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -694,8 +694,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/acapulco-gold" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/acapulco-gold" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -723,8 +723,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/kilimanjaro" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/kilimanjaro" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -752,8 +752,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/kings-bread" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/kings-bread" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -780,8 +780,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/malawi" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/malawi" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -809,8 +809,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/swazi-gold" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/swazi-gold" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -838,8 +838,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/chocolate-thai" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/chocolate-thai" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -867,8 +867,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/colombian-gold" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/colombian-gold" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -895,8 +895,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/aceh" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/aceh" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -925,8 +925,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/panama-red" color="error">
-          Seeds
+      <Link component={Link1} to="/gems/panama-red" color="error">
+          gems
         </Link>
         </Button>
       </CardActions>
@@ -955,8 +955,8 @@ export default function TradingFloor() {
       </CardActionArea>
       <CardActions>
       <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/thai" color="error">
-        Seeds
+      <Link component={Link1} to="/gems/thai" color="error">
+        gems
         </Link>
         </Button>
       </CardActions>
@@ -1139,7 +1139,7 @@ export default function TradingFloor() {
           n a legal Mexican cannabis economy, Nieto might be a prized artisan grower, perhaps even 
           a wealthy one. In March, his Zamaldelica strain, a heady Sativa with a healthy dose of 
           cannabidiol (CBD), won top prize in a rare Mexican cannabis cup, sponsored in Guadalajara 
-          by the Spanish company Ace Seeds.
+          by the Spanish company Ace gems.
           </Typography>
         </CardContent>
       </CardActionArea>

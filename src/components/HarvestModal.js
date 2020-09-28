@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, seedNames} from "../service/HashkingsAPI";
+import {gardenNames, gemNames} from "../service/HashkingsAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";
@@ -60,7 +60,7 @@ export default function HarvestModal({
       plantSex = garden.sex;
     }
 
-    let name = `${seedNames[garden.strain]} - ${plantSex} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
+    let name = `${gemNames[garden.strain]} - ${plantSex} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
 
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
@@ -111,7 +111,7 @@ export default function HarvestModal({
           <p>Sorry, you don't have any active plots.</p>
         ) : (
           <>
-            <label htmlFor="garden"><b>Choose a plot or plots then click harvest.  Your seeds will be available
+            <label htmlFor="garden"><b>Choose a plot or plots then click harvest.  Your gems will be available
               24 hours after harvest!</b></label>
 			<br/><br/>
 			  <Button

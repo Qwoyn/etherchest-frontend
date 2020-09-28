@@ -21,7 +21,7 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import {seedTypes} from '../../service/HashkingsAPI';
+import {gemTypes} from '../../service/HashkingsAPI';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -91,7 +91,7 @@ export const Thaipollen = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
@@ -108,9 +108,9 @@ export const Thaipollen = () => {
     if (username) {
       setIsSubmitting(true);
 
-      const memo = `tseed aca`;
+      const memo = `tgem aca`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "STEEM";
 
       if (hasSteemKeychain()) {
@@ -134,7 +134,7 @@ export const Thaipollen = () => {
             );
           });
           setIsSubmitting(false);
-          setSeed();
+          setgem();
         } catch {
           setIsSubmitting(false);
         }
@@ -148,8 +148,8 @@ export const Thaipollen = () => {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/seedbank`
-            : "http://localhost:3000/market/seedbank"
+            ? `${process.env.REACT_APP_URL}/market/gembank`
+            : "http://localhost:3000/market/gembank"
         );
       }
     }
@@ -212,9 +212,9 @@ export const Thaipollen = () => {
           aria-label="full width tabs example"
           className={classes.background}
         >
-          <Tab label="Official Seeds" {...a11yProps(0)} />
-          <Tab label="User Seeds" {...a11yProps(1)} />
-          <Tab label="Send Seeds" {...a11yProps(2)} />
+          <Tab label="Official gems" {...a11yProps(0)} />
+          <Tab label="User gems" {...a11yProps(1)} />
+          <Tab label="Send gems" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -227,12 +227,12 @@ export const Thaipollen = () => {
           <Card className={classes.card} raised={true}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>
+              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis gem</font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
               <font color="DFB17B" className={classes.font}>
-                This seed is part of the first round of seeds and extremely rare. 
-                It can be used to make beta seeds.
+                This gem is part of the first round of gems and extremely rare. 
+                It can be used to make beta gems.
               </font>
               </Typography>
               <br/>

@@ -14,8 +14,8 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import SeedGifting from './SeedGifting';
-import {seedTypes, gardenNames} from '../../service/HashkingsAPI';
+import gemGifting from './gemGifting';
+import {gemTypes, gardenNames} from '../../service/HashkingsAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 import {} from "../../service/HashkingsAPI";
 
@@ -97,7 +97,7 @@ export default function Afghanistan({
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 

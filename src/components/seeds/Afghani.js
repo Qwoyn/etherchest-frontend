@@ -21,8 +21,8 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import SeedGifting from './SeedGifting';
-import {seedTypes} from '../../service/HashkingsAPI';
+import gemGifting from './gemGifting';
+import {gemTypes} from '../../service/HashkingsAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
 function TabPanel(props) {
@@ -102,7 +102,7 @@ export const Afghani = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
@@ -119,9 +119,9 @@ export const Afghani = () => {
     if (username) {
       setIsSubmitting(true);
 
-      const memo = `tseed afg`;
+      const memo = `tgem afg`;
       const to = "hashkings";
-      const amount = seedTypes["t"].str;
+      const amount = gemTypes["t"].str;
       const currency = "STEEM";
 
       if (hasSteemKeychain()) {
@@ -145,7 +145,7 @@ export const Afghani = () => {
             );
           });
           setIsSubmitting(false);
-          setSeed();
+          setgem();
         } catch {
           setIsSubmitting(false);
         }
@@ -159,8 +159,8 @@ export const Afghani = () => {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/seedbank`
-            : "http://localhost:3000/market/seedbank"
+            ? `${process.env.REACT_APP_URL}/market/gembank`
+            : "http://localhost:3000/market/gembank"
         );
       }
     }
@@ -238,12 +238,12 @@ export const Afghani = () => {
           <Card className={classes.card} raised={true}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>
+              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis gem</font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
               <font color="DFB17B" className={classes.font}>
-                This seed is part of the first round of seeds and extremely rare. 
-                It can be used to make beta seeds.
+                This gem is part of the first round of gems and extremely rare. 
+                It can be used to make beta gems.
               </font>
               </Typography>
               <br/>
@@ -265,7 +265,7 @@ export const Afghani = () => {
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <SeedGifting />
+          <gemGifting />
         </TabPanel>
       </SwipeableViews>
     </div>

@@ -49,22 +49,22 @@ const HtmlTooltip = withStyles(theme => ({
 
 const hashkingsApi = new HashkingsAPI();
 
-export default function GiftSeed() {
+export default function Giftgem() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [to, setTo] = useState("");
   const [validatedTo, setValidatedTo] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {steemConnectAPI} = useContext(StateContext);
   const growl = useRef(null);
-  const seedBackground = "https://i.imgur.com/z2A9PtG.jpg";
+  const gemBackground = "https://i.imgur.com/z2A9PtG.jpg";
 
-  const [userSeeds, setUserSeeds] = useState([]);
+  const [usergems, setUsergems] = useState([]);
 
   useEffect(() => {
     hashkingsApi.getUserGarden(username).then(garden => {
-      setUserSeeds(garden.availableSeeds);
+      setUsergems(garden.availablegems);
     });
   }, [username]);
 
@@ -90,14 +90,14 @@ export default function GiftSeed() {
   }, [to]);
 
   const handleSubmit = async () => {
-    if (validatedTo && username && seed) {
+    if (validatedTo && username && gem) {
       setIsSubmitting(true);
 
-      const custom_json_id = "qwoyn_give_seed";
+      const custom_json_id = "qwoyn_give_gem";
       const custom_JSON = JSON.stringify({
         to: validatedTo,
-        seed: seed.strain,
-        qual: seed.xp
+        gem: gem.strain,
+        qual: gem.xp
       });
 
       steemConnectAPI.customJson(
@@ -112,10 +112,10 @@ export default function GiftSeed() {
 
   let buttonLabel = "Gift";
   if (isSubmitting) buttonLabel = "Gifting";
-  if (!username) buttonLabel = "Please Login to gift seeds";
+  if (!username) buttonLabel = "Please Login to gift gems";
 
   return (
-    <Parallax blur={1} bgImage={seedBackground} strength={1000}>
+    <Parallax blur={1} bgImage={gemBackground} strength={1000}>
       <TradingFloor />
       {/*
     <>
@@ -128,7 +128,7 @@ export default function GiftSeed() {
           <HtmlTooltip
           title={
             <React.Fragment>
-            <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
+            <em><a href="/market/gembank">{"Do you have extra gems?"}</a></em> <b>{"Click Gift gems to get started"}</b>
             </React.Fragment>
           }
           placement="top"
@@ -140,7 +140,7 @@ export default function GiftSeed() {
               aria-controls="panel1a-content"
               id="panel1a-header"
               >
-                <Typography className={classes.heading}><font color="DFB17B">Send Seeds</font></Typography>
+                <Typography className={classes.heading}><font color="DFB17B">Send gems</font></Typography>
               </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <InputText
@@ -166,22 +166,22 @@ export default function GiftSeed() {
                 className="form-input"
                 disabled={isSubmitting || !username}
                 optionLabel="name"
-                value={seed}
+                value={gem}
                 id="name"
-                options={userSeeds.map(seed => ({
-                  ...seed,
-                  name: `${seedNames[seed.strain]} - ${seed.xp} XP`
+                options={usergems.map(gem => ({
+                  ...gem,
+                  name: `${gemNames[gem.strain]} - ${gem.xp} XP`
                 }))}
                 style={{width: "100%"}}
                 onChange={e => {
-                  setSeed(e.value);
+                  setgem(e.value);
                 }}
-                placeholder="Choose a seed..."
+                placeholder="Choose a gem..."
               />
             </ExpansionPanelDetails>
             <ExpansionPanelDetails>
               <Button
-                disabled={isSubmitting || !username || !validatedTo | !seed}
+                disabled={isSubmitting || !username || !validatedTo | !gem}
                 label={buttonLabel}
                 onClick={handleSubmit}
               />
@@ -194,7 +194,7 @@ export default function GiftSeed() {
       <HtmlTooltip
       title={
         <React.Fragment>
-        <em><a href="/market/seedbank">{"Do you have extra Polen?"}</a></em> <b>{"Click Gift Pollen to get started"}</b>
+        <em><a href="/market/gembank">{"Do you have extra Polen?"}</a></em> <b>{"Click Gift Pollen to get started"}</b>
         </React.Fragment>
       }
       placement="top"
@@ -232,7 +232,7 @@ export default function GiftSeed() {
             className="form-input"
             disabled={isSubmitting || !username}
             optionLabel="name"
-            value={seed}
+            value={gem}
             id="name"
             placeholder="Choose Pollen..."
           />

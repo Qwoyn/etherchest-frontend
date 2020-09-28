@@ -1,25 +1,25 @@
 import React, {useContext, useState} from "react";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-import {seedNames, seedTypes} from "../service/HashkingsAPI";
+import {gemNames, gemTypes} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {sign} from "hivesigner";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 
-export default function BuySeed({type}) {
+export default function Buygem({type}) {
   const {username} = useContext(StateContext);
-  const [seed, setSeed] = useState();
+  const [gem, setgem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (seed && username) {
+    if (gem && username) {
       setIsSubmitting(true);
 
-      const memo = `${type}seed ${seed.id}`;
+      const memo = `${type}gem ${gem.id}`;
       const to = "hashkings";
-      const amount = seedTypes[type].str;
+      const amount = gemTypes[type].str;
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -43,7 +43,7 @@ export default function BuySeed({type}) {
             );
           });
           setIsSubmitting(false);
-          setSeed();
+          setgem();
         } catch {
           setIsSubmitting(false);
         }
@@ -57,8 +57,8 @@ export default function BuySeed({type}) {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/seedbank`
-            : "http://localhost:3000/market/seedbank"
+            ? `${process.env.REACT_APP_URL}/market/gembank`
+            : "http://localhost:3000/market/gembank"
         );
       }
     }
@@ -74,17 +74,17 @@ export default function BuySeed({type}) {
         <Dropdown
           disabled={isSubmitting || !username}
           optionLabel="name"
-          value={seed}
+          value={gem}
           id="name"
-          options={Object.keys(seedNames).map(key => ({
+          options={Object.keys(gemNames).map(key => ({
             id: key,
-            name: seedNames[key]
+            name: gemNames[key]
           }))}
           style={{width: "100%"}}
           onChange={e => {
-            setSeed(e.value);
+            setgem(e.value);
           }}
-          placeholder="Choose a seed..."
+          placeholder="Choose a gem..."
         />     
         <br/><br/>   
         <Button

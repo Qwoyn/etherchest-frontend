@@ -82,7 +82,7 @@ export const EconomyDashboard = () => {
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
-      availableSeeds: 0,
+      availablegems: 0,
       activeGardens: 0,
       availableGardens: 0,
       activity: [],
@@ -91,7 +91,7 @@ export const EconomyDashboard = () => {
     });
   
     const [user, setUser] = useState({
-      availableSeeds: [],
+      availablegems: [],
       activeGardens: [],
       availableGardens: [],
       headBlockNum: undefined
@@ -176,7 +176,7 @@ if (username) {
                     title={
                     <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Total Number of Active Farmers</u></Typography>
-                    <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
+                    <em><a href="/market/gembank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
                     </React.Fragment>
                     }
                     placement="bottom-start"
@@ -209,7 +209,7 @@ if (username) {
                         title={
                         <React.Fragment>
                           <Typography color="error" className={classes.font}><u>Total Number of Farms</u></Typography>
-                          <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
+                          <em><a href="/market/gembank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
                         </React.Fragment>
                         }
                         placement="bottom"
@@ -242,7 +242,7 @@ if (username) {
               title={
                 <React.Fragment>
                   <Typography color="error" className={classes.font}><u>Total HIVE Power Delegated</u></Typography>
-                  <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total HP delegated and HIVE powered up from Seed Sales"}</b>
+                  <em><a href="/market/gembank">{"This is our total Economy"}</a></em> <b>{"This number is based on total HP delegated and HIVE powered up from gem Sales"}</b>
                 </React.Fragment>
               }
               placement="bottom-end"

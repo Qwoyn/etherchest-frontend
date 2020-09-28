@@ -133,7 +133,7 @@ export const MarketPlots = () => {
             <Typography color="error">
               <u>Plot Credits</u>
             </Typography>
-              <em><a href="/market/seedbank">{"Use your plot credits to gain access to farm plots"}</a></em> <b>{"1 Plot Credit = 20 HIVE Power delegation"}</b>
+              <em><a href="/market/gembank">{"Use your plot credits to gain access to farm plots"}</a></em> <b>{"1 Plot Credit = 20 HIVE Power delegation"}</b>
             </React.Fragment>
           }
           placement="top"
@@ -205,7 +205,7 @@ export const MarketPlots = () => {
                 </font>
               </p>
             )}
-          {/*<BuySeed type="r" />*/}
+          {/*<Buygem type="r" />*/}
         </CardContent>
       </Card>
       </Box>

@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, seedNames, pollenNames} from "../service/HashkingsAPI";
+import {gardenNames, gemNames, pollenNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
@@ -61,10 +61,10 @@ export default function PollinateModal({
         visible={isOpen}
         modal={true}
         style={{width: "50vw", maxWidth: 500, background: "#000000"}}
-        onHide={() => toggleModal("pollinateSeedModal")}
+        onHide={() => toggleModal("pollinategemModal")}
         closeOnEscape={true}
         dismissableMask={true}
-        id="pollinationSeedModal"
+        id="pollinationgemModal"
       >
         {activeGardens.length === 0 && (
           <p><b>Sorry, you don't have any available gardens</b></p>

@@ -46,7 +46,7 @@ export default function Profile() {
   const hashkingsApi = new HashkingsAPI();
 
   const [user, setUser] = useState({
-    availableSeeds: [],
+    availablegems: [],
     activeGardens: [],
     availablePollen: [],
     availableBuds: [],

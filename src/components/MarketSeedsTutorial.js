@@ -1,5 +1,5 @@
 import React from "react";
-import BuySeed from "./BuySeed";
+import Buygem from "./Buygem";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const MarketSeeds = () => {  
+export const Marketgems = () => {  
   const classes = useStyles();
 
   return(
@@ -64,36 +64,36 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-          <font color="DFB17B">Genesis Seeds</font>
+          <font color="DFB17B">Genesis gems</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-          <font color="DFB17B">These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
+          <font color="DFB17B">These gems are the first round of gems, are extremely rare and are used to make beta gems.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           <font color="DFB17B"><b>Price: 5 Hive</b></font>
           </Typography>
               <label htmlFor="multiselect" />
-            <BuySeed type="t" />
+            <Buygem type="t" />
         </CardContent>
       </Card>
     </Grid>
     <Grid item xs={8}>
       <Paper className={classes.paper}>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">Hashkings Seeds are the main driving force behind the game. 
+        <font color="DFB17B">Hashkings gems are the main driving force behind the game. 
         </font>
       </Typography>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">With these seeds it is possible to grow plants, 
-        create new seeds and earn Hive. Unlike our in-game currency Kief(KFQ), 
-        seeds are custom designed tokens by @disregardfiat and only available within our ecosystem, 
+        <font color="DFB17B">With these gems it is possible to grow plants, 
+        create new gems and earn Hive. Unlike our in-game currency Kief(KFQ), 
+        gems are custom designed tokens by @disregardfiat and only available within our ecosystem, 
         NOT tradable on Hive-Engine.</font>
       </Typography>
       <Typography paragraph className={classes.font}>
-        <font color="DFB17B">Original first round of seeds, purchased in the Hashkings Seed Bank or bought from other players. 
-        These limited edition seeds cannot be grown and are limited in number. We call 
-        them the Genesis Seeds because they are the first ones and give life to the beta seeds after harvest.</font>
+        <font color="DFB17B">Original first round of gems, purchased in the Hashkings gem Bank or bought from other players. 
+        These limited edition gems cannot be grown and are limited in number. We call 
+        them the Genesis gems because they are the first ones and give life to the beta gems after harvest.</font>
       </Typography>
       <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>

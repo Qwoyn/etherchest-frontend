@@ -81,7 +81,7 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={numSelected === rowCount}
             onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all seeds' }}
+            inputProps={{ 'aria-label': 'select all gems' }}
           />
         </TableCell>
         {headCells.map(headCell => (
@@ -158,7 +158,7 @@ const EnhancedTableToolbar = props => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
-          Seeds For Sale - <font color="red">(Coming Soon)</font>
+          gems For Sale - <font color="red">(Coming Soon)</font>
         </Typography>
       )}
 

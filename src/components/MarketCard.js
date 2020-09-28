@@ -6,7 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { SeedIcon } from './Icons';
+import { gemIcon } from './Icons';
 import { LandIcon } from './Icons';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
@@ -44,14 +44,14 @@ export default function MarketCard() {
             <u>Markets</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-            Purchase Seeds or lease property to grow on.
+            Purchase gems or lease property to grow on.
           </Typography>
         </CardContent>
         <CardActions>
       <Link component={Link1} to="/markets">
-        <IconButton color="primary" aria-label="Visit Seed Market">
-        <SeedIcon /> 
-      </IconButton>Seeds
+        <IconButton color="primary" aria-label="Visit gem Market">
+        <gemIcon /> 
+      </IconButton>gems
         </Link>
         <Link component={Link2} to="/markets">
         <IconButton color="primary" aria-label="Visit Land Sales">

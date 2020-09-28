@@ -9,7 +9,7 @@ function UserGarden({
   }
 }) {
   const [user, setUser] = useState({
-    availableSeeds: [],
+    availablegems: [],
     activeGardens: [],
     availableGardens: [],
     userExists: undefined

@@ -133,7 +133,7 @@ export const MarketPlots = () => {
             <Typography color="error">
               <u>Delegate for a plot</u>
             </Typography>
-              <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 HIVE Power delegation"}</b>
+              <em><a href="/market/gembank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 HIVE Power delegation"}</b>
             </React.Fragment>
           }
           placement="top"

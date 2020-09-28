@@ -37,7 +37,7 @@ import { WaterIcon,
          DippedIcon, 
          BluntIcon } from '../Icons';
 import Box from '@material-ui/core/Box';
-import SeedGifting from '../seeds/SeedGifting.js';
+import gemGifting from '../gems/gemGifting.js';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
@@ -160,7 +160,7 @@ export const GardenActions = () => {
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
-      availableSeeds: 0,
+      availablegems: 0,
       activeGardens: 0,
       availableGardens: 0,
       availableKief : 0,
@@ -172,8 +172,8 @@ export const GardenActions = () => {
       leaderboard: []
     });
   
-    const [plantSeedModal, setPlantSeedModal] = useState(false);
-    const [pollinateSeedModal, setPollinateSeedModal] = useState(false);
+    const [plantgemModal, setPlantgemModal] = useState(false);
+    const [pollinategemModal, setPollinategemModal] = useState(false);
     const [waterModal, setWaterModal] = useState(false);
     const [craftOilModal, setCraftOilModal] = useState(false);
     const [craftKiefModal, setCraftKiefModal] = useState(false);
@@ -181,7 +181,7 @@ export const GardenActions = () => {
     const [craftBluntModal, setCraftBluntModal] = useState(false);
     const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
-      availableSeeds: [],
+      availablegems: [],
       activeGardens: [],
       availablePollen: [],
       availableBuds: [],
@@ -282,7 +282,7 @@ export const GardenActions = () => {
               title={
                 <React.Fragment>
                   <Typography color="error" className={classes.font}><u>Plant, Water and Harvest </u></Typography>
-                  <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
+                  <em><a href="/market/gembank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
                 </React.Fragment>
               }
               placement="top"
@@ -306,7 +306,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Planting</u></Typography>
-                    <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                    <em><a href="/market/gembank">{"Did you get gems?"}</a></em> <b>{"plant some Crops!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
@@ -315,7 +315,7 @@ export const GardenActions = () => {
                 <Fab
                   variant="contained" 
                   color="primary"
-                  onClick={() => setPlantSeedModal(!plantSeedModal)}
+                  onClick={() => setPlantgemModal(!plantgemModal)}
                   className={classes.button}
                 ><GerminateIcon />
                 </Fab>
@@ -333,7 +333,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Water</u></Typography>
-                    <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                    <em><a href="/market/gembank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                   </React.Fragment>
                   }
                   placement="right"
@@ -360,7 +360,7 @@ export const GardenActions = () => {
                 title={
                   <React.Fragment>
                     <Typography color="error" className={classes.font}><u>Pollinate</u></Typography>
-                    <em><a href="/market/seedbank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
+                    <em><a href="/market/gembank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
                   </React.Fragment>
                 }
                 placement="left"
@@ -369,7 +369,7 @@ export const GardenActions = () => {
                 <Fab
                   variant="contained" 
                   color="primary"
-                  onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  onClick={() => setPollinategemModal(!pollinategemModal)}
                   className={classes.button}
                 ><PollinateIcon />
                 </Fab>
@@ -387,7 +387,7 @@ export const GardenActions = () => {
                         title={
                           <React.Fragment>
                             <Typography color="error" className={classes.font}><u>Harvest</u></Typography>
-                            <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
+                            <em><a href="/market/gembank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
                           </React.Fragment>
                         }
                         placement="top"
@@ -604,7 +604,7 @@ export const GardenActions = () => {
                 <Fab
                   variant="contained" 
                   color="primary"
-                  //onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  //onClick={() => setPollinategemModal(!pollinategemModal)}
                   className={classes.button}
                 ><DippedIcon />
                 </Fab>
@@ -631,7 +631,7 @@ export const GardenActions = () => {
                 <Fab
                   variant="contained" 
                   color="primary"
-                  //onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  //onClick={() => setPollinategemModal(!pollinategemModal)}
                   className={classes.button}
                 ><CannagarIcon />
                 </Fab>
@@ -649,7 +649,7 @@ export const GardenActions = () => {
                   <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
                     <ThemeProvider theme={theme}>
-                    <SeedGifting />
+                    <gemGifting />
                         </ThemeProvider>
                         </Paper>
                         </Box>
@@ -666,15 +666,15 @@ export const GardenActions = () => {
                       </Grid>
                       <br/>
                       <PlantModal
-                        isOpen={plantSeedModal}
-                        toggleModal={() => setPlantSeedModal(!plantSeedModal)}
+                        isOpen={plantgemModal}
+                        toggleModal={() => setPlantgemModal(!plantgemModal)}
                         availableGardens={user.availableGardens}
-                        availableSeeds={user.availableSeeds}
+                        availablegems={user.availablegems}
                         username={username}
                       />
                       <PollinateModal
-                        isOpen={pollinateSeedModal}
-                        toggleModal={() => setPollinateSeedModal(!pollinateSeedModal)}
+                        isOpen={pollinategemModal}
+                        toggleModal={() => setPollinategemModal(!pollinategemModal)}
                         activeGardens={user.activeGardens}
                         availablePollen={user.availablePollen}
                         username={username}

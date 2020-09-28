@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import GiftSeed from "../GiftSeed";
+import Giftgem from "../Giftgem";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,7 +70,7 @@ export const Trading = () => {
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
-      availableSeeds: 0,
+      availablegems: 0,
       activeGardens: 0,
       availableGardens: 0,
       activity: [],
@@ -79,7 +79,7 @@ export const Trading = () => {
     });
   
     const [user, setUser] = useState({
-      availableSeeds: [],
+      availablegems: [],
       activeGardens: [],
       availableGardens: [],
       headBlockNum: undefined
@@ -166,14 +166,14 @@ if (username) {
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B" className={classes.font}>Trading</font></b>
                   </Typography>
-                  <Typography color="error" className={classes.font}>Important!  Users must have signed in to hashkings at least once to receive their seeds</Typography>
+                  <Typography color="error" className={classes.font}>Important!  Users must have signed in to hashkings at least once to receive their gems</Typography>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={3}></Grid>
                 <Grid item xs={6}>
                 <Paper className={classes.paperDarkBlue}>
-                <GiftSeed />
+                <Giftgem />
                 </Paper>
                 </Grid>
                 <Grid item xs={3}></Grid>

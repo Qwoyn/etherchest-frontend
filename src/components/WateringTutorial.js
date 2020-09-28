@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { WaterIcon } from './Icons';
 import WaterModal from "./WaterModal";
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
+import { HashkingsAPI, gemNames } from "../service/HashkingsAPI";
 
 export const WateringTutorial = () => {
   const {username} = useContext(StateContext);
@@ -18,7 +18,7 @@ export const WateringTutorial = () => {
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
     gardens: 0,
-    availableSeeds: 0,
+    availablegems: 0,
     activeGardens: 0,
     availableGardens: 0,
     activity: [],
@@ -146,7 +146,7 @@ export const WateringTutorial = () => {
   const classes = useStyles();
   const [waterModal, setWaterModal] = useState(false);
   const [user, setUser] = useState({
-    availableSeeds: [],
+    availablegems: [],
     activeGardens: [],
     availableGardens: [],
     headBlockNum: undefined
@@ -224,7 +224,7 @@ export const WateringTutorial = () => {
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Water</u></Typography>
-                      <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                      <em><a href="/market/gembank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                     </React.Fragment>
                   }
                   placement="right"
