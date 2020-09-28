@@ -1,5 +1,5 @@
 import React from "react";
-import { gardenNames, seedNames, gardenLinkNames, seedLinkNames } from "../../service/HashkingsAPI";
+import { gardenNames, gemNames, gardenLinkNames, gemLinkNames } from "../../service/HashkingsAPI";
 import {  makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -12,7 +12,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SubdivisionIcon, SeedSvgIcon, DnaIcon, BongIcon, GiftIcon, LandIcon, SeedIcon } from '../Icons';
+import { FarmIcon, SubdivisionIcon, gemSvgIcon, DnaIcon, BongIcon, GiftIcon, LandIcon, gemIcon } from '../Icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import BuildTwoToneIcon from '@material-ui/icons/BuildTwoTone';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -148,7 +148,7 @@ export default function Inventory({user}) {
           className={classes.background}
         >
           <Tab icon={<LandIcon />} {...a11yProps(0)} className={classes.font} />
-          <Tab icon={<SeedIcon />} {...a11yProps(1)} className={classes.font} />
+          <Tab icon={<gemIcon />} {...a11yProps(1)} className={classes.font} />
           <Tab icon={<DnaIcon />} {...a11yProps(2)} className={classes.font} />
           <Tab icon={<BongIcon />} {...a11yProps(3)} className={classes.font} />
           <Tab icon={<BuildTwoToneIcon />} {...a11yProps(4)} className={classes.font} />
@@ -166,7 +166,7 @@ export default function Inventory({user}) {
         title={
           <React.Fragment>
             <Typography color="error" className={classes.font}><u>Active Plots</u></Typography>
-            <em><a href="/market/seedbank">{"Farm plots which are currently earning"}</a></em> <b>{"Do you need another Plot?  Visit the Market!"}</b>
+            <em><a href="/market/gembank">{"Farm plots which are currently earning"}</a></em> <b>{"Do you need another Plot?  Visit the Market!"}</b>
           </React.Fragment>
         }
         TransitionComponent={Zoom}
@@ -226,7 +226,7 @@ export default function Inventory({user}) {
             
             <Grid item xs>
               </Grid>
-              {/*<AvailableSeedTable />*/}
+              {/*<AvailablegemTable />*/}
             </Grid>
             
             </ExpansionPanelDetails>
@@ -240,7 +240,7 @@ export default function Inventory({user}) {
         title={
           <React.Fragment>
             <Typography color="error" className={classes.font}><u>Available Plots</u></Typography>
-            <em><a href="/market/seedbank">{"These plots are ready to go!"}</a></em> <b>{"Do you have extra Seeds?  These plots are available to be farmed."}</b>
+            <em><a href="/market/gembank">{"These plots are ready to go!"}</a></em> <b>{"Do you have extra gems?  These plots are available to be farmed."}</b>
           </React.Fragment>
         }
         TransitionComponent={Zoom}
@@ -433,8 +433,8 @@ export default function Inventory({user}) {
     <HtmlTooltip
     title={
     <React.Fragment>
-    <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
-    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    <Typography color="error" className={classes.font}><u>Available gems</u></Typography>
+    <em><a href="/market/gembank">{"Total number of available gems you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -442,17 +442,17 @@ export default function Inventory({user}) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
+          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-gems-101-all-you-need-to-know-and-more.jpg"
         />
         <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Available Seeds</font>
+          <font color="DFB17B" className={classes.font}>Available gems</font>
           </Typography>
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent={user.availableSeeds.length} color="primary">
-                  <SeedSvgIcon  />
+                <Badge className={classes.margin} badgeContent={user.availableGems.length} color="primary">
+                  <gemSvgIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -463,31 +463,31 @@ export default function Inventory({user}) {
              aria-controls="panel1a-content"
              id="panel1a-header"
             >
-            <Typography className={classes.font}>View Seeds</Typography>
+            <Typography className={classes.font}>View gems</Typography>
             </ExpansionPanelSummary>
           <ExpansionPanelDetails className={classes.font}>
-          {_.uniqBy(user.availableSeeds, seed => seed.strain)
-            .map(seed => ({
-              strain: seed.strain,
-              count: user.availableSeeds.filter(
-                aseed => aseed.strain === seed.strain
+          {_.uniqBy(user.availablegems, gem => gem.strain)
+            .map(gem => ({
+              strain: gem.strain,
+              count: user.availablegems.filter(
+                agem => agem.strain === gem.strain
               ).length
             }))
-            .map(seed => (
+            .map(gem => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[seed.strain]}
+                to={'/gems/' + gemLinkNames[gem.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
                 }}
               >
-              <p key={seed.strain}><font color="B28D43" className={classes.font}>
-                <Badge className={classes.margin} badgeContent={seed.count} color="primary">
-                  <SeedSvgIcon />
+              <p key={gem.strain}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={gem.count} color="primary">
+                  <gemSvgIcon />
                 </Badge>
-                 {seedNames[seed.strain]}
-                {seed.count !== 1 ? "s" : ""}</font>
+                 {gemNames[gem.strain]}
+                {gem.count !== 1 ? "s" : ""}</font>
               </p>
               </Link>
             ))}
@@ -502,7 +502,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Pollen</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    <em><a href="/market/gembank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -544,7 +544,7 @@ export default function Inventory({user}) {
             .map(pollen => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[pollen.strain]}
+                to={'/gems/' + gemLinkNames[pollen.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -554,7 +554,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={pollen.count} color="primary">
                   <DnaIcon  />
                 </Badge>
-                 {seedNames[pollen.strain]}
+                 {gemNames[pollen.strain]}
                 {pollen.count !== 1 ? "s" : ""}</font>
               </p>
               </Link>
@@ -572,7 +572,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Buds</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -614,7 +614,7 @@ export default function Inventory({user}) {
             .map(buds => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[buds.strain]}
+                to={'/gems/' + gemLinkNames[buds.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -624,7 +624,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={buds.count} color="primary">
                   <BongIcon />
                 </Badge>
-                 {seedNames[buds.strain]}
+                 {gemNames[buds.strain]}
                 {buds.count !== 1 ? " Buds" : " Bud"}</font>
               </p>
               </Link>
@@ -644,7 +644,7 @@ export default function Inventory({user}) {
           title={
           <React.Fragment>
           <Typography color="error" className={classes.font}><u>Available Kief</u></Typography>
-          <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+          <em><a href="/market/gembank">{"Total number of available gems you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
           </React.Fragment>
           }
           TransitionComponent={Zoom}
@@ -662,7 +662,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent={user.availableKief.length} color="primary">
-                  <SeedSvgIcon  />
+                  <gemSvgIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -686,7 +686,7 @@ export default function Inventory({user}) {
             .map(kief => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[kief.strain]}
+                to={'/gems/' + gemLinkNames[kief.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -694,9 +694,9 @@ export default function Inventory({user}) {
               >
               <p key={kief.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={kief.count} color="primary">
-                  <SeedSvgIcon />
+                  <gemSvgIcon />
                 </Badge>
-                 {seedNames[kief.strain]}
+                 {gemNames[kief.strain]}
                 {kief.count !== 1 ? "s" : ""}</font>
               </p>
               </Link>
@@ -712,7 +712,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Oil</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    <em><a href="/market/gembank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -754,7 +754,7 @@ export default function Inventory({user}) {
             .map(oil => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[oil.strain]}
+                to={'/gems/' + gemLinkNames[oil.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -764,7 +764,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={oil.count} color="primary">
                   <DnaIcon  />
                 </Badge>
-                 {seedNames[oil.strain]}
+                 {gemNames[oil.strain]}
                 {oil.count !== 1 ? "s" : ""}</font>
               </p>
               </Link>
@@ -786,7 +786,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Joints</u></Typography>
-    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    <em><a href="/market/gembank">{"Total number of available gems you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -804,7 +804,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent={user.availableJoints.length} color="primary">
-                  <SeedSvgIcon  />
+                  <gemSvgIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -828,7 +828,7 @@ export default function Inventory({user}) {
             .map(joints => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[joints.strain]}
+                to={'/gems/' + gemLinkNames[joints.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -836,9 +836,9 @@ export default function Inventory({user}) {
               >
               <p key={joints.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={joints.count} color="primary">
-                  <SeedSvgIcon />
+                  <gemSvgIcon />
                 </Badge>
-                 {seedNames[joints.strain]}
+                 {gemNames[joints.strain]}
                 {joints.count !== 1 ? " Joints" : " Joint"}</font>
               </p>
               </Link>
@@ -854,7 +854,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Blunts</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    <em><a href="/market/gembank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -896,7 +896,7 @@ export default function Inventory({user}) {
             .map(blunts => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[blunts.strain]}
+                to={'/gems/' + gemLinkNames[blunts.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -906,7 +906,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={blunts.count} color="primary">
                   <DnaIcon  />
                 </Badge>
-                 {seedNames[blunts.strain]}
+                 {gemNames[blunts.strain]}
                 {blunts.count !== 1 ? " Blunts" : " Blunt"}</font>
               </p>
               </Link>
@@ -924,7 +924,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Dipped Joints</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -966,7 +966,7 @@ export default function Inventory({user}) {
             .map(dippedjoints => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[dippedjoints.buds]}
+                to={'/gems/' + gemLinkNames[dippedjoints.buds]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -976,7 +976,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={dippedjoints.count} color="primary">
                   <BongIcon />
                 </Badge>
-                 {seedNames[dippedjoints.strain]}
+                 {gemNames[dippedjoints.strain]}
                 {dippedjoints.count !== 1 ? " Dipped Joints" : " Dipped Joint"}</font>
               </p>
               </Link>
@@ -992,7 +992,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Edibles</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1034,7 +1034,7 @@ export default function Inventory({user}) {
             .map(edibles => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[edibles.strain]}
+                to={'/gems/' + gemLinkNames[edibles.strain]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -1044,7 +1044,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={edibles.count} color="primary">
                   <BongIcon />
                 </Badge>
-                 {seedNames[edibles.strain]}
+                 {gemNames[edibles.strain]}
                 {edibles.count !== 1 ? " Brownies" : " Brownie"}</font>
               </p>
               </Link>
@@ -1060,7 +1060,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Cannagars</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1102,7 +1102,7 @@ export default function Inventory({user}) {
             .map(cannagars => (
               <Link
                 component={Link1} 
-                to={'/seeds/' + seedLinkNames[cannagars.buds]}
+                to={'/gems/' + gemLinkNames[cannagars.buds]}
                 variant="body2"
                 onClick={() => {
                   console.info("I'm a button.");
@@ -1112,7 +1112,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={cannagars.count} color="primary">
                   <BongIcon />
                 </Badge>
-                 {seedNames[cannagars.buds]}
+                 {gemNames[cannagars.buds]}
                 {cannagars.count !== 1 ? " Buds" : " Bud"}</font>
               </p>
               </Link>
@@ -1133,7 +1133,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Kiefboxes</u></Typography>
-    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    <em><a href="/market/gembank">{"Total number of available gems you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1151,7 +1151,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent={user.availableKiefbox} color="primary">
-                  <SeedSvgIcon  />
+                  <gemSvgIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -1164,7 +1164,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Papers</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    <em><a href="/market/gembank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1197,7 +1197,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Vacuum Ovens</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1228,7 +1228,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Brownie Mix</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1259,7 +1259,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Hempwraps</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -1292,7 +1292,7 @@ export default function Inventory({user}) {
     title={
     <React.Fragment>
     <Typography color="error" className={classes.font}><u>Available Bluntwraps</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
+    <em><a href="/market/gembank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
