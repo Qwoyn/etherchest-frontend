@@ -58,8 +58,7 @@ export const TwitchStreams = () => {
           <GridListTile key={tile.img}>
             <TwitchStream channelName={tile.channel} allowFullScreen autoPlay muted/>
             
-              }
-            />
+           
           </GridListTile>
         ))}
       </GridList>
