@@ -1,7 +1,7 @@
 import axios from "axios";
 import { format as formatTimeAgo } from "timeago.js";
 
-export class HashkingsAPI {
+export class etherchestAPI {
   baseUrl = "https://etherchest-backend.herokuapp.com/"; // main api
   
   get(suffix) {
@@ -10,13 +10,13 @@ export class HashkingsAPI {
 
   getTrending() {
     return this.getSteemAPI("get_discussions_by_trending", [
-      { tag: "cannabis", limit: 20 }
+      { tag: "leofinance", limit: 20 }
     ]);
   }
 
   getTrendingHome() {
     return this.getSteemAPI("get_discussions_by_trending", [
-      { tag: "cannabis", limit: 1 }
+      { tag: "leofinance", limit: 1 }
     ]);
   }
 
@@ -28,7 +28,7 @@ export class HashkingsAPI {
     return this.get(`a/${username}`);
   }
 
-  getUserSeeds(username) {
+  getUsergems(username) {
     return this.get(`s/${username}`);
   }
 
@@ -78,7 +78,7 @@ export class HashkingsAPI {
         500
       ]).then(h => h.reverse());
 
-      const accounts = ["hashkings", "hk-stream"];
+      const accounts = ["etherchest"];
 
       const payouts = history
         .filter(
@@ -112,7 +112,7 @@ export class HashkingsAPI {
         .filter(
           h =>
             h[1].op[0] === "transfer" &&
-            h[1].op[1].to === "hashkings" &&
+            h[1].op[1].to === "etherchest" &&
             Object.keys(gardenNames).includes(h[1].op[1].memo.split(" ")[0]) &&
             h[1].op[1].memo.split(" ")[1] === "manage"
         )
@@ -136,14 +136,14 @@ export class HashkingsAPI {
           };
         });
 
-      const seedPurchases = history
+      const gemPurchases = history
         .filter(
           h =>
             h[1].op[0] === "transfer" &&
-            h[1].op[1].to === "hashkings" &&
-            Object.keys(seedTypes).includes(h[1].op[1].memo.split(" ")[0][0]) &&
-            h[1].op[1].memo.split(" ")[0].slice(1) === "seed" &&
-            Object.keys(seedNames).includes(h[1].op[1].memo.split(" ")[1])
+            h[1].op[1].to === "etherchest" &&
+            Object.keys(gemTypes).includes(h[1].op[1].memo.split(" ")[0][0]) &&
+            h[1].op[1].memo.split(" ")[0].slice(1) === "gem" &&
+            Object.keys(gemNames).includes(h[1].op[1].memo.split(" ")[1])
         )
         .map(purchase => {
           const [
@@ -157,8 +157,8 @@ export class HashkingsAPI {
           ] = purchase;
 
           return {
-            strain: seedNames[memo.split(" ")[1]],
-            type: seedTypes[memo.split(" ")[0][0]].name,
+            strain: gemNames[memo.split(" ")[1]],
+            type: gemTypes[memo.split(" ")[0][0]].name,
             amount,
             timestamp,
             block,
@@ -173,7 +173,7 @@ export class HashkingsAPI {
       if (
         payouts.length === 0 &&
         landPurchases.length === 0 &&
-        seedPurchases.length === 0 &&
+        gemPurchases.length === 0 &&
         oldestBlock >= 31804536
       ) {
         return this.getAccountHistory(
@@ -194,7 +194,7 @@ export class HashkingsAPI {
             ...next,
             payouts: [...payouts, ...next.payouts],
             landPurchases: [...landPurchases, ...next.landPurchases],
-            seedPurchases: [...seedPurchases, ...next.seedPurchases]
+            gemPurchases: [...gemPurchases, ...next.gemPurchases]
           };
         } else {
           return {
@@ -203,7 +203,7 @@ export class HashkingsAPI {
             stop: oldestBlock < 31804536, // block of first action,
             date: new Date(lastTx[1].timestamp).toDateString(),
             landPurchases,
-            seedPurchases
+            gemPurchases
           };
         }
       }
@@ -214,7 +214,7 @@ export class HashkingsAPI {
         oldestId: startId,
         stop: false,
         landPurchases: [],
-        seedPurchases: []
+        gemPurchases: []
       };
     }
   }
@@ -249,8 +249,8 @@ export class HashkingsAPI {
     const leaderboard = Object.keys(all.users)
       .map(username => {
         const user = all.users[username];
-        const seedsXp = user.seeds
-          .map(seed => seed.xp)
+        const gemsXp = user.gems
+          .map(gem => gem.xp)
           .reduce((a, b) => a + b, 0);
 
         const plantedXp = user.addrs
@@ -261,7 +261,7 @@ export class HashkingsAPI {
           .reduce((a, b) => a + b, 0);
         return {
           username: username,
-          xp: seedsXp + plantedXp
+          xp: gemsXp + plantedXp
         };
       })
       .sort((a, b) => b.xp - a.xp)
@@ -273,7 +273,7 @@ export class HashkingsAPI {
       const availableGardens = userLand.filter(
         land => typeof land === "string"
       );
-      const availableSeeds = user.seeds || [];
+      const availablegems = user.gems || [];
       const availablePollen = user.pollen || [];
       const availableBuds = user.buds || [];
       const availableJoints = user.joints || [];
@@ -305,7 +305,7 @@ export class HashkingsAPI {
                 when: formatTimeAgo(date),
                 id: garden.id,
                 block: watered[0],
-                strain: garden.seed.strain,
+                strain: garden.gem.strain,
                 type: "watered"
               };
             })
@@ -325,7 +325,7 @@ export class HashkingsAPI {
                 when: formatTimeAgo(date),
                 id: garden.id,
                 block: harvested[0],
-                strain: garden.seed.strain,
+                strain: garden.gem.strain,
                 type: "harvested"
               };
             })
@@ -373,7 +373,7 @@ export class HashkingsAPI {
       return {
         gardeners: stats.gardeners,
         gardens,
-        availableSeeds: availableSeeds.length,
+        availablegems: availablegems.length,
         availablePollen: availablePollen.length,
         availableBuds: availableBuds.length,
         availableJoints: availableJoints.length,
@@ -421,7 +421,7 @@ export class HashkingsAPI {
       .filter(land => typeof land === "object" && land.stage < 0)
       .map(land => land.id);
     availableGardens.push(...harvestedLand);
-    const availableSeeds = user.seeds || [];
+    const availablegems = user.gems || [];
     const availablePollen = user.pollen || [];
     const availableBuds = user.buds || [];
     const availableKief = user.kief || [];
@@ -443,7 +443,7 @@ export class HashkingsAPI {
     return {
       activeGardens,
       availableGardens,
-      availableSeeds,
+      availablegems,
       availablePollen,
       availableBuds,
       availableJoints,
@@ -494,7 +494,7 @@ export const profileImages = {
   6: "Mexico"
 };
 
-export const seedNames = {
+export const gemNames = {
   hk: "Hindu Kush",
   dp: "Durban Poison",
   lb: "Lambs Bread",
@@ -534,7 +534,7 @@ export const pollenNames = {
   sog: "Hive OG"
 };
 
-export const seedTypes = {
+export const gemTypes = {
   r: {
     num: 5000,
     str: "5",
@@ -566,7 +566,7 @@ export const gardenLinkNames = {
   f: "Mexico"
 };
 
-export const seedLinkNames = {
+export const gemLinkNames = {
   hk: "Hindu-Kush",
   dp: "Durban-Poison",
   lb: "Lambs-Bread",
