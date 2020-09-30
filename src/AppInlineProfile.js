@@ -104,7 +104,7 @@ export const AppInlineProfile = () => {
         <div>
           <img
           alt="Hive Avatar"
-          src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+          src={`https://images.hive.blog/u/${validatedTo}/avatar/small`}
           />
           </div>
           )}
