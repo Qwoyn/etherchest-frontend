@@ -3,22 +3,17 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import {  FarmTopbarIcon, 
-          SteemSVGIcon, 
-          BlogIcon, 
-          CareIcon, 
+import {  HiveSVGIcon, 
+          BlogIcon,
           StoreIcon, 
           InformationIcon, 
-          FarmIcon, 
-          TutorialIcon,
-          FunditionIcon,
-          PatreonIcon, 
-          LandIcon } from './Icons';
+          FarmIcon,
+          MarketIcon,
+          FarmingIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
-import { ExchangeIcon } from './Icons';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -33,7 +28,7 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#532C0C",
     },
     font: {
-      fontFamily: '"Jua", sans-serif',
+      fontFamily: '"Orbitron", sans-serif',
     },
   }));
 
@@ -81,14 +76,14 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Visit your Farm</Typography>
+                  <Typography color="error" className={classes.font}>Inventory(coming soon)</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/farm">
-            <CareIcon />
+            <IconButton className="layout-menu-button" component={Link1} to="/home">
+            <FarmingIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
@@ -97,33 +92,17 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Market</Typography>
+                  <Typography color="error" className={classes.font}>Market(coming soon)</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/markets">
-            <StoreIcon />
+            <IconButton className="layout-menu-button" component={Link1} to="/home">
+            <MarketIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
-
-            {/*<Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Starter gems</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/market/gembank">
-            <gemIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid> */}
 
             <Grid item xs={1}>
             <HtmlTooltip
@@ -140,93 +119,41 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid> 
-
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Learn to Play</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/tutorial">
-            <TutorialIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid> 
-
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Become a Patron</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <a href="https://www.patreon.com/hashkings" target="_default">    
-            <IconButton className="layout-menu-button">
-            <PatreonIcon />
-            </IconButton>
-            </a>
-            </HtmlTooltip>
-            </Grid> 
-
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Support us on Fundition</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <a href="https://gaming.fundition.io/#!/@hashkings/vni1ql2j5" target="_default">    
-            <IconButton className="layout-menu-button">
-            <FunditionIcon />
-            </IconButton>
-            </a>
-            </HtmlTooltip>
-            </Grid> 
-
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>What is HIVE?</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <a href="https://steemit.com/faq.html" target="_default">    
-            <IconButton className="layout-menu-button">
-            <SteemSVGIcon />
-            </IconButton>
-            </a>
-            </HtmlTooltip>
-            </Grid> 
             
             <Grid item xs={1}>
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>FAQ</Typography>
+                  <Typography color="error" className={classes.font}>FAQ(coming soon)</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/faq">
+            <IconButton className="layout-menu-button" component={Link1} to="/home">
             <InformationIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
-                        
+
+             <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Visit Hive!</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <a href="https://peakd.com/" target="_default">    
+            <IconButton className="layout-menu-button">
+            <HiveSVGIcon />
+            </IconButton>
+            </a>
+            </HtmlTooltip>
+            </Grid>         
+
         </Grid>
     </Grid>
     <Grid item xs={6}>

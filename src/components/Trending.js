@@ -95,8 +95,8 @@ export default function Trending() {
         };
         return (
           <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
-            <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/plwe4uc.png"} alt="Hashkings Logo" />
-            <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink} target="_blank" rel="noopener noreferrer">
+            <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/8e2rVV9.png"} alt="EtherChest Logo" />
+            <a href={"https://www.peakd.com/@" + post.author + "/" + post.permlink} target="_blank" rel="noopener noreferrer">
             <GridListTileBar
               title={post.title}
               titlePosition="top"
@@ -105,7 +105,7 @@ export default function Trending() {
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
                 <Avatar className={classes.avatar}>
                <img
-               alt="STEEM Avatar"
+               alt="HIVE Avatar"
                src={`https://steemitimages.com/u/${post.author}/avatar/small`}
                />
                </Avatar>
@@ -122,7 +122,7 @@ export default function Trending() {
                 <HtmlTooltip
                 title={
                 <React.Fragment>
-                  <Typography color="error">Custom Upvote Weight Coming Soon! (Currently set at 4.2%)</Typography>
+                  <Typography color="error">Voting coming soon!</Typography>
                 </React.Fragment>
                 }
                 placement="top"

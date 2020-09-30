@@ -8,9 +8,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { EtherchestAPI } from "./EtherchestAPI.js";
 import api from './service/SteemConnectAPI';
-import Modal from '@material-ui/core/Modal';
-import Profile from './components/Profile.js';
-import TemporaryDrawer from './Drawer.js';
 
 const access_token = localStorage.getItem("sc_token");
 
@@ -33,11 +30,6 @@ const handleClick = () => {
   window.location = '/login';
 };
 
-const handleApparel = () => {
-  //window.location = 'https://www.bonfire.com/hashkings-community-shirts/';
-  window.open('https://www.bonfire.com/hashkings-community-shirts/');
-};
-
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: '#000000',
@@ -50,7 +42,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 const useStyles = makeStyles(theme => ({
 font: {
-  fontFamily: '"Jua", sans-serif',
+  fontFamily: '"Orbitron", sans-serif',
 },
 paper: {
   position: 'absolute',
@@ -77,10 +69,6 @@ export const AppInlineProfile = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   useEffect(() => {
     etherchestApi.steemUserExists(username).then(username => {
       if (username) {
@@ -91,44 +79,9 @@ export const AppInlineProfile = () => {
     });
   }, [username]);
 
-
-  const handleDelete = () => {
-    alert('Need to sign out? Please clear your cache to sign out completely.');
-  };
-
-  // Logout function, revoke access token
-const logOut = () => {
-  api.revokeToken(function(err, res) {
-      if (res && res.success) {
-          username = null;
-          document.location.href = '/login';
-      }
-  });
-  return false;
-};
-
   if (!username) {
     return (
       <div className="profile">
-        
-        {/*<HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-      <Chip
-        icon={<BuildIcon />}
-        color="secondary"
-        label= "Maintenance Mode"
-        onClick={handleClick}
-        className={classes.font}
-      />
-      </HtmlTooltip>*/}
-
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
         icon={<LockOpen />}
@@ -144,24 +97,6 @@ const logOut = () => {
   } else {
   return (
     <div className="profile">
-            {/*<HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-        <Chip
-          icon={<BuildIcon />}
-          color="secondary"
-          label= "Maintenance Mode"
-          onClick={handleClick}
-          className={classes.font}
-        />
-      </HtmlTooltip>*/}
-
       <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar} disabled={true}>
@@ -176,8 +111,6 @@ const logOut = () => {
         </Avatar>}
         label= {username}
         color="primary"
-        //onDelete={logOut}
-        onClick={handleOpen}
         className={classes.font}
       />
         </Tooltip>

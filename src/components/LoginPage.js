@@ -29,23 +29,23 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '80vh',
+    height: '85vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)', // main carousel
+    backgroundImage: 'url(https://source.unsplash.com/user/thomasjsn/1600x900)', // main carousel
     // backgroundImage: 'url(https://i.imgur.com/vZ7ShWv.png)', // twiztedmonkey
     // backgroundImage: 'url(https://i.imgur.com/GkgOq4F.png)', // shirt sale
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    alt: 'https://source.unsplash.com/user/kimzy/1600x900',
+    alt: 'https://source.unsplash.com/user/thomasjsn/1600x900',
     width: '100%',
     /*command: () => {
       window.open('https://www.twiztedmonkey.com', '_blank');
     }*/
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(1, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
   },
   font: {
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   },
 }));
 
@@ -129,14 +129,6 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
-      {/*{!isDesktop ? (
-        <PostDialog />
-      ) : ( 
-        <div></div>
-      )}      
-    {/*<CssBaseline 
-    color="#000000"
-    />*/}
     <Grid item xs={false} sm={4} md={7} className={classes.image}>
     </Grid>
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -144,10 +136,12 @@ export const LoginPage = ({history}) => {
       <center>
       <img
         alt="etherchest Banner"
-        src={`https://i.imgur.com/jvJLKua.png`}
+        src={`https://i.imgur.com/TJP9RZ0.png`}
         />
+        <Typography variant="h4" className={classes.font}>
+          Etherchest Ecosystem
+        </Typography>
       </center>
-      <br/>
       
     </div>
       <div className={classes.paper}>
@@ -187,7 +181,7 @@ export const LoginPage = ({history}) => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="https://signup.steemit.com/" variant="body2" className={classes.font}>
+              <Link href="https://signup.hive.io/" variant="body2" className={classes.font}>
                 {"Don't have a Hive account? Sign Up"}
               </Link>
             </Grid>

@@ -168,15 +168,11 @@ class App extends Component {
   createMenu() {
     this.menu = [
       {
-        label: "Farm",
+        label: "Profile",
         items: [
           {
-            label: "Fields",
-            to: "/farm"
-          },
-          {
-            label: "Office",
-            to: "/accounting"
+            label: "Inventory",
+            to: "/inventory"
           },
         ]
       },
@@ -184,11 +180,7 @@ class App extends Component {
         label: "Market",
         items: [
           {
-            label: "Farm Plots",
-            to: "/market/farmplots"
-          },
-          {
-            label: "gems",
+            label: "Gems",
             to: "/market/gembank"
           },
         ]
@@ -201,21 +193,10 @@ class App extends Component {
             to: "/trending"
           },
           {
-            label: "Twitch Streams",
-            to: "/streams"
-          },
-          {
-            label: "Curation Trail",
+            label: "Hive Blog",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-              window.open('https://steempeak.com/@hashkings/introducing-hashkings-curation-trail', '_blank');
-            }
-          },
-          {
-            label: "Steemit Hive",
-            command: () => {
-              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-              window.open('https://beta.steemit.com/trending/hive-164881', '_blank');
+              window.open('https://peakd.com/@etherchest', '_blank');
             }
           },
           {
@@ -223,14 +204,10 @@ class App extends Component {
             icon: {ExitToAppIcon},
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-              window.open('https://discord.gg/Zq29TWe', '_blank');
+              window.open('https://discord.gg/eMQpEKS', '_blank');
             }
           },
         ]
-      },
-      {
-        label: "Growers Association",
-        to: "/growers"
       },
       {
         label: "About",
@@ -330,7 +307,7 @@ class App extends Component {
             <Route path="/login" component={LoginPage} />
             <Route path="/" exact component={HomePage} />
             <Route path="/garden/:username" component={UserGarden} />
-            <Route exact path="/farm" component={GardenPage} />
+            <Route exact path="/inventory" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
             <Route path="/market/gembank" component={Marketgems} />
             <Route path="/callback" component={SCCallback} />
@@ -342,7 +319,7 @@ class App extends Component {
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
-            <Route path="/markets" component={GemGifting} />
+            <Route path="/markets" component={Marketgems} />
 
             <Route path="/gems/mazar-i-sharif" component={MazariSharif} />
           </div>
