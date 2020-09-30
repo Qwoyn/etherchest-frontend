@@ -16,14 +16,14 @@ const useStyles = makeStyles({
   card: {
     maxWidth: 345,
     minWidth: 250,
-    background: "#DFB17B",
-    fontFamily: '"Jua", sans-serif',
+    background: "#ffffff",
+    fontFamily: '"Exo", sans-serif',
   },
   media: {
     height: 140,
   },
   font: {
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Exo", sans-serif',
   },
 });
 
@@ -39,27 +39,37 @@ export default function MediaCard() {
     <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://i.imgur.com/RgYo3qZ.png"
-          title="South America Plot"
+          image="https://i.imgur.com/TlGrAgo.png"
+          title="EtherChest Ecosystem"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>Farming</u>
+            <u>Gem Market</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-          Vist your Farm and check your inventory or visit your stats
+          Find all of our available <a href="https://cointelegraph.com/explained/non-fungible-tokens-explained" target="_blank">non-fungible tokens (NFTs)</a> available in our Ecosystem in one convenient location.
           </Typography>
         </CardContent>
       <CardActions>
       <Link component={Link1} to="/farm">
         <IconButton color="primary" aria-label="Visit Farm">
         <GerminateIconBlack /> 
-      </IconButton>Farm
+      </IconButton>Diamonds
         </Link>
         <Link component={Link1} to="/accounting">
         <IconButton color="primary" aria-label="Visit Farm">
         <FarmIcon /> 
-      </IconButton>Office
+      </IconButton>Sapphires
+        </Link>
+        <Link component={Link1} to="/farm">
+        <IconButton color="primary" aria-label="Visit Farm">
+        <GerminateIconBlack /> 
+      </IconButton>Emeralds
+        </Link>
+        <Link component={Link1} to="/farm">
+        <IconButton color="primary" aria-label="Visit Farm">
+        <GerminateIconBlack /> 
+      </IconButton>Rubys
         </Link>
       </CardActions>
     </Card>

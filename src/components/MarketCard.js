@@ -14,15 +14,15 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
-    background: "#DFB17B",
+    background: "#ffffff",
     minWidth:250,
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Exo", sans-serif',
   },
   media: {
     height: 140,
   },
   font: {
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Exo", sans-serif',
   },
 });
 
@@ -36,27 +36,27 @@ export default function MarketCard() {
     <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
-          title="Market"
+          image="https://i.imgur.com/4yeIKds.png"
+          title="Eth 2.0"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>Markets</u>
+            <u>User Wallet</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-            Purchase gems or lease property to grow on.
+            Visit your Wallet and view gems, ducat payouts and other information or check out your guild stats!
           </Typography>
         </CardContent>
         <CardActions>
       <Link component={Link1} to="/markets">
         <IconButton color="primary" aria-label="Visit gem Market">
         <gemIcon /> 
-      </IconButton>gems
+      </IconButton>User Wallet
         </Link>
         <Link component={Link2} to="/markets">
         <IconButton color="primary" aria-label="Visit Land Sales">
         <LandIcon /> 
-      </IconButton>Land
+      </IconButton>Guild
         </Link>
       </CardActions>
     </Card>

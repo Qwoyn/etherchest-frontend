@@ -33,7 +33,7 @@
 
 import React, {Component} from "react";
 import classNames from "classnames";
-import {AppTopbar} from "./AppTopbar";
+//import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
 import {Partners} from "./components/Partners";
@@ -48,46 +48,6 @@ import { BoardMemberApp } from "./components/BoardMemberApp";
 import { HomePage } from "./components/HomePage";
 
 import { MazariSharif } from "./components/gems/MazariSharif";
-import { PanamaRed } from "./components/gems/PanamaRed";
-import { SwaziGold } from "./components/gems/SwaziGold";
-import { ColombianGold } from "./components/gems/ColombianGold";
-import { Malawi } from "./components/gems/Malawi";
-import { Kilimanjaro } from "./components/gems/Kilimanjaro";
-import { KingsBread } from "./components/gems/KingsBread";
-import { AcapulcoGold } from "./components/gems/AcapulcoGold";
-import { LambsBread } from "./components/gems/LambsBread";
-import { HinduKush } from "./components/gems/HinduKush";
-import { DurbanPoison } from "./components/gems/DurbanPoison";
-import { ChocolateThai } from "./components/gems/ChocolateThai";
-import { Thai } from "./components/gems/Thai";
-import { Afghani } from "./components/gems/Afghani";
-import { LashkarGah } from "./components/gems/LashkarGah";
-import { Aceh } from "./components/gems/Aceh";
-import { SteemOG } from "./components/gems/SteemOG";
-
-import Afghanistan from './components/gems/Afghanistan';
-import Africa from './components/gems/Africa';
-import Jamaica from './components/gems/Jamaica';
-import CentralAmerica from './components/gems/CentralAmerica';
-import Asia from './components/gems/Asia';
-import Mexico from './components/gems/Mexico';
-
-import { MazariSharifpollen } from "./components/gems/MazariSharifpollen";
-import { PanamaRedpollen } from "./components/gems/PanamaRedpollen";
-import { SwaziGoldpollen } from "./components/gems/SwaziGoldpollen";
-import { ColombianGoldpollen } from "./components/gems/ColombianGoldpollen";
-import { Malawipollen } from "./components/gems/Malawipollen";
-import { Kilimanjaropollen } from "./components/gems/Kilimanjaropollen";
-import { KingsBreadpollen } from "./components/gems/KingsBreadpollen";
-import { AcapulcoGoldpollen } from "./components/gems/AcapulcoGoldpollen";
-import { LambsBreadpollen } from "./components/gems/LambsBreadpollen";
-import { HinduKushpollen } from "./components/gems/HinduKushpollen";
-import { DurbanPoisonpollen } from "./components/gems/DurbanPoisonpollen";
-import { ChocolateThaipollen } from "./components/gems/ChocolateThaipollen";
-import { Thaipollen } from "./components/gems/Thaipollen";
-import { Afghanipollen } from "./components/gems/Afghanipollen";
-import { LashkarGahpollen } from "./components/gems/LashkarGahpollen";
-import { Acehpollen } from "./components/gems/Acehpollen";
 
 import Giftgem from "./components/Giftgem";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -330,42 +290,9 @@ class App extends Component {
         this.state.overlayMenuActive && this.state.layoutMode === "overlay",
       "layout-mobile-sidebar-active": this.state.mobileMenuActive
     });
-    let sidebarClassName = classNames("layout-sidebar", {
-      "layout-sidebar-dark": this.state.layoutColorMode === "dark"
-    });
 
     return (
-      <StateContext.Provider value={this.state.localState}>
-        <div className={wrapperClass} onClick={this.onWrapperClick}>
-          <AppTopbar onToggleMenu={this.onToggleMenu} />
-          <div
-            ref={el => (this.sidebar = el)}
-            className={sidebarClassName}
-            onClick={this.onSidebarClick}
-          >
-            <ScrollPanel
-              ref={el => (this.layoutMenuScroller = el)}
-              style={{height: "120%"}}
-            >
-              <div className="layout-sidebar-scroll-content">
-                <div className="layout-logo">
-                <a href="/">
-                <img
-                    alt="Logo"
-                    src="/assets/layout/images/hashkingsbanner.png"
-                  />
-                  </a>
-                  <br/>
-                  <br/>
-                </div>                
-                <AppMenu
-                  model={this.menu}
-                  onMenuItemClick={this.onMenuItemClick}
-                />
-                <Partners />
-              </div>
-            </ScrollPanel>
-          </div>
+      <StateContext.Provider value={this.state.localState}>       
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
             <Route path="/" exact component={HomePage} />
@@ -384,50 +311,10 @@ class App extends Component {
             <Route path="/home" component={HomePage} />
             <Route path="/markets" component={Giftgem} />
 
-            <Route path="/gems/steem-og" component={SteemOG} />
-            <Route path="/gems/afghani" component={Afghani} />
-            <Route path="/gems/colombian-gold" component={ColombianGold} />
-            <Route path="/gems/lashkar-gah" component={LashkarGah} />
-            <Route path="/gems/chocolate-thai" component={ChocolateThai} />
-            <Route path="/gems/thai" component={Thai} />
-            <Route path="/gems/swazi-gold" component={SwaziGold} />
-            <Route path="/gems/malawi" component={Malawi} />
-            <Route path="/gems/kings-bread" component={KingsBread} />
-            <Route path="/gems/kilimanjaro" component={Kilimanjaro} />
-            <Route path="/gems/acapulco-gold" component={AcapulcoGold} />
-            <Route path="/gems/durban-poison" component={DurbanPoison} />
-            <Route path="/gems/lambs-bread" component={LambsBread} />
             <Route path="/gems/mazar-i-sharif" component={MazariSharif} />
-            <Route path="/gems/hindu-kush" component={HinduKush} />
-            <Route path="/gems/panama-red" component={PanamaRed} />
-            <Route path="/gems/aceh" component={Aceh} />
-
-            <Route path="/pollen/colombian-gold" component={ColombianGoldpollen} />
-            <Route path="/pollen/lashkar-gah" component={LashkarGahpollen} />
-            <Route path="/pollen/chocolate-thai" component={ChocolateThaipollen} />
-            <Route path="/pollen/thai" component={Thaipollen} />
-            <Route path="/pollen/swazi-gold" component={SwaziGoldpollen} />
-            <Route path="/pollen/malawi" component={Malawipollen} />
-            <Route path="/pollen/kings-bread" component={KingsBreadpollen} />
-            <Route path="/pollen/kilimanjaro" component={Kilimanjaropollen} />
-            <Route path="/pollen/acapulco-gold" component={AcapulcoGoldpollen} />
-            <Route path="/pollen/durban-poison" component={DurbanPoisonpollen} />
-            <Route path="/pollen/lambs-bread" component={LambsBreadpollen} />
-            <Route path="/pollen/mazar-i-sharif" component={MazariSharifpollen} />
-            <Route path="/pollen/hindu-kush" component={HinduKushpollen} />
-            <Route path="/pollen/panama-red" component={PanamaRedpollen} />
-            <Route path="/pollen/aceh" component={Acehpollen} />
-            <Route path="/pollen/afghani" component={Afghanipollen} />
-
-            <Route path="/plots/Afghanistan" component={Afghanistan} />
-            <Route path="/plots/Africa" component={Africa} />
-            <Route path="/plots/Asia" component={Asia} />
-            <Route path="/plots/Central-America" component={CentralAmerica} />
-            <Route path="/plots/Jamaica" component={Jamaica} />
-            <Route path="/plots/Mexico" component={Mexico} />
           </div>
           <div className="layout-mask"></div>
-        </div> 
+      
       </StateContext.Provider>
     );
   }

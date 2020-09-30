@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import MediaCard from './FarmingCard';
+import MediaCard from './GemMarketCard';
 import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
 import MarketCard from './MarketCard';
@@ -9,7 +9,6 @@ import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
 import TrendingHomePage from './TrendingHomePage';
-import DialogPage from './DialogPage';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -66,17 +65,24 @@ const useStyles = makeStyles(theme => ({
     height: 100,
     width: 270,
   },
+  background: {
+    width: "auto",
+    height: "auto",
+  },
+  font: {
+    fontFamily: '"Rajdhani", sans-serif',
+  }
 }));
 
 export const HomePage = () => {
 const classes = useStyles();
 const isDesktop = window.innerWidth < 1000;
-const image1 = "https://i.imgur.com/j2CGYh2.jpg";
+const image1 = "https://i.imgur.com/kRCcCIe.png";
 
 if (!isDesktop) {
   return(
-    <Parallax blur={1} bgImage={image1} strength={500}>
-      <DialogPage />
+    <Parallax strength={1000} bgImage={image1}>
+    
     <div className={classes.root}>
     
       <Container fixed>
@@ -90,7 +96,6 @@ if (!isDesktop) {
       </Grid>
       <Grid item xs={3}>
       </Grid>
-      
       <Grid item xs={3}>
       </Grid>
     </Grid>
@@ -109,11 +114,6 @@ if (!isDesktop) {
       <br/>
 
       <Grid container spacing={1}>
-        <Grid item xs={12}>
-        <center>
-    <img src="https://i.imgur.com/Yzzk8H0.png"></img>
-    </center>
-        </Grid>
         <Grid item xs={12}>
          <TrendingHomePage /> 
         </Grid>
