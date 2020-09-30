@@ -10,6 +10,7 @@ import { EtherchestAPI } from "./EtherchestAPI.js";
 import api from './service/SteemConnectAPI';
 import Modal from '@material-ui/core/Modal';
 import Profile from './components/Profile.js';
+import TemporaryDrawer from './Drawer.js';
 
 const access_token = localStorage.getItem("sc_token");
 
@@ -137,13 +138,6 @@ const logOut = () => {
         className={classes.font}
       />
       </Tooltip>
-      <Tooltip title="Visit Bonfire.com" placement="left">
-      <Chip
-        label= "Hoodies!"
-        onClick={handleApparel}
-        className={classes.font}
-      />
-      </Tooltip>
       <br/>
     </div>
     );
@@ -170,11 +164,11 @@ const logOut = () => {
 
       <Tooltip title="Signed In" placement="bottom">
       <Chip
-        icon={<Avatar className={classes.avatar}>
+        icon={<Avatar className={classes.avatar} disabled={true}>
         {validatedTo && (
         <div>
           <img
-          alt="STEEM Avatar"
+          alt="Hive Avatar"
           src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
           />
           </div>
@@ -186,24 +180,7 @@ const logOut = () => {
         onClick={handleOpen}
         className={classes.font}
       />
-        </Tooltip> 
-      <Tooltip title="Visit Bonfire.com" placement="bottom">
-      <Chip
-        label= "Hoodies!"
-        onClick={handleApparel}
-        className={classes.font}
-      />
-      </Tooltip>
-      <Modal
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={open}
-        onClose={handleClose}
-      >
-        <div style={modalStyle} className={classes.paper}>
-          <Profile />
-        </div>
-      </Modal>
+        </Tooltip>
     </div>
   );
   }

@@ -122,7 +122,7 @@ if (!isDesktop) {
   );
  } else {
   return (
-    <Redirect to='/login'/>
+    <Redirect to='/home'/>
     );
   }
 };

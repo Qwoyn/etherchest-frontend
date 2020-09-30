@@ -33,7 +33,7 @@
 
 import React, {Component} from "react";
 import classNames from "classnames";
-//import {AppTopbar} from "./AppTopbar";
+import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
 import {Partners} from "./components/Partners";
@@ -49,7 +49,6 @@ import { HomePage } from "./components/HomePage";
 
 import { MazariSharif } from "./components/gems/MazariSharif";
 
-import Giftgem from "./components/Giftgem";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -66,6 +65,7 @@ import Tutorial from "./components/Tutorial";
 import Stats from "./components/Stats";                                  
 import ReactGA from 'react-ga';     
 import Trending from './components/Trending';     
+import GemGifting from "./components/gems/GemGifting.js";
     
 const trackingID ="UA-111263990-4"     
   
@@ -281,21 +281,73 @@ class App extends Component {
   }
 
   render() {
+    let wrapperClass = classNames("layout-wrapper", {
+      "layout-overlay": this.state.layoutMode === "overlay",
+      "layout-static": this.state.layoutMode === "static",
+      "layout-static-sidebar-inactive":
+        this.state.staticMenuInactive && this.state.layoutMode === "static",
+      "layout-overlay-sidebar-active":
+        this.state.overlayMenuActive && this.state.layoutMode === "overlay",
+      "layout-mobile-sidebar-active": this.state.mobileMenuActive
+    });
+    let sidebarClassName = classNames("layout-sidebar", {
+      "layout-sidebar-dark": this.state.layoutColorMode === "dark"
+    });
+
     return (
-      <StateContext.Provider value={this.state.localState}>       
+      <StateContext.Provider value={this.state.localState}>
+        <div className={wrapperClass} onClick={this.onWrapperClick}>
+          <AppTopbar onToggleMenu={this.onToggleMenu} />
+          <div
+            ref={el => (this.sidebar = el)}
+            className={sidebarClassName}
+            onClick={this.onSidebarClick}
+          >
+            <ScrollPanel
+              ref={el => (this.layoutMenuScroller = el)}
+              style={{height: "120%"}}
+            >
+              <div className="layout-sidebar-scroll-content">
+                <div className="layout-logo">
+                <a href="/">
+                <img
+                    alt="Logo"
+                    src="/assets/layout/images/hashkingsbanner.png"
+                  />
+                  </a>
+                  <br/>
+                  <br/>
+                </div>                
+                <AppMenu
+                  model={this.menu}
+                  onMenuItemClick={this.onMenuItemClick}
+                />
+                <Partners />
+              </div>
+            </ScrollPanel>
+          </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
             <Route path="/" exact component={HomePage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
+            <Route path="/market/farmplots" component={MarketPlots} />
             <Route path="/market/gembank" component={Marketgems} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
+            <Route path="/accounting" component={Stats} />
+            <Route path="/tutorial" component={Tutorial} />
+            <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
+            <Route path="/streams" component={TwitchStreams} />
+            <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
-            <Route path="/markets" component={Giftgem} />
+            <Route path="/markets" component={GemGifting} />
+
+            <Route path="/gems/mazar-i-sharif" component={MazariSharif} />
           </div>
           <div className="layout-mask"></div>
+        </div> 
       </StateContext.Provider>
     );
   }
