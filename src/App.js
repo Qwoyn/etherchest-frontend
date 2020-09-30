@@ -38,17 +38,8 @@ import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
 import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
-import {GardenPage} from "./components/GardenPage";
-import {MarketPlots} from "./components/MarketPlots";
-import {Marketgems} from "./components/Marketgems";
-import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
-import {TwitchStreams} from './components/TwitchStreams.js';
-import { BoardMemberApp } from "./components/BoardMemberApp";
 import { HomePage } from "./components/HomePage";
-
-import { MazariSharif } from "./components/gems/MazariSharif";
-
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -58,14 +49,9 @@ import "fullcalendar/dist/fullcalendar.css";
 import "./layout/layout.css";
 import "./App.scss";
 import steemConnectAPI from "./service/SteemConnectAPI";
-import SCCallback from "./components/SCCallback";
-import UserGarden from "./components/UserGarden";
-import FAQPage from "./components/FAQPage";
-import Tutorial from "./components/Tutorial";
-import Stats from "./components/Stats";                                  
+import SCCallback from "./components/SCCallback";                           
 import ReactGA from 'react-ga';     
-import Trending from './components/Trending';     
-import GemGifting from "./components/gems/GemGifting.js";
+import Trending from './components/Trending';
     
 const trackingID ="UA-111263990-4"     
   
