@@ -281,16 +281,6 @@ class App extends Component {
   }
 
   render() {
-    let wrapperClass = classNames("layout-wrapper", {
-      "layout-overlay": this.state.layoutMode === "overlay",
-      "layout-static": this.state.layoutMode === "static",
-      "layout-static-sidebar-inactive":
-        this.state.staticMenuInactive && this.state.layoutMode === "static",
-      "layout-overlay-sidebar-active":
-        this.state.overlayMenuActive && this.state.layoutMode === "overlay",
-      "layout-mobile-sidebar-active": this.state.mobileMenuActive
-    });
-
     return (
       <StateContext.Provider value={this.state.localState}>       
           <div className="layout-main">
@@ -298,23 +288,14 @@ class App extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
-            <Route path="/market/farmplots" component={MarketPlots} />
             <Route path="/market/gembank" component={Marketgems} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
-            <Route path="/accounting" component={Stats} />
-            <Route path="/tutorial" component={Tutorial} />
-            <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
-            <Route path="/streams" component={TwitchStreams} />
-            <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
             <Route path="/markets" component={Giftgem} />
-
-            <Route path="/gems/mazar-i-sharif" component={MazariSharif} />
           </div>
           <div className="layout-mask"></div>
-      
       </StateContext.Provider>
     );
   }

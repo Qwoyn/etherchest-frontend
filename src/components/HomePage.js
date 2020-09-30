@@ -82,9 +82,7 @@ const image1 = "https://i.imgur.com/kRCcCIe.png";
 if (!isDesktop) {
   return(
     <Parallax strength={1000} bgImage={image1}>
-    
     <div className={classes.root}>
-    
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -112,62 +110,12 @@ if (!isDesktop) {
       <br/>
       <hr/>
       <br/>
-
       <Grid container spacing={1}>
         <Grid item xs={12}>
          <TrendingHomePage /> 
         </Grid>
       </Grid>
       <br/>
-      {/*<hr/>
-      <br/>
-    <Grid container spacing={1}>
-      <Grid item xs={12}>
-      <Grid container spacing={3}>   
-        <Grid item xs>
-            <CardMedia
-              className={classes.media}
-              image="https://i.imgur.com/dfHVMYV.png"
-              title="Splinterlands"
-            />
-        </Grid>
-        <Grid item xs>
-            <CardMedia
-              className={classes.media}
-              image="https://i.imgur.com/ymrzJc9.png"
-              title="Market"
-            />
-        </Grid>
-        <Grid item xs>
-        <Card className={classes.card}>
-            <CardMedia
-              className={classes.media}
-              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
-              title="Market"
-            />
-          </Card>
-        </Grid>
-        <Grid item xs>
-        <Card className={classes.card}>
-            <CardMedia
-              className={classes.media}
-              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
-              title="Market"
-            />
-          </Card>
-        </Grid>
-        <Grid item xs>
-        <Card className={classes.card}>
-            <CardMedia
-              className={classes.media}
-              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
-              title="Market"
-            />
-          </Card>
-        </Grid>
-      </Grid>
-    </Grid>
-    </Grid>  */}
       </Container>
     </div>
     </Parallax>

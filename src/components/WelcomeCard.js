@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     height: 100,
   },
   font: {
-    fontFamily: '"Rajdhani", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   },
 });
 
