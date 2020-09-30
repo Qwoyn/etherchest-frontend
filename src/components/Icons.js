@@ -197,7 +197,7 @@ export function WaterIcon(props) {
       );
     }
 
-    export function gemIcon(props) {
+    export function GemIcon(props) {
       return (
         <SvgIcon viewBox="0 0 45.415 45.416" {...props} htmlColor="#B85F14">
           <path d="M45.414,38.156c-0.015-0.192-0.048-0.395-0.102-0.594c-0.251-0.926-0.996-1.689-1.918-1.953

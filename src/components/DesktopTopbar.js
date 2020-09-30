@@ -76,7 +76,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Inventory(coming soon)</Typography>
+                  <Typography color="error" className={classes.font}>Inventory (Coming Soon)</Typography>
                 </React.Fragment>
               }
               placement="top"
@@ -92,7 +92,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Market(coming soon)</Typography>
+                  <Typography color="error" className={classes.font}>Market (Coming Soon)</Typography>
                 </React.Fragment>
               }
               placement="top"
@@ -124,7 +124,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>FAQ(coming soon)</Typography>
+                  <Typography color="error" className={classes.font}>FAQ (Coming Soon)</Typography>
                 </React.Fragment>
               }
               placement="top"

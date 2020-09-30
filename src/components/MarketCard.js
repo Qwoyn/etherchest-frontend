@@ -16,13 +16,13 @@ const useStyles = makeStyles({
     maxWidth: 345,
     background: "#ffffff",
     minWidth:250,
-    fontFamily: '"Exo", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   },
   media: {
     height: 140,
   },
   font: {
-    fontFamily: '"Exo", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   },
 });
 
@@ -41,21 +41,21 @@ export default function MarketCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>User Wallet</u>
+            <u>User Wallet <font color="red">(Coming Soon)</font></u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
             Visit your Wallet and view gems, ducat payouts and other information or check out your guild stats!
           </Typography>
         </CardContent>
         <CardActions>
-      <Link component={Link1} to="/markets">
+      <Link component={Link1} to="/">
         <IconButton color="primary" aria-label="Visit gem Market">
-        <gemIcon /> 
+     
       </IconButton>User Wallet
         </Link>
-        <Link component={Link2} to="/markets">
+        <Link component={Link2} to="/">
         <IconButton color="primary" aria-label="Visit Land Sales">
-        <LandIcon /> 
+      
       </IconButton>Guild
         </Link>
       </CardActions>

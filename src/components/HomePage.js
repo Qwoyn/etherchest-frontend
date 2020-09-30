@@ -110,19 +110,13 @@ if (!isDesktop) {
       <br/>
       <hr/>
       <br/>
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-         <TrendingHomePage /> 
-        </Grid>
-      </Grid>
-      <br/>
       </Container>
     </div>
     </Parallax>
   );
  } else {
   return (
-    <Redirect to='/home'/>
+    <Redirect to='/login'/>
     );
   }
 };
