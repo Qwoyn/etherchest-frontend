@@ -50,7 +50,7 @@ export default function MarketCard() {
         <CardActions>
       <Link component={Link1} to="/">
         <IconButton color="primary" aria-label="Visit gem Market">
-     
+          
       </IconButton>User Wallet
         </Link>
         <Link component={Link2} to="/">

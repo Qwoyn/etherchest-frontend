@@ -40,6 +40,7 @@ import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import { HomePage } from "./components/HomePage";
+import { MarketGems } from "./components/MarketGems";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -295,6 +296,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
             <Route path="/home" component={HomePage} />
+            <Route path="/market/gems" component={MarketGems} />
           </div>
           <div className="layout-mask"></div>
         </div> 

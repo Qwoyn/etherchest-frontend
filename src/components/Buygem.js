@@ -7,8 +7,7 @@ import {sign} from "hivesigner";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 
 export default function Buygem({type}) {
-  const {username} = useContext(StateContext);
-  const [gem, setgem] = useState();
+  const {username, gem} = useContext(StateContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
@@ -17,8 +16,8 @@ export default function Buygem({type}) {
     if (gem && username) {
       setIsSubmitting(true);
 
-      const memo = `${type}gem ${gem.id}`;
-      const to = "hashkings";
+      const memo = `diamond diamond`;
+      const to = "etherchest";
       const amount = gemTypes[type].str;
       const currency = "HIVE";
 
@@ -43,7 +42,6 @@ export default function Buygem({type}) {
             );
           });
           setIsSubmitting(false);
-          setgem();
         } catch {
           setIsSubmitting(false);
         }
@@ -57,8 +55,8 @@ export default function Buygem({type}) {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/gembank`
-            : "http://localhost:3000/market/gembank"
+            ? `${process.env.REACT_APP_URL}/market/gems`
+            : "http://localhost:3000/market/gems"
         );
       }
     }
@@ -70,23 +68,7 @@ export default function Buygem({type}) {
 
   return (
     <>
-      <div className="p-col-12 p-md-12">
-        <Dropdown
-          disabled={isSubmitting || !username}
-          optionLabel="name"
-          value={gem}
-          id="name"
-          options={Object.keys(gemNames).map(key => ({
-            id: key,
-            name: gemNames[key]
-          }))}
-          style={{width: "100%"}}
-          onChange={e => {
-            setgem(e.value);
-          }}
-          placeholder="Choose a gem..."
-        />     
-        <br/><br/>   
+      <div className="p-col-12 p-md-12"> 
         <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}

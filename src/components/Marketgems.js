@@ -1,39 +1,40 @@
 import React, { useContext } from "react";
 import Buygem from "./Buygem";
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
-import Box from '@material-ui/core/Box';
 import {StateContext} from "../App";
+import DiamondCard from './DiamondCard';
+import SapphireCard from './SapphireCard';
+import EmeraldCard from './EmeraldCard';
+import RubyCard from './RubyCard';
+import MarketMedia from "./MarketMedia";
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
+  root: {
+    flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(1),
+  transparentPaper: {
+    padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#294A0B",
+    backgroundColor: "transparent",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
   paperBlack: {
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A"
+    backgroundColor: "#154A4A",
   },
   paperBlacky: {
     padding: theme.spacing(1),
@@ -44,16 +45,16 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#154A4A",
   },
   media: {
-    height: 140,
+    height: "100%",
   },
   font: {
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   },
 }));
 
-export const Marketgems = () => {
+export const MarketGems = () => {
   const {username} = useContext(StateContext);
-  const gemBackground = "https://i.imgur.com/Kio2LW4.jpg";
+  const gemBackground = "https://i.imgur.com/kRCcCIe.png";
 
   const theme = createMuiTheme({
     palette: {
@@ -65,94 +66,53 @@ export const Marketgems = () => {
   
   if (username) {
   return(
-    <Paper className={classes.paperBlacky}>
-      <Parallax blur={1} bgImage={gemBackground} strength={500}>
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-      <Box boxShadow={4}>
-        <Paper className={classes.paperBlack}>   
-          <ThemeProvider theme={theme}>
-            <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B" className={classes.font}><u>Welcome to the gembank</u></font></b>
-            </Typography>
-          </ThemeProvider>
-        </Paper>
-        </Box>
-      </Grid>
-      <Grid item xs>
-      <Box boxShadow="auto">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/vAUGcFV.png"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Genesis gems</font>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>These gems are the first round of gems, are extremely rare and are used to make beta gems.</font>
-          </Typography>
-          <br/>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}><b>Price: 5 Hive</b></font>
-          </Typography>
-              <label htmlFor="multiselect" />
-            <Buygem type="t" />
-        </CardContent>
-      </Card>
-      </Box> 
-    </Grid>
-    <Grid item xs>
-    <Box boxShadow="auto">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-gems-101-all-you-need-to-know-and-more.jpg"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Beta gems</font>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>This is the second round of gems, acquired through growing a genesis gem into a mature plant and harvesting.</font>
-          </Typography>
-          <br/>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}><b><i>Only Available through trade. Please visit the <a href="https://discord.gg/hWJed7s">Discord Server</a></i></b></font>
-          </Typography>
-          {/*<Buygem type="m" />*/}
-        </CardContent>
-      </Card>
-      </Box>
-    </Grid>
-    <Grid item xs>
-    <Box boxShadow="auto">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/x1eOPYj.png"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>HK gems</font>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>These are the full version gems not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
-          These gems will be also broken down in to Sativa, Indica and Ruderalis.</font>
-          </Typography>
-          <br/>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}><b>Price: TBD</b></font>
-          </Typography>
-          {/*<Buygem type="r" />*/}
-        </CardContent>
-      </Card>
-      </Box>
-    </Grid>
-    </Grid>
-    </Parallax>
-  </Paper>
+    
+    <div className={classes.root}>
+      <Parallax blur={1} bgImage={gemBackground} strength={1000}>
+<Grid container spacing={3}>
+  <Grid item xs={12}>
+    <center>
+  <Typography variant="h2" className={classes.font} component="h2"><font color="#fffffff">
+          EtherChest Ecosystem</font>
+        </Typography>
+        <Typography variant="h5" className={classes.font} component="h5"><font color="#fffffff">
+          Gem Market</font>
+        </Typography>
+        <hr/>
+        </center>
+  </Grid>
+  <Grid item xs={6}>
+  <MarketMedia />
+  </Grid>
+  <Grid item xs={3}>
+    <DiamondCard />
+  </Grid>
+  <Grid item xs={3}>
+    <SapphireCard />
+  </Grid>
+  <Grid item xs={6}>
+  </Grid>
+  <Grid item xs={3}>
+    <EmeraldCard />
+  </Grid>
+  <Grid item xs={3}>
+    <RubyCard />
+  </Grid>
+  <Grid item xs={3}>
+    <Paper className={classes.paper}>xs=3</Paper>
+  </Grid>
+  <Grid item xs={3}>
+    <Paper className={classes.paper}>xs=3</Paper>
+  </Grid>
+  <Grid item xs={3}>
+    <Paper className={classes.paper}>xs=3</Paper>
+  </Grid>
+  <Grid item xs={3}>
+    <Paper className={classes.paper}>xs=3</Paper>
+  </Grid>
+</Grid>
+</Parallax>
+</div>
   )
 } else {
   return (

@@ -44,30 +44,30 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>Gem Market <font color="red">(Coming Soon)</font></u>
+            <u>Gem Market</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           Find all of our available <a href="https://cointelegraph.com/explained/non-fungible-tokens-explained" target="_blank">non-fungible tokens (NFTs)</a> available in our Ecosystem in one convenient location.
           </Typography>
         </CardContent>
       <CardActions>
-      <Link component={Link1} to="/">
+      <Link component={Link1} to="/market/gems">
         <IconButton color="primary" aria-label="Visit Market">
         
       </IconButton>Diamond
         </Link>
-        <Link component={Link1} to="/">
+        <Link component={Link1} to="/market/gems">
         <IconButton color="primary" aria-label="Visit Market">
       
       </IconButton>Sapphire
         </Link>
-        <Link component={Link1} to="/">
-        <IconButton color="primary" aria-label="Visit Farm">
+        <Link component={Link1} to="/market/gems">
+        <IconButton color="primary" aria-label="Visit Market">
      
       </IconButton>Emerald
         </Link>
-        <Link component={Link1} to="/">
-        <IconButton color="primary" aria-label="Visit Farm">
+        <Link component={Link1} to="/market/gems">
+        <IconButton color="primary" aria-label="Visit Market">
         
       </IconButton>Ruby
         </Link>
