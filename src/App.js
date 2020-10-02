@@ -296,7 +296,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
             <Route path="/home" component={HomePage} />
-            <Route path="/market/gems" component={MarketGems} />
+           {/* <Route path="/market/gems" component={MarketGems} />*/}
           </div>
           <div className="layout-mask"></div>
         </div> 
