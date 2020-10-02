@@ -3,14 +3,13 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { EtherchestAPI } from "../service/EtherchestAPI";
 import GridList from '@material-ui/core/GridList';
-import Grid from '@material-ui/core/Grid';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import SkeletonPage from './SkeletonPage.js';
+import Redirect from '@material-ui/core/Red';
 import Avatar from '@material-ui/core/Avatar';
 import {StateContext} from "../App";
 
@@ -82,7 +81,7 @@ export default function TrendingHomePage() {
     etherchestAPI.getTrendingHome().then(setTrending);
   }, []);
 
-  if (!trending) return <SkeletonPage />;
+  if (!trending) return <Redirect to='/login'/>;
 
   return (
     <div className={classes.root}>
