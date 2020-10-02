@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import MediaCard from './GemMarketCard';
+import GemMarketCard from './GemMarketCard';
 import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
-import MarketCard from './MarketCard';
+import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
@@ -98,13 +98,13 @@ if (!isDesktop) {
       </Grid>
     </Grid>
         <Grid item xs={3}>
-          <MediaCard />
+          <GemMarketCard />
         </Grid>
         <Grid item xs={6}>
           <InsideCard />
         </Grid>
         <Grid item xs={3}>
-          <MarketCard />
+          <WalletCard />
         </Grid>
       </Grid>
       <br/>

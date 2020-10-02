@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
-export default function MarketCard() {
+export default function WalletCard() {
   const classes = useStyles();
 
   return (

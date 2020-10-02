@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 // See https://github.com/ReactTraining/react-router/issues/6056
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
-export default function MediaCard() {
+export default function GemMarketCard() {
   const classes = useStyles();
 
   return (
