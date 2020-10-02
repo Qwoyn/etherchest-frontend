@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { EtherchestAPI } from "./EtherchestAPI.js";
+import { EtherchestAPI } from "./service/EtherchestAPI.js";
 import api from './service/SteemConnectAPI';
 
 const access_token = localStorage.getItem("sc_token");
