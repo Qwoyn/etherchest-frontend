@@ -40,7 +40,7 @@ import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import { HomePage } from "./components/HomePage";
-import { MarketGems } from "./components/MarketGems.js";
+import { MarketGems } from "./components/MarketGems";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
