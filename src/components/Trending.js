@@ -9,9 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import SkeletonPage from './SkeletonPage.js';
 import Avatar from '@material-ui/core/Avatar';
 import {StateContext} from "../App";
+import { Redirect } from 'react-router';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,7 +81,7 @@ export default function Trending() {
     etherchestAPI.getTrending().then(setTrending);
   }, []);
 
-  if (!trending) return <SkeletonPage />;
+  if (!trending) return <Redirect to='/login'/>;
 
   return (
     <div className={classes.root}>

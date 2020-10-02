@@ -8,7 +8,6 @@ import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
-import TrendingHomePage from './TrendingHomePage';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {

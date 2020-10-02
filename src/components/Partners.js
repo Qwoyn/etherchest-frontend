@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
-    fontFamily: '"Jua", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
     },
 }));  
 
