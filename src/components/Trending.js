@@ -12,6 +12,12 @@ import Zoom from '@material-ui/core/Zoom';
 import Avatar from '@material-ui/core/Avatar';
 import {StateContext} from "../App";
 import { Redirect } from 'react-router';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,8 +87,17 @@ export default function Trending() {
     etherchestAPI.getTrending().then(setTrending);
   }, []);
 
-  if (!trending) return <Redirect to='/login'/>;
+  const [open, setOpen] = React.useState(true);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  if (trending) {
   return (
     <div className={classes.root}>
     <GridList cellHeight={250} spacing={1} className={classes.gridList}>
@@ -139,6 +154,28 @@ export default function Trending() {
           </GridListTile>)
       } )}
     </GridList>
-  </div>
-  );
+   </div>
+  ); 
+    } else 
+    return (
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="Connection Issue"
+      aria-describedby="Connection Issue"
+    >
+      <DialogTitle id="alert-dialog-title">{"No connection to Hive"}</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          Please wait, if trending posts do not load we are currently experiencing difficulty connecting to the Hive Blockchain.  Please try back later or visit <a href="https://peakd.com/">
+              peakd.com</a>
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose} color="primary" autoFocus>
+          OK
+        </Button>
+      </DialogActions>
+    </Dialog>
+    );
 }

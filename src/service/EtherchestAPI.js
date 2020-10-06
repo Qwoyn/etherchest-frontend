@@ -1,5 +1,4 @@
 import axios from "axios";
-import { format as formatTimeAgo } from "timeago.js";
 
 export class EtherchestAPI {
   baseUrl = "https://etherchest-backend.herokuapp.com/"; // main api
@@ -24,20 +23,28 @@ export class EtherchestAPI {
     return this.get(`u/${username}`);
   }
 
+  getGemPrices(username) {
+    return this.get('prices')
+  }
+
   getUserLand(username) {
     return this.get(`a/${username}`);
   }
 
-  getUsergems(username) {
-    return this.get(`s/${username}`);
+  getUserDiamonds(username) {
+    return this.get(`diamonds/${username}`);
   }
 
-  getUserPollen(username) {
-    return this.get(`pollen/${username}`);
+  getUserSappires(username) {
+    return this.get(`sapphires/${username}`);
   }
 
-  getUserBuds(username) {
-    return this.get(`buds/${username}`);
+  getUserEmeraldss(username) {
+    return this.get(`emeralds/${username}`);
+  }
+
+  getUserRubys(username) {
+    return this.get(`rubys/${username}`);
   }
 
   getUserDelegation(username) {
@@ -55,7 +62,7 @@ export class EtherchestAPI {
   getSteemAPI(method, params) {
     return axios
       .post(
-        "https://api.openhive.network",
+        "https://api.hivekings.com",
         JSON.stringify({
           id: 0,
           jsonrpc: "2.0",
@@ -70,398 +77,47 @@ export class EtherchestAPI {
     return this.getSteemAPI("get_dynamic_global_properties", []);
   }
 
-  async getAccountHistory(steemPerVest, username, fetchAll, startId = -1) {
-    try {
-      const history = await this.getSteemAPI("get_account_history", [
-        username,
-        startId,
-        500
-      ]).then(h => h.reverse());
-
-      const accounts = ["etherchest"];
-
-      const payouts = history
-        .filter(
-          h =>
-            h[1].op[0] === "comment_benefactor_reward" &&
-            accounts.includes(h[1].op[1].author)
-        )
-        .map(payout => {
-          const [
-            ,
-            {
-              block,
-              timestamp,
-              op: [, { permlink, sbd_payout, steem_payout, vesting_payout }]
-            }
-          ] = payout;
-
-          return {
-            permlink,
-            sbd_payout,
-            steem_payout,
-            sp_payout: `${(vesting_payout.split(" ")[0] * steemPerVest).toFixed(
-              3
-            )} HP`,
-            timestamp,
-            block
-          };
-        });
-
-      const landPurchases = history
-        .filter(
-          h =>
-            h[1].op[0] === "transfer" &&
-            h[1].op[1].to === "etherchest" &&
-            Object.keys(gardenNames).includes(h[1].op[1].memo.split(" ")[0]) &&
-            h[1].op[1].memo.split(" ")[1] === "manage"
-        )
-        .map(purchase => {
-          const [
-            ,
-            {
-              block,
-              timestamp,
-              trx_id,
-              op: [, { memo, amount }]
-            }
-          ] = purchase;
-
-          return {
-            region: gardenNames[memo.split(" ")[0]],
-            amount,
-            timestamp,
-            block,
-            trx_id
-          };
-        });
-
-      const gemPurchases = history
-        .filter(
-          h =>
-            h[1].op[0] === "transfer" &&
-            h[1].op[1].to === "etherchest" &&
-            Object.keys(gemTypes).includes(h[1].op[1].memo.split(" ")[0][0]) &&
-            h[1].op[1].memo.split(" ")[0].slice(1) === "gem" &&
-            Object.keys(gemNames).includes(h[1].op[1].memo.split(" ")[1])
-        )
-        .map(purchase => {
-          const [
-            ,
-            {
-              block,
-              timestamp,
-              trx_id,
-              op: [, { memo, amount }]
-            }
-          ] = purchase;
-
-          return {
-            strain: gemNames[memo.split(" ")[1]],
-            type: gemTypes[memo.split(" ")[0][0]].name,
-            amount,
-            timestamp,
-            block,
-            trx_id
-          };
-        });
-
-      const lastTx = history[history.length - 1];
-      const oldestBlock = lastTx[1].block;
-      const oldestId = lastTx[0] - 1;
-
-      if (
-        payouts.length === 0 &&
-        landPurchases.length === 0 &&
-        gemPurchases.length === 0 &&
-        oldestBlock >= 31804536
-      ) {
-        return this.getAccountHistory(
-          steemPerVest,
-          username,
-          fetchAll,
-          oldestId
-        );
-      } else {
-        if (oldestBlock >= 31804536 && fetchAll) {
-          const next = await this.getAccountHistory(
-            steemPerVest,
-            username,
-            fetchAll,
-            oldestId
-          );
-          return {
-            ...next,
-            payouts: [...payouts, ...next.payouts],
-            landPurchases: [...landPurchases, ...next.landPurchases],
-            gemPurchases: [...gemPurchases, ...next.gemPurchases]
-          };
-        } else {
-          return {
-            payouts,
-            oldestId,
-            stop: oldestBlock < 31804536, // block of first action,
-            date: new Date(lastTx[1].timestamp).toDateString(),
-            landPurchases,
-            gemPurchases
-          };
-        }
-      }
-    } catch (e) {
-      console.log(e);
-      return {
-        payouts: [],
-        oldestId: startId,
-        stop: false,
-        landPurchases: [],
-        gemPurchases: []
-      };
-    }
-  }
-
-  async getDashboardStats(username = undefined) {
-    let requests = [this.getStats(), this.getAll(), this.getDGPO()];
-
-    if (username) {
-      const userRequests = [this.getUser(username), this.getUserLand(username)];
-      requests = [...requests, ...userRequests];
-    }
-
-    const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
-
-    const { ac, bc, cc, dc, ec, fc } = stats.supply.land;
-
-    const gardens = ac + bc + cc + dc + ec + fc;
-
-    const headBlockNum = dgpo.head_block_number;
-
-    const totalDelegation = all.delegations
-      .map(delegation => delegation.vests)
-      .reduce((prev, current) => prev + current);
-
-    const delegationVestsToSteem = (
-      (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
-        totalDelegation) /
-      parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-      1000000 + 1217.81  
-    ).toFixed(3);
-
-    const leaderboard = Object.keys(all.users)
-      .map(username => {
-        const user = all.users[username];
-        const gemsXp = user.gems
-          .map(gem => gem.xp)
-          .reduce((a, b) => a + b, 0);
-
-        const plantedXp = user.addrs
-          .map(addr => {
-            const plot = all.land[addr];
-            return plot ? plot.xp : 0;
-          })
-          .reduce((a, b) => a + b, 0);
-        return {
-          username: username,
-          xp: gemsXp + plantedXp
-        };
-      })
-      .sort((a, b) => b.xp - a.xp)
-      .slice(0, 10)
-      .map((l, position) => ({ ...l, position: position + 1 }));
-
-    if (username) {
-      const activeGardens = userLand.filter(land => typeof land === "object");
-      const availableGardens = userLand.filter(
-        land => typeof land === "string"
-      );
-      const availablegems = user.gems || [];
-      const availablePollen = user.pollen || [];
-      const availableBuds = user.buds || [];
-      const availableJoints = user.joints || [];
-      const availableEdibles = user.edibles || [];
-      const availableBlunts = user.blunts || [];
-      const availableDippedJoints = user.dippedjoints || [];
-      const availableCannagars = user.cannagars || [];
-      const availablePapers = user.papers || [];
-      const availableBluntwraps = user.bluntwraps || [];
-      const availableHempwraps = user.hempwraps || [];
-      const availableKiefbox = user.kiefbox || [];
-      const availableVacovens = user.vacoven || [];
-      const availableBrownieMix = user.browniemix || [];
-      const availableKief = user.kief || [];
-      const availableOil = user.oil || [];
-      const totalxps = user.xps || [];
-      const breederName = user.breeder || [];
-
-      const watered = activeGardens
-        .map(garden =>
-          garden.care
-            .filter(care => care[1] === "watered")
-            .map(watered => {
-              const date = new Date(Date.now());
-              date.setSeconds(
-                date.getSeconds() - (headBlockNum - watered[0]) * 3
-              );
-              return {
-                when: formatTimeAgo(date),
-                id: garden.id,
-                block: watered[0],
-                strain: garden.gem.strain,
-                type: "watered"
-              };
-            })
-        )
-        .flat();
-
-        const harvested = activeGardens
-        .map(garden =>
-          garden.care
-            .filter(care => care[1] === "harvested")
-            .map(harvested => {
-              const date = new Date(Date.now());
-              date.setSeconds(
-                date.getSeconds() - (headBlockNum - harvested[0]) * 3
-              );
-              return {
-                when: formatTimeAgo(date),
-                id: garden.id,
-                block: harvested[0],
-                strain: garden.gem.strain,
-                type: "harvested"
-              };
-            })
-        )
-        .flat();
-
-        const pollinated = activeGardens
-        .map(garden =>
-          garden.care
-            .filter(care => care[1] === "pollinated")
-            .map(pollinated => {
-              const date = new Date(Date.now());
-              date.setSeconds(
-                date.getSeconds() - (headBlockNum - pollinated[0]) * 3
-              );
-              return {
-                when: formatTimeAgo(date),
-                id: garden.id,
-                block: pollinated[0],
-                strain: garden.pollen.strain,
-                type: "pollinated"
-              };
-            })
-        )
-        .flat();
-
-      const planted = activeGardens.map(garden => {
-        const date = new Date(Date.now());
-        date.setSeconds(
-          date.getSeconds() - (headBlockNum - garden.planted) * 3
-        );
-        return {
-          id: garden.id,
-          strain: garden.strain,
-          when: formatTimeAgo(date),
-          block: garden.planted,
-          type: "planted"
-        };
-      });
-
-      const activity = [...planted, ...watered, ...harvested, ...pollinated].sort(
-        (a, b) => b.block - a.block
-      );
-
-      return {
-        gardeners: stats.gardeners,
-        gardens,
-        availablegems: availablegems.length,
-        availablePollen: availablePollen.length,
-        availableBuds: availableBuds.length,
-        availableJoints: availableJoints.length,
-        availableEdibles: availableEdibles.length,
-        availableBlunts: availableBlunts.length,
-        availableDippedJoints: availableDippedJoints.length,
-        availableCannagars: availableCannagars.length,
-        availablePapers: availablePapers,
-        availableVacovens: availableVacovens,
-        availableBluntwraps: availableBluntwraps,
-        availableHempwraps: availableHempwraps,
-        availableKiefbox: availableKiefbox,
-        availableBrownieMix: availableBrownieMix,
-        availableKief: availableKief.length,
-        availableOil: availableOil.length,
-        totalxps: totalxps,
-        activeGardens: activeGardens.length,
-        availableGardens: availableGardens.length,
-        activity,
-        breederName: breederName,
-        delegation: delegationVestsToSteem,
-        leaderboard
-      };
-    } else {
-      return {
-        gardeners: stats.gardeners,
-        gardens,
-        delegation: delegationVestsToSteem,
-        leaderboard
-      };
-    }
-  }
-
-  async getUserGarden(username) {
-    const [user, userLand, dgpo] = await Promise.all([
-      this.getUser(username),
-      this.getUserLand(username),
-      this.getDGPO()
+  async getUserDiamonds(username) {
+    const user = await Promise.all([
+      this.getUser(username)
     ]);
-    const activeGardens = userLand.filter(
-      land => typeof land === "object" && land.stage >= 0
-    );
-    const availableGardens = userLand.filter(land => typeof land === "string");
-    const harvestedLand = userLand
-      .filter(land => typeof land === "object" && land.stage < 0)
-      .map(land => land.id);
-    availableGardens.push(...harvestedLand);
-    const availablegems = user.gems || [];
-    const availablePollen = user.pollen || [];
-    const availableBuds = user.buds || [];
-    const availableKief = user.kief || [];
-    const availableOil = user.oil || [];
-    const totalxps = user.xps || [];
-    const availableJoints = user.joints || [];
-    const availableEdibles = user.edibles || [];
-    const availableBlunts = user.blunts || [];
-    const availableDippedJoints = user.dippedjoints || [];
-    const availableCannagars = user.cannagars || [];
-    const availablePapers = user.papers || [];
-    const availableBluntwraps = user.bluntwraps || [];
-    const availableHempwraps = user.hempwraps || [];
-    const availableKiefbox = user.kiefbox || [];
-    const availableVacovens= user.vacoven || [];
-    const availableBrownieMix = user.browniemix || [];
-    const breederName = user.breeder || [];
+    const availableDiamonds = user.diamonds || [];
 
     return {
-      activeGardens,
-      availableGardens,
-      availablegems,
-      availablePollen,
-      availableBuds,
-      availableJoints,
-      availableVacovens,
-      availableEdibles,
-      availableDippedJoints,
-      availableCannagars,
-      availableBluntwraps,
-      availableBlunts,
-      availablePapers,
-      availableHempwraps,
-      availableKiefbox,
-      availableBrownieMix,
-      availableKief,
-      availableOil,
-      totalxps,
-      breederName,
-      headBlockNum: dgpo.head_block_number
+      availableDiamonds
+    };
+  }
+
+  async getUserSapphires(username) {
+    const user = await Promise.all([
+      this.getUser(username)
+    ]);
+    const availableSapphires = user.sapphires || [];
+
+    return {
+      availableSapphires
+    };
+  }
+
+  async getUserEmeralds(username) {
+    const user = await Promise.all([
+      this.getUser(username)
+    ]);
+    const availableEmeralds = user.emeralds || [];
+
+    return {
+      availableEmeralds
+    };
+  }
+
+  async getUserRubys(username) {
+    const user = await Promise.all([
+      this.getUser(username)
+    ]);
+    const availableRubys = user.rubys || [];
+
+    return {
+      availableRubys
     };
   }
 
@@ -476,112 +132,32 @@ export class EtherchestAPI {
   }
 }
 
-export const gardenNames = {
-  a: "Afghanistan",
-  b: "Africa", 
-  c: "Asia",
-  d: "Central America",
-  e: "Jamaica",
-  f: "Mexico"
-};
-
-export const profileImages = {
-  1: "Afghanistan",
-  2: "Africa", 
-  3: "Asia",
-  4: "Central America",
-  5: "Jamaica",
-  6: "Mexico"
-};
-
 export const gemNames = {
-  hk: "Hindu Kush",
-  dp: "Durban Poison",
-  lb: "Lambs Bread",
-  afg: "Afghani",
-  lkg: "Lashkar Gah",
-  mis: "Mazar i Sharif",
-  kbr: "Kings Bread",
-  aca: "Acapulco Gold",
-  swz: "Swazi Gold",
-  kmj: "Kilimanjaro",
-  mal: "Malawi",
-  pam: "Panama Red",
-  cg: "Colombian Gold",
-  ach: "Aceh",
-  tha: "Thai",
-  cht: "Chocolate Thai",
-  sog: "HIVE OG"
-};
-
-export const pollenNames = {
-  hk: "Hindu Kush",
-  dp: "Durban Poison",
-  lb: "Lambs Bread",
-  afg: "Afghani",
-  lkg: "Lashkar Gah",
-  mis: "Mazar i Sharif",
-  kbr: "Kings Bread",
-  aca: "Acapulco Gold",
-  swz: "Swazi Gold",
-  kmj: "Kilimanjaro",
-  mal: "Malawi",
-  pam: "Panama Red",
-  cg: "Colombian Gold",
-  ach: "Aceh",
-  tha: "Thai",
-  cht: "Chocolate Thai",
-  sog: "Hive OG"
+  gd:  "Diamond",
+  sp:  "Sapphire",
+  em:  "Emerlad",
+  rb:  "ruby"
 };
 
 export const gemTypes = {
   r: {
-    num: 5000,
+    num: 50000000,
     str: "5",
-    name: "Basic"
+    name: "Diamond"
   },
   m: {
-    num: 5000,
+    num: 50000000,
     str: "5",
-    name: "Premium"
+    name: "Sapphire"
   },
   t: {
-    num: 5000,
+    num: 50000000,
     str: "5",
-    name: "Hand-Picked"
+    name: "Emerald"
   },
   s: {
-    num: 10000,
+    num: 100000000,
     str: "10.000",
-    name: "Hive OG"
+    name: "Ruby"
   }
-};
-
-export const gardenLinkNames = {
-  a: "Afghanistan",
-  b: "Africa", 
-  c: "Asia",
-  d: "Central-America",
-  e: "Jamaica",
-  f: "Mexico"
-};
-
-export const gemLinkNames = {
-  hk: "Hindu-Kush",
-  dp: "Durban-Poison",
-  lb: "Lambs-Bread",
-  afg: "Afghani",
-  lkg: "Lashkar-Gah",
-  mis: "Mazar-i-Sharif",
-  kbr: "Kings-Bread",
-  aca: "Acapulco-Gold",
-  swz: "Swazi-Gold",
-  kmj: "Kilimanjaro",
-  mal: "Malawi",
-  pam: "Panama-Red",
-  cg: "Colombian-Gold",
-  ach: "Aceh",
-  tha: "Thai",
-  cht: "Chocolate-Thai",
-  sog: "Hive-OG"
 };

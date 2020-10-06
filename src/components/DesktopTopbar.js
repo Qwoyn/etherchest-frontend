@@ -5,11 +5,10 @@ import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import {  HiveSVGIcon, 
           BlogIcon,
-          StoreIcon, 
           InformationIcon, 
           FarmIcon,
           MarketIcon,
-          FarmingIcon } from './Icons';
+          FarmingIcon, GemIcon, LandIcon, CrystalIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -61,29 +60,14 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Home</Typography>
+                  <Typography color="error" className={classes.font}>EtherChest.com</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/home">
+            <IconButton className="layout-menu-button" href="https://etherchest.com">
             <FarmIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid>
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Inventory (Coming Soon)</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/home">
-            <FarmingIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
@@ -92,17 +76,17 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Market (Preview)</Typography>
+                  <Typography color="error" className={classes.font}>Dashboard</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/market/gems">
-            <MarketIcon />
+            <IconButton className="layout-menu-button" component={Link1} to="/">
+            <CrystalIcon />
             </IconButton>
             </HtmlTooltip>
-            </Grid>
+            </Grid>    
 
             <Grid item xs={1}>
             <HtmlTooltip
@@ -118,41 +102,7 @@ export default function DesktopTopbar(){
             <BlogIcon />
             </IconButton>
             </HtmlTooltip>
-            </Grid> 
-            
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>FAQ (Coming Soon)</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/home">
-            <InformationIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid>
-
-             <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Visit Hive!</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <a href="https://peakd.com/" target="_default">    
-            <IconButton className="layout-menu-button">
-            <HiveSVGIcon />
-            </IconButton>
-            </a>
-            </HtmlTooltip>
-            </Grid>         
+            </Grid>      
 
         </Grid>
     </Grid>

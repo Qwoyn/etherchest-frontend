@@ -421,6 +421,12 @@ export function WaterIcon(props) {
       );
     }
 
+    export function DucatIcon() {
+      return(
+    <img src="https://i.imgur.com/mAcyElL.png"></img>
+      );
+    }
+
     export function InventoryBanner() {
       return(
     <img src="https://i.imgur.com/FoJlHAu.png"></img>
@@ -429,7 +435,7 @@ export function WaterIcon(props) {
 
     export function HiveSVGIcon() {
       return(
-    <SvgIcon xmlns="http://www.w3.org/2000/svg" width="519" height="479" viewBox="0 0 519 479">
+    <SvgIcon xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
         <g fill="none">
           <path fill="#212529" d="M73.6,367 L104,367 L104,479 L73.6,479 L73.6,435.32 L30.4,435.32 L30.4,479 L0,479 L0,367 L30.4,367 L30.4,407.48 L73.6,407.48 L73.6,367 Z M168,367 L198,367 L198,479 L168,479 L168,367 Z M296.01455,479 L252,368.44 L252,367 L284.970899,367 L312.5,443 L340.029101,367 L373,367 L373,368.44 L328.98545,479 L296.01455,479 Z M456.465517,451.48 L519,451.48 L519,479 L426,479 L426,367 L517.877586,367 L517.877586,394.52 L456.465517,394.52 L456.465517,410.04 L495.42931,410.04 L495.42931,435.64 L456.465517,435.64 L456.465517,451.48 Z"/>
           <g fill="#E31337" transform="translate(97)">

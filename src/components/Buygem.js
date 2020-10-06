@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 export default function Buygem({type}) {
   const username = useContext(StateContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const hasSteemKeychain = useSteemKeychain();
+  const hasSteemKeychain = useSteemKeychain(username);
   const classes = useStyles();
 
   const handleSubmit = async e => {
@@ -34,7 +34,8 @@ export default function Buygem({type}) {
 
       const memo = `diamond diamond`;
       const to = "etherchest";
-      const amount = "20";
+      const from = `${username}`
+      const amount = "2000";
       const currency = "HIVE";
 
       if (hasSteemKeychain()) {
@@ -66,7 +67,7 @@ export default function Buygem({type}) {
           "transfer",
           {
             to,
-            from: username,
+            from: `${username}`,
             amount: `${amount} ${currency}`,
             memo
           },

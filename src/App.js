@@ -40,7 +40,6 @@ import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import { HomePage } from "./components/HomePage";
-import { MarketGems } from "./components/MarketGems";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -53,6 +52,7 @@ import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";                           
 import ReactGA from 'react-ga';     
 import Trending from './components/Trending';
+import Inventory from "./components/Inventory";
     
 const trackingID ="UA-111263990-4"     
   
@@ -292,10 +292,10 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={HomePage} />
+            <Route path="/" exact component={Inventory} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
-            <Route path="/home" component={HomePage} />
+            <Route path="/dashboard" component={Inventory } />
           </div>
           <div className="layout-mask"></div>
         </div> 

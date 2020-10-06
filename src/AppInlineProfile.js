@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import { StateContext } from "./App";
 import Chip from '@material-ui/core/Chip';
-import LockOpen from '@material-ui/icons/LockOpen';
+import { LockOpen, Lock } from '@material-ui/icons';
 import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -84,7 +84,7 @@ export const AppInlineProfile = () => {
       <div className="profile">
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
-        icon={<LockOpen />}
+        icon={<Lock />}
         color="primary"
         label= "Not signed in"
         onClick={handleClick}
@@ -97,6 +97,11 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">
+      <Chip
+        color="primary"
+        label= "EC Bal: 14700 Hive"
+        className={classes.font}
+      />
       <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar} disabled={true}>

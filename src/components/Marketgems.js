@@ -68,46 +68,21 @@ export const MarketGems = () => {
     
     <div className={classes.root}>
       <Parallax blur={1} bgImage={gemBackground} strength={1000}>
-<Grid container spacing={3}>
-  <Grid item xs={12}>
-    <center>
-  <Typography variant="h2" className={classes.font} component="h2"><font color="#fffffff">
-          EtherChest Ecosystem</font>
-        </Typography>
-        <Typography variant="h5" className={classes.font} component="h5"><font color="#fffffff">
-          Gem Market</font>
-        </Typography>
-        <hr/>
-        </center>
-  </Grid>
+<Grid container spacing={1}>
   <Grid item xs={6}>
-  <MarketMedia />
-  </Grid>
-  <Grid item xs={3}>
     <DiamondCard />
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={6}>
     <SapphireCard />
   </Grid>
-  <Grid item xs={6}>
+  <Grid item xs={12}>
+    <hr/>
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={6}>
     <EmeraldCard />
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={6}>
     <RubyCard />
-  </Grid>
-  <Grid item xs={3}>
-    <Paper className={classes.paper}>xs=3</Paper>
-  </Grid>
-  <Grid item xs={3}>
-    <Paper className={classes.paper}>xs=3</Paper>
-  </Grid>
-  <Grid item xs={3}>
-    <Paper className={classes.paper}>xs=3</Paper>
-  </Grid>
-  <Grid item xs={3}>
-    <Paper className={classes.paper}>xs=3</Paper>
   </Grid>
 </Grid>
 </Parallax>

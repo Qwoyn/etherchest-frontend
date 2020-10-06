@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
-import {HashkingsAPI} from "../service/EtherchestAPI";
+import {EtherchestAPI} from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import { Redirect } from 'react-router';
@@ -69,7 +69,7 @@ const HtmlTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 export const MarketPlots = () => {
-  const hashkingsApi = new HashkingsAPI();
+  const etherchestApi = new etherchestAPI();
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [delegation, setDelegation] = useState({used: 0, available: 0});
@@ -85,8 +85,8 @@ export const MarketPlots = () => {
   useEffect(() => {
     if (username) {
       Promise.all([
-        hashkingsApi.getUserDelegation(username),
-        hashkingsApi.getStats()
+        etherchestApi.getUserDelegation(username),
+        etherchestApi.getStats()
       ])
         .then(([delegation, stats]) => {
           if (delegation && delegation.delegator) {
