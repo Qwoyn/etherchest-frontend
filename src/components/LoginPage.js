@@ -87,9 +87,9 @@ export const LoginPage = ({history}) => {
           login(res.name);
           localStorage.setItem("sc_token", token);
           if (!isDesktop) {
-          history.push("/home");
+          history.push("/");
         } else {
-          history.push("/home");
+          history.push("/");
         }
         })
         .catch(e => {

@@ -8,23 +8,19 @@ export class EtherchestAPI {
   }
 
   getTrending() {
-    return this.getSteemAPI("get_discussions_by_trending", [
+    return this.gethiveAPI("get_discussions_by_trending", [
       { tag: "leofinance", limit: 20 }
     ]);
   }
 
   getTrendingHome() {
-    return this.getSteemAPI("get_discussions_by_trending", [
+    return this.gethiveAPI("get_discussions_by_trending", [
       { tag: "leofinance", limit: 1 }
     ]);
   }
 
   getUser(username) {
     return this.get(`u/${username}`);
-  }
-
-  getGemPrices(username) {
-    return this.get('prices')
   }
 
   getUserLand(username) {
@@ -59,10 +55,10 @@ export class EtherchestAPI {
     return this.get("");
   }
 
-  getSteemAPI(method, params) {
+  gethiveAPI(method, params) {
     return axios
       .post(
-        "https://api.hivekings.com",
+        "https://api.openhive.network",
         JSON.stringify({
           id: 0,
           jsonrpc: "2.0",
@@ -74,7 +70,7 @@ export class EtherchestAPI {
   }
 
   getDGPO() {
-    return this.getSteemAPI("get_dynamic_global_properties", []);
+    return this.gethiveAPI("get_dynamic_global_properties", []);
   }
 
   async getUserDiamonds(username) {
@@ -125,8 +121,8 @@ export class EtherchestAPI {
     return this.getAll().then(all => Object.keys(all.users).includes(username));
   }
 
-  steemUserExists(username) {
-    return this.getSteemAPI("get_accounts", [[username]]).then(
+  hiveUserExists(username) {
+    return this.gethiveAPI("get_accounts", [[username]]).then(
       user => user && user[0] && user[0].name
     );
   }

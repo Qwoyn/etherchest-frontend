@@ -238,12 +238,16 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export default function Inventory({user}) {
+export default function Inventory() {
   const {username} = useContext(StateContext);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
   const bull = <span className={classes.bullet}>•</span>;
+
+  const user = useState({
+    availableDiamonds: []
+  });
 
   const [diamond, setDiamonds] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -251,7 +255,7 @@ export default function Inventory({user}) {
 
   const etherchestApi = new EtherchestAPI();
   
-  useEffect(() => {
+  /*useEffect(() => {
     if (username) {
       setLoading(true);
       etherchestApi.getUserDiamonds(username).then(diamond => {
@@ -262,6 +266,16 @@ export default function Inventory({user}) {
         ]).then(() => setLoading(false));
       });
     }
+  }, [username]);*/
+
+  useEffect(() => {
+    etherchestApi.getUserDiamonds(username).then(diamond => {
+      if (diamond) {
+        setDiamonds(diamond);
+      } else {
+        setDiamonds(0);
+      }
+    });
   }, [username]);
 
   const handleChange = (event, newValue) => {
@@ -289,11 +303,11 @@ export default function Inventory({user}) {
                         <CardMedia
                         className={classes.media}
                         image="/assets/layout/images/diamond_etherchest_ecosystem_qwoyn.png"
-                        title="Paella dish"
+                        title="Diamond NFT"
                         />
                         <br/>
                           <Typography variant="h2" component="h2" className={classes.fontWhite}>
-                             3
+                          {diamond.length}
                           </Typography>
                         </CardContent>
                           <Typography className={classes.fontWhite} color="textSecondary" gutterBottom>
@@ -473,18 +487,8 @@ export default function Inventory({user}) {
           centered
         >
           <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(0)} className={classes.font} />
-          <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Coming Soon</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font} disabled />
-          </HtmlTooltip>
-          <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
+          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font} />
+          <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} />
         </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}

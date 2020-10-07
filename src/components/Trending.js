@@ -121,7 +121,7 @@ export default function Trending() {
                 <Avatar className={classes.avatar}>
                <img
                alt="HIVE Avatar"
-               src={`https://steemitimages.com/u/${post.author}/avatar/small`}
+               src={`https://images.hive.blog/u/${post.author}/avatar/small`}
                />
                </Avatar>
                 </IconButton>
