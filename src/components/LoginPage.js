@@ -106,7 +106,7 @@ export const LoginPage = ({history}) => {
   const [validatedTo, setValidatedTo] = useState();
 
   useEffect(() => {
-    etherchestApi.steemUserExists(username).then(username => {
+    etherchestApi.hiveUserExists(username).then(username => {
       if (username) {
         setValidatedTo(username);
       } else {
