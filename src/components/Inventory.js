@@ -273,7 +273,6 @@ export default function Inventory() {
   const [totalGems, setTotalGems] = useState([]);
   const [totalDucats, setTotalDucats] = useState([]);
   const [totalEthValues, setTotalEthValues] = useState([]);
-  const [exists, setExists] = useState(false);
 
   const isDesktop = window.innerWidth < 1000;
 
@@ -286,8 +285,7 @@ export default function Inventory() {
     const response = await fetch(urlAPI);
     const data = await response.json();
 
-    if (response !== undefined) {
-    setExists(true);
+
 
     setDiamonds(data.diamond.length);
     setSapphires(data.sapphire.length);
@@ -310,9 +308,6 @@ export default function Inventory() {
     setTotalGems(gemTotal);
 
     setTotalDucats(data.ducats);
-  } else{
-   setExists(false)
-  }
   }
 
   useEffect(() => {
@@ -327,9 +322,6 @@ export default function Inventory() {
     setValue(index);
   };
 
-  if(exists === false) {
-    return (<Redirect to='/login'/>);
-  } else {
   return (
   <div className={classes.flex}>
       <Grid container spacing={1}>
@@ -820,5 +812,4 @@ export default function Inventory() {
     </Grid>
     </div>
   );
-  }
 }
