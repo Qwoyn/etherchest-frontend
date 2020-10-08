@@ -97,7 +97,11 @@ export default function Trending() {
     setOpen(false);
   };
 
-  if (trending) {
+  if (!username) {
+    return (
+    <Redirect to='/login'/>
+    );
+  } else if (trending) {
   return (
     <div className={classes.root}>
     <GridList cellHeight={250} spacing={1} className={classes.gridList}>
