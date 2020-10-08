@@ -228,6 +228,23 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
+function ResponsiveImage( { src, width, height } ) {
+  return (
+    <div
+      style={ { 
+        width,
+      } }
+      className="responsive-image">
+      <div style={ {
+          paddingBottom: ( height / width * 100 ) + '%'
+        } } />
+      <img
+        src={ src }
+        className="responsive-image__image" />
+    </div>
+  );
+}
+
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: '#000000',
@@ -431,7 +448,10 @@ export default function Inventory() {
             <Grid item xs={12}>
 
           <Paper className={classes.paper}>
-       <img src="https://i.imgur.com/kufjfBh.png" width="800" height="205"/>
+          <ResponsiveImage
+            src="https://i.imgur.com/GAbKp9R.png"
+            width={ 1000 }
+            height={ 210 } />
           </Paper>
 
         </Grid>
