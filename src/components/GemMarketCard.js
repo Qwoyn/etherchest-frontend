@@ -41,37 +41,16 @@ export default function GemMarketCard() {
           title="EtherChest Ecosystem"
         />
         <CardContent>
-          <Link component={Link1} to="/market/gems">
+          <Link component={Link1} to="/">
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
             <u>Gem Market</u>
-          </Typography>
-        </Link>
+          </Typography> 
+          <font color="red">(Under Construction)</font>
+        </Link><br/>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           Find all of our available <a href="https://cointelegraph.com/explained/non-fungible-tokens-explained" target="_blank">non-fungible tokens (NFTs)</a> available in our Ecosystem in one convenient location.
           </Typography>
         </CardContent>
-      <CardActions>
-      <Link component={Link1} to="/market/gems">
-        <IconButton color="primary" aria-label="Visit Market">
-        
-      </IconButton>Diamond
-        </Link>
-        <Link component={Link1} to="/market/gems">
-        <IconButton color="primary" aria-label="Visit Market">
-      
-      </IconButton>Sapphire
-        </Link>
-        <Link component={Link1} to="/market/gems">
-        <IconButton color="primary" aria-label="Visit Market">
-     
-      </IconButton>Emerald
-        </Link>
-        <Link component={Link1} to="/market/gems">
-        <IconButton color="primary" aria-label="Visit Market">
-        
-      </IconButton>Ruby
-        </Link>
-      </CardActions>
     </Card>
     </Box>
   );

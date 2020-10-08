@@ -60,13 +60,13 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>EtherChest.com</Typography>
+                  <Typography color="primary" className={classes.font}>EtherChest.com</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" href="/">
+            <IconButton className="layout-menu-button" href="https://etherchest.com">
             <FarmIcon />
             </IconButton>
             </HtmlTooltip>
@@ -76,13 +76,13 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Dashboard</Typography>
+                  <Typography color="primary" className={classes.font}>Dashboard</Typography> (under construction)
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/dashboard">
+            <IconButton className="layout-menu-button" component={Link1} to="/">
             <CrystalIcon />
             </IconButton>
             </HtmlTooltip>
@@ -92,7 +92,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Trending Posts</Typography>
+                  <Typography color="primary" className={classes.font}>Trending Posts</Typography>
                 </React.Fragment>
               }
               placement="top"

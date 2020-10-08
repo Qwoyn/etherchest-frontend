@@ -272,7 +272,8 @@ export default function Inventory() {
   const [rubyValues, setRubyValues] = useState([]);
   const [totalGems, setTotalGems] = useState([]);
   const [totalDucats, setTotalDucats] = useState([]);
-  const [totalEthValues, setTotalEthValues] = useState([])
+  const [totalEthValues, setTotalEthValues] = useState([]);
+  const [exists, setExists] = useState(false);
 
   const isDesktop = window.innerWidth < 1000;
 
@@ -281,30 +282,37 @@ export default function Inventory() {
   const loadData = async (ourUsername) => {
     
     const urlAPI = 'https://etherchest-backend.herokuapp.com/u/'+ourUsername;
+    
     const response = await fetch(urlAPI);
     const data = await response.json();
+
+    if (response !== undefined) {
+    setExists(true);
 
     setDiamonds(data.diamond.length);
     setSapphires(data.sapphire.length);
     setEmeralds(data.emerald.length);
     setRubys(data.ruby.length);
 
-    var daimondValue = data.diamond.length * 1;
+    var diamondValue = data.diamond.length * 1;
     var sapphireValue = data.sapphire.length * .5;
     var emeraldValue = data.emerald.length * .25;
     var rubyValue = data.ruby.length * .1;
-    setDiamondValues(daimondValue);
+    setDiamondValues(diamondValue);
     setSapphireValues(sapphireValue);
     setEmeraldValues(emeraldValue);
     setRubyValues(rubyValue);
 
-    var totalEthValue = daimondValue + sapphireValue + emeraldValue + rubyValue;
+    var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue;
     setTotalEthValues(totalEthValue);
 
     var gemTotal = data.diamond.length + data.sapphire.length + data.emerald.length + data.ruby.length;
     setTotalGems(gemTotal);
 
     setTotalDucats(data.ducats);
+  } else{
+   setExists(false)
+  }
   }
 
   useEffect(() => {
@@ -319,7 +327,9 @@ export default function Inventory() {
     setValue(index);
   };
 
-  if(username) {
+  if(exists === false) {
+    return (<Redirect to='/login'/>);
+  } else {
   return (
   <div className={classes.flex}>
       <Grid container spacing={1}>
@@ -810,9 +820,5 @@ export default function Inventory() {
     </Grid>
     </div>
   );
-  } else {
-    return (
-      <Redirect to='/login'/>
-    );
   }
 }

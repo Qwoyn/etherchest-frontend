@@ -41,24 +41,12 @@ export default function WalletCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>User Wallet <font color="red">(Coming Soon)</font></u>
-          </Typography>
+            <u>User Wallet</u>
+          </Typography><font color="red">(Coming Soon)</font><br/>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
             Visit your Wallet and view gems, ducat payouts and other information or check out your guild stats!
           </Typography>
         </CardContent>
-        <CardActions>
-      <Link component={Link1} to="/">
-        <IconButton color="primary" aria-label="Visit gem Market">
-          
-      </IconButton>User Wallet
-        </Link>
-        <Link component={Link2} to="/">
-        <IconButton color="primary" aria-label="Visit Land Sales">
-      
-      </IconButton>Guild
-        </Link>
-      </CardActions>
     </Card>
   );
 }
