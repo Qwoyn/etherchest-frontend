@@ -74,10 +74,10 @@ export class EtherchestAPI {
   }
 
   async getUserDiamonds(username) {
-    const user = await Promise.all([
-      this.getUser(username)
+    const [user] = await Promise.all([
+      this.getUser(username),
     ]);
-    const availableDiamonds = user.diamonds || [];
+    const availableDiamonds = user.diamond || [];
 
     return {
       availableDiamonds

@@ -245,38 +245,78 @@ export default function Inventory() {
   const theme = useTheme();
   const bull = <span className={classes.bullet}>•</span>;
 
-  const user = useState({
-    availableDiamonds: []
-  });
-
   const [diamond, setDiamonds] = useState([]);
+  const [sapphire, setSapphires] = useState([]);
+  const [emerald, setEmeralds] = useState([]);
+  const [ruby, setRubys] = useState([]);
+  const [diamondValues, setDiamondValues] = useState([]);
+  const [sapphireValues, setSapphireValues] = useState([]);
+  const [emeraldValues, setEmeraldValues] = useState([]);
+  const [rubyValues, setRubyValues] = useState([]);
+  const [totalGems, setTotalGems] = useState([]);
+  const [totalDucats, setTotalDucats] = useState([]);
+  const [totalEthValues, setTotalEthValues] = useState([])
   const [loading, setLoading] = useState(false);
   const [setNoMoreHistory] = useState(false);
 
   const etherchestApi = new EtherchestAPI();
-  
+
+  const loadData = async (ourUsername) => {
+    
+    const urlAPI = 'https://etherchest-backend.herokuapp.com/u/'+ourUsername;
+    const response = await fetch(urlAPI);
+    const data = await response.json();
+
+    setDiamonds(data.diamond.length);
+    setSapphires(data.sapphire.length);
+    setEmeralds(data.emerald.length);
+    setRubys(data.ruby.length);
+
+    var daimondValue = data.diamond.length * 1;
+    var sapphireValue = data.sapphire.length * .5;
+    var emeraldValue = data.emerald.length * .25;
+    var rubyValue = data.ruby.length * .1;
+    setDiamondValues(daimondValue);
+    setSapphireValues(sapphireValue);
+    setEmeraldValues(emeraldValue);
+    setRubyValues(rubyValue);
+
+    var totalEthValue = daimondValue + sapphireValue + emeraldValue + rubyValue;
+    setTotalEthValues(totalEthValue);
+
+    var gemTotal = data.diamond.length + data.sapphire.length + data.emerald.length + data.ruby.length;
+    setTotalGems(gemTotal);
+
+    setTotalDucats(data.ducats);
+  }
+
+  useEffect(() => {
+    loadData(username);
+  }, [username]);
+
   /*useEffect(() => {
     if (username) {
       setLoading(true);
-      etherchestApi.getUserDiamonds(username).then(diamond => {
+      etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
+        setDiamonds(availableDiamonds);
         Promise.all([
-          etherchestApi.getUserDiamonds(username).then(diamond => {
-            setDiamonds(diamond);
+          etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
+            setDiamonds(availableDiamonds);
           })
         ]).then(() => setLoading(false));
       });
     }
   }, [username]);*/
 
-  useEffect(() => {
-    etherchestApi.getUserDiamonds(username).then(diamond => {
-      if (diamond) {
+  /*useEffect(() => {
+    etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
+      if (availableDiamonds) {
         setDiamonds(diamond);
       } else {
         setDiamonds(0);
       }
     });
-  }, [username]);
+  }, [username]);*/
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -307,11 +347,11 @@ export default function Inventory() {
                         />
                         <br/>
                           <Typography variant="h2" component="h2" className={classes.fontWhite}>
-                          {diamond.length}
+                          {diamond}
                           </Typography>
                         </CardContent>
                           <Typography className={classes.fontWhite} color="textSecondary" gutterBottom>
-                            Value: 3 ETH
+                            Value: {diamondValues} ETH
                           </Typography>
                       </Card>
                    </Paper>
@@ -331,11 +371,11 @@ export default function Inventory() {
                   />
                 <br/>
                 <Typography variant="h2" component="h2" className={classes.fontBlue}>
-                {etherchestApi.diamond}3
+                {sapphire}
                 </Typography>
                 </CardContent>
                 <Typography className={classes.fontBlue} color="textSecondary" gutterBottom>
-                    Value: 3 ETH
+                Value: {sapphireValues} ETH
                     </Typography>
                  </Card>
                 </Paper>
@@ -355,11 +395,11 @@ export default function Inventory() {
                 />
                 <br/>
                 <Typography variant="h2" component="h2" className={classes.fontGreen}>
-                3
+                {emerald}
                 </Typography>
                 </CardContent>
                 <Typography className={classes.fontGreen} color="textSecondary" gutterBottom>
-                Value: 3 ETH
+                Value: {emeraldValues} ETH
                 </Typography>
                 </Card>
                 </Paper>
@@ -379,11 +419,11 @@ export default function Inventory() {
                 />
                  <br/>
                 <Typography variant="h2" component="h2" className={classes.fontRed}>
-                1
+                {ruby}
                 </Typography>
                 </CardContent>
                 <Typography className={classes.fontRed} color="textSecondary" gutterBottom>
-                Value: 3 ETH
+                Value: {rubyValues} ETH
                 </Typography>
                 </Card>
             </Paper>
@@ -413,34 +453,37 @@ export default function Inventory() {
         <Grid item xs={6}>
           <Paper className={classes.paper}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <b>EtherChest Guild</b>
+          <b>{username}</b>
         </Typography>
         <hr/>
+        <Typography className={classes.font} color="textSecondary">
+        <b>Total ETH: {totalEthValues}</b>
+        </Typography>
           </Paper>
         </Grid>
 
         <Grid item xs={4}>
           <Paper className={classes.paper}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Captain
+          Total Gems
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
-          LVL: 22
+          {totalGems}
         </Typography>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Staked Gems: 5
+                Total Ducats
             </Typography>
+            <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalDucats}
+        </Typography>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
-              <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Staked Ducats: 500
-            </Typography>
           </Paper>
         </Grid>
         <Grid item xs={12}>
