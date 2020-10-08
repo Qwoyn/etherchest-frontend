@@ -25,7 +25,8 @@ import InventoryNav from "./InventoryNav";
 import InventoryChartSwitch from './InventoryChartSwitch'; 
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import { Redirect } from 'react-router';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -260,7 +261,6 @@ export default function Inventory() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
-  const bull = <span className={classes.bullet}>•</span>;
 
   const [diamond, setDiamonds] = useState([]);
   const [sapphire, setSapphires] = useState([]);
@@ -273,8 +273,8 @@ export default function Inventory() {
   const [totalGems, setTotalGems] = useState([]);
   const [totalDucats, setTotalDucats] = useState([]);
   const [totalEthValues, setTotalEthValues] = useState([])
-  const [loading, setLoading] = useState(false);
-  const [setNoMoreHistory] = useState(false);
+
+  const isDesktop = window.innerWidth < 1000;
 
   const etherchestApi = new EtherchestAPI();
 
@@ -311,30 +311,6 @@ export default function Inventory() {
     loadData(username);
   }, [username]);
 
-  /*useEffect(() => {
-    if (username) {
-      setLoading(true);
-      etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
-        setDiamonds(availableDiamonds);
-        Promise.all([
-          etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
-            setDiamonds(availableDiamonds);
-          })
-        ]).then(() => setLoading(false));
-      });
-    }
-  }, [username]);*/
-
-  /*useEffect(() => {
-    etherchestApi.getUserDiamonds(username).then(availableDiamonds => {
-      if (availableDiamonds) {
-        setDiamonds(diamond);
-      } else {
-        setDiamonds(0);
-      }
-    });
-  }, [username]);*/
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -342,6 +318,8 @@ export default function Inventory() {
   const handleChangeIndex = index => {
     setValue(index);
   };
+
+  if(username) {
   return (
   <div className={classes.flex}>
       <Grid container spacing={1}>
@@ -832,4 +810,9 @@ export default function Inventory() {
     </Grid>
     </div>
   );
+  } else {
+    return (
+      <Redirect to='/login'/>
+    );
+  }
 }

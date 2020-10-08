@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
   },
   font: {
-    fontFamily: '"Rajdhani", sans-serif',
+    fontFamily: '"Orbitron", sans-serif',
   }
 }));
 

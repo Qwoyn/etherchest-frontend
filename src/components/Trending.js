@@ -164,18 +164,12 @@ export default function Trending() {
       aria-labelledby="Connection Issue"
       aria-describedby="Connection Issue"
     >
-      <DialogTitle id="alert-dialog-title">{"No connection to Hive"}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{"Connecting to the Hive Blockchain"}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Please wait, if trending posts do not load we are currently experiencing difficulty connecting to the Hive Blockchain.  Please try back later or visit <a href="https://peakd.com/">
-              peakd.com</a>
+          Please wait...
         </DialogContentText>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose} color="primary" autoFocus>
-          OK
-        </Button>
-      </DialogActions>
     </Dialog>
     );
 }

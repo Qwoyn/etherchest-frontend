@@ -292,7 +292,7 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={Inventory} />
+            <Route path="/" exact component={HomePage} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
             <Route path="/dashboard" component={Inventory } />
