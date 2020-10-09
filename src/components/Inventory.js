@@ -31,7 +31,9 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import Fab from '@material-ui/core/Fab';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import RegisterModal from './Register';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -138,6 +140,9 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#3D1289",
+  },
+  button: {
+    margin: theme.spacing(1),
   },
   paperBlack: {
     padding: theme.spacing(1),
@@ -266,6 +271,8 @@ export default function Inventory() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
+
+  const [registerModal, setRegisterModal] = useState(false);
 
   const [diamond, setDiamonds] = useState([0]);
   const [sapphire, setSapphires] = useState([0]);
@@ -827,12 +834,21 @@ export default function Inventory() {
         aria-labelledby="Please Register"
         aria-describedby="Please Register"
       >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard (Coming Soon)"}</DialogTitle>
         <DialogContent>
-        <Button variant="contained" color="primary" href="/register">
-        Register Here
-      </Button>
+        <Fab
+                    variant="outline" 
+                    color="primary"
+                    href="/"
+                    className={classes.button}
+                  >Register
+                  </Fab>
         </DialogContent>
+        <RegisterModal
+          open={open}
+          toggleModal={() => setRegisterModal(!registerModal)}
+          username={username} 
+          />
       </Dialog>
       }
     </div>

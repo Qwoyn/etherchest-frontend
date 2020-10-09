@@ -155,30 +155,22 @@ class App extends Component {
   createMenu() {
     this.menu = [
       {
-        label: "Profile",
+        label: "Ecosystem",
         items: [
           {
-            label: "Inventory",
-            to: "/inventory"
+            label: "User Dashboard",
+            to: "/dashboard"
           },
-        ]
-      },
-      {
-        label: "Market",
-        items: [
           {
-            label: "Gems",
-            to: "/market/gembank"
+            label: "Trending Posts",
+            to: "/trending"
           },
         ]
       },
       {
         label: "Community",
         items: [
-          {
-            label: "Trending Posts",
-            to: "/trending"
-          },
+          
           {
             label: "Hive Blog",
             command: () => {
@@ -195,10 +187,6 @@ class App extends Component {
             }
           },
         ]
-      },
-      {
-        label: "About",
-        to: "/faq"
       }
     ];
   }
@@ -276,7 +264,7 @@ class App extends Component {
                 <a href="/">
                 <img
                     alt="Logo"
-                    src="/assets/layout/images/hashkingsbanner.png"
+                    src="https://i.imgur.com/TJP9RZ0.png"
                   />
                   </a>
                   <br/>
@@ -286,7 +274,6 @@ class App extends Component {
                   model={this.menu}
                   onMenuItemClick={this.onMenuItemClick}
                 />
-                <Partners />
               </div>
             </ScrollPanel>
           </div>

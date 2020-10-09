@@ -115,7 +115,28 @@ if (!isDesktop) {
   );
  } else {
   return (
-    <Redirect to='/login'/>
+    <Parallax strength={1000} bgImage={image1}>
+    <div className={classes.root}>
+      <Container fixed>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <WelcomeCard />
+          <br/>
+        </Grid>
+        
+        <Grid item xs>
+          <GemMarketCard />
+        </Grid>
+        <Grid item xs>
+          <WalletCard />
+        </Grid>
+      </Grid>
+      <br/>
+      <hr/>
+      <br/>
+      </Container>
+    </div>
+    </Parallax>
     );
   }
 };
