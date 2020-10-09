@@ -99,7 +99,7 @@ export const AppInlineProfile = () => {
     <div className="profile">
       <Chip
         color="primary"
-        label= "EC Bal: 14700 Hive"
+        label= "Bal: 0 Hive"
         className={classes.font}
       />
       <Tooltip title="Signed In" placement="bottom">
