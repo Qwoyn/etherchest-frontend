@@ -279,12 +279,12 @@ export default function Inventory() {
   const [emerald, setEmeralds] = useState([0]);
   const [ruby, setRubys] = useState([0]);
   const [diamondValues, setDiamondValues] = useState([0]);
-  const [sapphireValues, setSapphireValues] = useState([]);
-  const [emeraldValues, setEmeraldValues] = useState([]);
-  const [rubyValues, setRubyValues] = useState([]);
-  const [totalGems, setTotalGems] = useState([]);
-  const [totalDucats, setTotalDucats] = useState([]);
-  const [totalEthValues, setTotalEthValues] = useState([]);
+  const [sapphireValues, setSapphireValues] = useState([0]);
+  const [emeraldValues, setEmeraldValues] = useState([0]);
+  const [rubyValues, setRubyValues] = useState([0]);
+  const [totalGems, setTotalGems] = useState([0]);
+  const [totalDucats, setTotalDucats] = useState([0]);
+  const [totalEthValues, setTotalEthValues] = useState([0]);
   const [registered, setRegistered] = useState(true)
 
   const [open, setOpen] = React.useState(true);
@@ -339,6 +339,7 @@ export default function Inventory() {
     setValue(index);
   };
 
+  if (!isDesktop) {
   return (
   <div className={classes.flex}>
       <Grid container spacing={1}>
@@ -853,4 +854,190 @@ export default function Inventory() {
       }
     </div>
   );
-}
+    } else {
+      return (
+        <div className={classes.flex}>
+      <Grid container spacing={1}>
+          <Grid item>
+          <Paper className={classes.paper}>
+        <Card className={classes.root} variant="outlined">
+            <CardContent>
+        <Grid container spacing={3}>
+        <Grid item xs={3}>
+          <Paper className={classes.paper}>
+              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
+          </Paper>
+        </Grid>
+        <Grid item xs={3}>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          <b>{username}</b>
+        </Typography>
+        <hr/>
+        <Typography className={classes.font} color="textSecondary">
+        <b>Total ETH: {totalEthValues}</b>
+        </Typography>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          Total Gems
+        </Typography>
+        <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalGems}
+        </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+                Total Ducats
+            </Typography>
+            <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalDucats}
+        </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+        <hr/>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+                Badges
+            </Typography>
+            <hr/>
+          </Paper>
+        </Grid>
+        <Paper className={classes.paper}>
+        <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <Paper className={classes.paperBadge}>
+          <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paperBadge}>
+              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
+          </Paper>
+        </Grid>
+        </Grid>
+        </Paper>
+      </Grid>
+        </CardContent>
+        </Card>
+        </Paper>
+        </Grid>
+
+        <Paper className={classes.paper}>
+          <Card className={classes.root} variant="outlined">
+            <CardContent>
+            <Grid item xs>
+                <Paper className={classes.paper}>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  <u>Inventory</u>
+                  </Typography>
+                </Paper>
+                </Grid>
+              <Grid container spacing={1}>
+                
+                <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  <u>Diamonds:</u>
+                  </Typography>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  {diamond}
+                  </Typography>
+                  <hr/>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  Value: {diamondValues} ETH
+                  </Typography>
+                </Paper>
+                  <hr/>
+                </Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  <u>Emeralds:</u>
+                  </Typography>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  {emerald}
+                  </Typography>
+                  <hr/>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  Value: {emeraldValues} ETH
+                  </Typography>
+                  </Paper>
+                  <hr/>
+                </Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  <u>Sapphires: </u>
+                  </Typography>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  {sapphire}
+                  </Typography>
+                  <hr/>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  Value: {sapphireValues} ETH
+                  </Typography>
+                  </Paper>
+                  <hr/>
+                </Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paper}>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  <u>Rubys: {ruby}</u>
+                  </Typography>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  {ruby}
+                  </Typography>
+                  <hr/>
+                  <Typography className={classes.font} color="textSecondary" gutterBottom>
+                  Value: {rubyValues} ETH
+                  </Typography>
+                  </Paper>
+                  <hr/>
+                </Grid>
+             </Grid>
+           </CardContent>
+          </Card>
+        </Paper>
+    </Grid>
+    {registered === undefined &&
+        <Dialog
+        open={open}
+        aria-labelledby="Please Register"
+        aria-describedby="Please Register"
+      >
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard (Coming Soon)"}</DialogTitle>
+        <DialogContent>
+        <Fab
+                    variant="outline" 
+                    color="primary"
+                    href="/"
+                    className={classes.button}
+                  >Register
+                  </Fab>
+        </DialogContent>
+        <RegisterModal
+          open={open}
+          toggleModal={() => setRegisterModal(!registerModal)}
+          username={username} 
+          />
+      </Dialog>
+      }
+  </div>
+);
+}}
