@@ -288,7 +288,10 @@ export default function Inventory() {
     
     setRegistered(data);
 
-    if (data.length > 0) {
+    
+    console.log(data.diamond)
+
+    if (data.diamond) {
     setDiamonds(data.diamond.length);
     setSapphires(data.sapphire.length);
     setEmeralds(data.emerald.length);
