@@ -53,6 +53,7 @@ import SCCallback from "./components/SCCallback";
 import ReactGA from 'react-ga';     
 import Trending from './components/Trending';
 import Inventory from "./components/Inventory";
+import RegisterPage from "./components/RegisterPage";
     
 const trackingID ="UA-111263990-4"     
   
@@ -283,6 +284,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
             <Route path="/dashboard" component={Inventory } />
+            <Route path="/register" component={RegisterPage} />
           </div>
           <div className="layout-mask"></div>
         </div> 

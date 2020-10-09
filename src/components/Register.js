@@ -4,27 +4,23 @@ import Dialog from '@material-ui/core/Dialog';
 import {StateContext} from "../App";
 import TextField from '@material-ui/core/TextField';
 
-export default function RegisterModal({
-  isOpen,
-  toggleModal,
-}) {
+export default function RegisterButton({}) {
   const [usernames, setUsername] = useState([]);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {steemConnectAPI, username} = useContext(StateContext);
 
   useEffect(() => {
-    if (!isOpen) {
+    if (isSubmitting) {
       setUsername(username);
       setIsSubmitting(false);
     }
-  }, [isOpen]);
+  }, [isSubmitting]);
 
   const registered = error => {
     if (error) {
       setIsSubmitting(false);
     } else {
-      toggleModal();
+      setIsSubmitting(true);
     }
   };
 
@@ -47,28 +43,13 @@ export default function RegisterModal({
   
   return (
     <>
-      <Dialog
-        header="Please Register"
-        visible={isOpen}
-        modal={true}
-        style={{width: "50vw", maxWidth: 500}}
-        onHide={() => toggleModal("registerModal")}
-        closeOnEscape={true}
-        dismissableMask={true}
-        id="registerModal"
-      >
-          <>
-            <label htmlFor="garden"><b>Please Register by entering your hive username</b></label>
-			<br/><br/>
-            <TextField id="filled-basic" label="Filled" variant="filled" onChange={e => setUsername(e.value)} />
-            <br/><br/>
-			  <Button
-              disabled={isSubmitting}
-              label={isSubmitting ? "Registering" : "Register"}
-              onClick={handleSubmit}
-              />
-          </>
-      </Dialog>
+        <TextField id="filled-basic" label="Hive Username" variant="filled" onChange={e => setUsername(e.value)} />
+        <br/><br/>
+	      <Button
+          disabled={isSubmitting}
+          label={!isSubmitting ? "Register" : "Registering"}
+          onClick={handleSubmit}
+          />
     </>
   );
 }

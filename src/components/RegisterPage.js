@@ -70,36 +70,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const LoginPage = ({history}) => {
+export const RegisterPage = ({history}) => {
   const etherchestApi = new EtherchestAPI();
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
-  const [loggingIn, setLoggingIn] = useState(false);
-  const hasSteemKeychain = useSteemKeychain();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const isDesktop = window.innerWidth < 790;
 
-  const keychainLoggedIn = (_, token) => {
-    if (token) {
-      steemConnectAPI.setAccessToken(token);
-      steemConnectAPI
-        .me()
-        .then(res => {
-          login(res.name);
-          localStorage.setItem("sc_token", token);
-          if (!isDesktop) {
-          history.push("/");
-        } else {
-          history.push("/");
-        }
-        })
-        .catch(e => {
-          console.log(e);
-          setUsername("");
-          setLoggingIn(false);
-        });
+  const registered = error => {
+    if (error) {
+      setIsSubmitting(false);
     } else {
-      setUsername("");
-      setLoggingIn(false);
+      setIsSubmitting(true);
     }
   };
 
@@ -115,15 +97,22 @@ export const LoginPage = ({history}) => {
     });
   }, [username]);
 
-  const Login = () => {
-    setLoggingIn(true);
-    steemConnectAPI.login({username}, keychainLoggedIn);
-  };
+  const handleSubmit = () => {
+    if (username) {
+      setIsSubmitting(true);
 
-  const loginLabelPrefix = loggingIn ? "Logging in with" : "Login with";
-  const loginLabelSuffix = hasSteemKeychain()
-    ? "Hive Keychain"
-    : "Hivesigner";
+      const custom_json_id = "etherchest_register";
+      const custom_JSON = JSON.stringify({username: username});
+
+      steemConnectAPI.customJson(
+        [],
+        [username], 
+        custom_json_id,
+        custom_JSON,
+        registered
+      );
+    }
+  };
 
     const classes = useStyles();
 
@@ -141,6 +130,9 @@ export const LoginPage = ({history}) => {
         <Typography variant="h4" className={classes.font}>
           Etherchest Ecosystem
         </Typography>
+        <Typography variant="paragraph" className={classes.font}>
+          Please enter your Hive Username to Register
+        </Typography>
       </center>
       
     </div>
@@ -157,6 +149,7 @@ export const LoginPage = ({history}) => {
           )}
         </Avatar>
         <form className={classes.form} validate>
+            
           <TextField
             variant="outlined"
             margin="normal"
@@ -171,14 +164,21 @@ export const LoginPage = ({history}) => {
           />
           <Button
             fullWidth
+            disabled={isSubmitting}
             variant="contained"
             color="primary"
-            onClick={Login}
-            label={`${loginLabelPrefix} ${loginLabelSuffix}`}
+            onClick={handleSubmit}
+            label={isSubmitting ? "Registering" : "Register"}
             className={classes.font}
           >
-            Sign In
+            Register
           </Button>
+        <br/><br/>
+	      <Button
+          disabled={isSubmitting}
+          label={isSubmitting ? "Registering" : "Register"}
+          onClick={handleSubmit}
+          />
           <Grid container>
             <Grid item>
               <Link href="https://signup.hive.io/" variant="body2" className={classes.font}>
@@ -199,4 +199,4 @@ export const LoginPage = ({history}) => {
 
 };
 
-export default withRouter(LoginPage);
+export default withRouter(RegisterPage);

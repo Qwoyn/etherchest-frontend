@@ -835,21 +835,16 @@ export default function Inventory() {
         aria-labelledby="Please Register"
         aria-describedby="Please Register"
       >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard (Coming Soon)"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
         <DialogContent>
         <Fab
                     variant="outline" 
                     color="primary"
-                    href="/"
+                    href="/register"
                     className={classes.button}
                   >Register
                   </Fab>
         </DialogContent>
-        <RegisterModal
-          open={open}
-          toggleModal={() => setRegisterModal(!registerModal)}
-          username={username} 
-          />
       </Dialog>
       }
     </div>
@@ -1021,21 +1016,16 @@ export default function Inventory() {
         aria-labelledby="Please Register"
         aria-describedby="Please Register"
       >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard (Coming Soon)"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
         <DialogContent>
         <Fab
                     variant="outline" 
                     color="primary"
-                    href="/"
+                    href="/register"
                     className={classes.button}
                   >Register
                   </Fab>
         </DialogContent>
-        <RegisterModal
-          open={open}
-          toggleModal={() => setRegisterModal(!registerModal)}
-          username={username} 
-          />
       </Dialog>
       }
   </div>
