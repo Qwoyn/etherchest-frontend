@@ -66,7 +66,7 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" href="https://etherchest.com">
+            <IconButton className="layout-menu-button" href="/">
             <FarmIcon />
             </IconButton>
             </HtmlTooltip>
@@ -76,13 +76,13 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="primary" className={classes.font}>Dashboard</Typography> (under construction)
+                  <Typography color="primary" className={classes.font}>Dashboard</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link1} to="/">
+            <IconButton className="layout-menu-button" component={Link1} to="/dashboard">
             <CrystalIcon />
             </IconButton>
             </HtmlTooltip>

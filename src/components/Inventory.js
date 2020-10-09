@@ -273,6 +273,7 @@ export default function Inventory() {
   const [totalGems, setTotalGems] = useState([]);
   const [totalDucats, setTotalDucats] = useState([]);
   const [totalEthValues, setTotalEthValues] = useState([]);
+  const [registered, setRegistered] = useState(true)
 
   const isDesktop = window.innerWidth < 1000;
 
@@ -284,9 +285,10 @@ export default function Inventory() {
     
     const response = await fetch(urlAPI);
     const data = await response.json();
+    
+    setRegistered(data);
 
-
-
+    if (data) {
     setDiamonds(data.diamond.length);
     setSapphires(data.sapphire.length);
     setEmeralds(data.emerald.length);
@@ -308,6 +310,7 @@ export default function Inventory() {
     setTotalGems(gemTotal);
 
     setTotalDucats(data.ducats);
+    } 
   }
 
   useEffect(() => {

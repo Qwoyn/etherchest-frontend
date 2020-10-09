@@ -34,7 +34,6 @@ export default function Buygem({type}) {
 
       const memo = `diamond diamond`;
       const to = "etherchest";
-      const from = `${username}`
       const amount = "2000";
       const currency = "HIVE";
 
@@ -72,8 +71,8 @@ export default function Buygem({type}) {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/gems`
-            : "http://localhost:3000/market/gems"
+            ? `${process.env.REACT_APP_URL}/dashboard`
+            : "http://localhost:3000/dashboard"
         );
       }
     }
