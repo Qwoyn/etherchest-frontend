@@ -998,7 +998,7 @@ export default function Inventory() {
                 <Grid item xs={6}>
                 <Paper className={classes.paper}>
                   <Typography className={classes.font} color="textSecondary" gutterBottom>
-                  <u>Rubys: {ruby}</u>
+                  <u>Rubys:</u>
                   </Typography>
                   <Typography className={classes.font} color="textSecondary" gutterBottom>
                   {ruby}
