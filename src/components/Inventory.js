@@ -262,11 +262,11 @@ export default function Inventory() {
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
 
-  const [diamond, setDiamonds] = useState([]);
-  const [sapphire, setSapphires] = useState([]);
-  const [emerald, setEmeralds] = useState([]);
-  const [ruby, setRubys] = useState([]);
-  const [diamondValues, setDiamondValues] = useState([]);
+  const [diamond, setDiamonds] = useState([0]);
+  const [sapphire, setSapphires] = useState([0]);
+  const [emerald, setEmeralds] = useState([0]);
+  const [ruby, setRubys] = useState([0]);
+  const [diamondValues, setDiamondValues] = useState([0]);
   const [sapphireValues, setSapphireValues] = useState([]);
   const [emeraldValues, setEmeraldValues] = useState([]);
   const [rubyValues, setRubyValues] = useState([]);
@@ -288,7 +288,7 @@ export default function Inventory() {
     
     setRegistered(data);
 
-    if (data) {
+    if (data.length > 0) {
     setDiamonds(data.diamond.length);
     setSapphires(data.sapphire.length);
     setEmeralds(data.emerald.length);
