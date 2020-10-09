@@ -829,11 +829,12 @@ export default function Inventory() {
       >
         <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
         <DialogContent>
-          <Button>Register</Button>
+        <Button variant="contained" color="primary" href="/register">
+        Register Here
+      </Button>
         </DialogContent>
       </Dialog>
       }
-    
     </div>
   );
 }
