@@ -27,6 +27,11 @@ import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -275,6 +280,8 @@ export default function Inventory() {
   const [totalEthValues, setTotalEthValues] = useState([]);
   const [registered, setRegistered] = useState(true)
 
+  const [open, setOpen] = React.useState(true);
+
   const isDesktop = window.innerWidth < 1000;
 
   const etherchestApi = new EtherchestAPI();
@@ -286,10 +293,7 @@ export default function Inventory() {
     const response = await fetch(urlAPI);
     const data = await response.json();
     
-    setRegistered(data);
-
-    
-    console.log(data.diamond)
+    setRegistered(data.diamond);
 
     if (data.diamond) {
     setDiamonds(data.diamond.length);
@@ -816,6 +820,20 @@ export default function Inventory() {
       </Paper>
       </Grid>
     </Grid>
+
+    {registered === undefined &&
+        <Dialog
+        open={open}
+        aria-labelledby="Please Register"
+        aria-describedby="Please Register"
+      >
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
+        <DialogContent>
+          <Button>Register</Button>
+        </DialogContent>
+      </Dialog>
+      }
+    
     </div>
   );
 }
