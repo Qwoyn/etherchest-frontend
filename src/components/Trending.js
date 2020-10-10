@@ -108,9 +108,9 @@ export default function Trending() {
       {trending.map(post => {
         const images = JSON.parse(post.json_metadata).image;
         const voting = () => {
-          const weight = 420;
+          const weight = 5000;
           console.dir(username);
-          steemConnectAPI.vote([username], post.author, post.permlink, weight);
+          steemConnectAPI.vote(username, post.author, post.permlink, weight);
         };
         return (
           <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
@@ -141,7 +141,7 @@ export default function Trending() {
                 <HtmlTooltip
                 title={
                 <React.Fragment>
-                  <Typography color="error">Voting coming soon!</Typography>
+                  <Typography color="error">Votes with 50%</Typography>
                 </React.Fragment>
                 }
                 placement="top"
@@ -165,8 +165,8 @@ export default function Trending() {
     <Dialog
       open={open}
       onClose={handleClose}
-      aria-labelledby="Connection Issue"
-      aria-describedby="Connection Issue"
+      aria-labelledby="Loading Hive"
+      aria-describedby="Loading Hive"
     >
       <DialogTitle id="alert-dialog-title">{"Connecting to the Hive Blockchain"}</DialogTitle>
       <DialogContent>
