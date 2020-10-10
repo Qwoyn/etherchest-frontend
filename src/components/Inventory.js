@@ -34,6 +34,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import Fab from '@material-ui/core/Fab';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import RegisterModal from './Register';
+import BuyGem from './Buygem';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -287,6 +288,11 @@ export default function Inventory() {
   const [totalEthValues, setTotalEthValues] = useState([0]);
   const [registered, setRegistered] = useState(true)
 
+  const [diamondPrice, setDiamondPrices] = useState([0]);
+  const [sapphirePrice, setSapphirePrices] = useState([0]);
+  const [emeraldPrice, setEmeraldPrices] = useState([0]);
+  const [rubyPrice, setRubyPrices] = useState([0]);
+
   const [open, setOpen] = React.useState(true);
 
   const isDesktop = window.innerWidth < 1000;
@@ -330,6 +336,27 @@ export default function Inventory() {
   useEffect(() => {
     loadData(username);
   }, [username]);
+
+  const loadPriceData = async () => {
+    
+    const urlAPI = 'https://etherchest-backend.herokuapp.com/';
+    
+    const response = await fetch(urlAPI);
+    const pricedata = await response.json();
+
+    var diamondPrice = pricedata.stats.prices.listed.gems.diamond;
+    var sapphirePrice = pricedata.stats.prices.listed.gems.sapphire;
+    var emeraldPrice = pricedata.stats.prices.listed.gems.emerald;
+    var rubyPrice = pricedata.stats.prices.listed.gems.ruby;
+    setDiamondPrices(diamondPrice);
+    setSapphirePrices(sapphirePrice);
+    setEmeraldPrices(emeraldPrice);
+    setRubyPrices(rubyPrice);
+  }
+
+  useEffect(() => {
+    loadPriceData();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -548,8 +575,8 @@ export default function Inventory() {
           centered
         >
           <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(0)} className={classes.font} />
-          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font} />
-          <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} />
+          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font} disabled />
+          <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
         </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -640,83 +667,78 @@ export default function Inventory() {
     </Paper>
 
     <TabPanel value={value} index={1} dir={theme.direction}>
-    <Grid container spacing={2}>
-    <Grid item xs={6}>
+    <Grid container spacing={1}>
+    <Grid item xs={3}>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Typography variant="paragraph" className={classes.font}>
+         Diamonds:
+        </Typography>
+        <hr/>
+        <Typography variant="paragraph" className={classes.font}>
+         1 ETH <br/>
+         <font color="red">({diamondPrice} HIVE)</font>
+        </Typography>
+        </CardContent>
+        </Card>
+    </Grid>
+    <Grid item xs={3}>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Typography variant="paragraph" className={classes.font}>
+        Sapphires:
+        </Typography>
+        <hr/>
+        <Typography variant="paragraph" className={classes.font}>
+        0.5 ETH 
+         <br/>
+        <font color="red">({sapphirePrice} HIVE)</font>
+        </Typography>
+        </CardContent>
+        </Card>
+    </Grid>
+    <Grid item xs={3}>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Typography variant="paragraph" className={classes.font}>
+        Emeralds:
+        </Typography>
+        <hr/>
+        <Typography variant="paragraph" className={classes.font}>
+        0.25 ETH 
+         <br/>
+        <font color="red">({emeraldPrice} HIVE)</font>
+        </Typography>
+        </CardContent>
+        </Card>
+    </Grid>
+    <Grid item xs={3}>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Typography variant="paragraph" className={classes.font}>
+        Rubys:
+        </Typography>
+        <hr/>
+        <Typography variant="paragraph" className={classes.font}>
+        0.1 ETH 
+         <br/>
+        <font color="red">({rubyPrice} HIVE)</font>
+        </Typography>
+        </CardContent>
+        </Card>
+    </Grid>
+    <Grid item xs>
         <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" className={classes.font}>
          Purchase Hive Gems
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <br/>
+
       </CardContent>
-    </Card>
-    </Grid>
-    <Grid item xs={6}>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Send
-        </Typography>
-        <Typography variant="h5" component="h2">
-         Send Hive Gems
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          Send 
-        </Typography>
-      </CardContent>
-    </Card>
-    </Grid>
-    <Grid item xs={6}>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Convert Hive Gem to Ethereum Gem
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Coming Soon
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-    </Card>
-    </Grid>
-    <Grid item xs={6}>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Guilded Gems
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
+      <CardActions>
+        <BuyGem />
+      </CardActions>
     </Card>
     </Grid>
     </Grid>

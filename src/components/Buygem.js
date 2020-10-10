@@ -1,47 +1,33 @@
 import React, {useContext, useState} from "react";
 import {Button} from "primereact/button";
-import {gemNames, gemTypes} from "../service/EtherchestAPI";
+import {Dropdown} from "primereact/dropdown";
+import {EtherchestAPI, gemNames, gemTypes} from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {sign} from "hivesigner";
-import useSteemKeychain from "../hooks/useSteemKeychain";
-import { makeStyles } from '@material-ui/core/styles';
+import useHiveKeychain from "../hooks/useHiveKeychain";
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-    minWidth: 250,
-    background: "#ffffff",
-    fontFamily: '"Orbitron", sans-serif',
-  },
-  media: {
-    height: 140,
-  },
-  font: {
-    fontFamily: '"Orbitron", sans-serif',
-  },
-});
-
-export default function Buygem({type}) {
-  const username = useContext(StateContext);
+export default function BuyGem({type}) {
+  const etherchestApi = new EtherchestAPI();
+  const {username} = useContext(StateContext);
+  const [gem, setGem] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const hasSteemKeychain = useSteemKeychain(username);
-  const classes = useStyles();
+  const hasHiveKeychain = useHiveKeychain();
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (username) {
+    if (gem && username) {
       setIsSubmitting(true);
 
-      const memo = `diamond diamond`;
+      const memo = `${gem.name} ${gem.name}`;
       const to = "etherchest";
-      const amount = "2000";
+      const amount ="50000.000"
       const currency = "HIVE";
 
-      if (hasSteemKeychain()) {
-        const steem_keychain = window.steem_keychain;
+      if (hasHiveKeychain()) {
+        const hive_keychain = window.hive_keychain;
         try {
           await new Promise((resolve, reject) => {
-            return steem_keychain.requestTransfer(
+            return hive_keychain.requestTransfer(
               username,
               to,
               amount,
@@ -58,6 +44,7 @@ export default function Buygem({type}) {
             );
           });
           setIsSubmitting(false);
+          setGem();
         } catch {
           setIsSubmitting(false);
         }
@@ -66,7 +53,7 @@ export default function Buygem({type}) {
           "transfer",
           {
             to,
-            from: `${username}`,
+            from: username,
             amount: `${amount} ${currency}`,
             memo
           },
@@ -84,15 +71,27 @@ export default function Buygem({type}) {
 
   return (
     <>
-      <div className="p-col-12 p-md-12"> 
-       <Button
-        fullWidth
-        variant="contained"
-        color="primary"
+      <div className="p-col-12 p-md-12">
+        <Dropdown
+          disabled={isSubmitting || !username}
+          optionLabel="name"
+          value={gem}
+          id="name"
+          options={Object.keys(gemNames).map(key => ({
+            id: key,
+            name: gemNames[key]
+          }))}
+          style={{width: "100%"}}
+          onChange={e => {
+            setGem(e.value);
+          }}
+          placeholder="Choose a gem..."
+        />     
+        <br/><br/>   
+        <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmit}
-        className={classes.font}
       />
       </div>
     </>

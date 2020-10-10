@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import {StateContext} from "../App";
-import useSteemKeychain from "../hooks/useSteemKeychain";
+import useHiveKeychain from "../hooks/useHiveKeychain";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -73,9 +73,8 @@ const useStyles = makeStyles(theme => ({
 export const RegisterPage = ({history}) => {
   const etherchestApi = new EtherchestAPI();
   const [username, setUsername] = useState("");
-  const {steemConnectAPI, login} = useContext(StateContext);
+  const {steemConnectAPI} = useContext(StateContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const isDesktop = window.innerWidth < 790;
 
   const registered = error => {
     if (error) {

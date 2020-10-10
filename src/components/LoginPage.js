@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import {StateContext} from "../App";
-import useSteemKeychain from "../hooks/useSteemKeychain";
+import useHiveKeychain from "../hooks/useHiveKeychain";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -75,7 +75,7 @@ export const LoginPage = ({history}) => {
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
-  const hasSteemKeychain = useSteemKeychain();
+  const hasHiveKeychain = useHiveKeychain();
   const isDesktop = window.innerWidth < 790;
 
   const keychainLoggedIn = (_, token) => {
@@ -121,7 +121,7 @@ export const LoginPage = ({history}) => {
   };
 
   const loginLabelPrefix = loggingIn ? "Logging in with" : "Login with";
-  const loginLabelSuffix = hasSteemKeychain()
+  const loginLabelSuffix = hasHiveKeychain()
     ? "Hive Keychain"
     : "Hivesigner";
 

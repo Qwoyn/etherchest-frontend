@@ -129,29 +129,29 @@ export class EtherchestAPI {
 }
 
 export const gemNames = {
-  gd:  "Diamond",
-  sp:  "Sapphire",
-  em:  "Emerlad",
+  gd:  "diamond",
+  sp:  "sapphire",
+  em:  "emerald",
   rb:  "ruby"
 };
 
 export const gemTypes = {
-  r: {
+  diamond: {
     num: 50000000,
     str: "5",
     name: "Diamond"
   },
-  m: {
+  sapphire: {
     num: 50000000,
     str: "5",
     name: "Sapphire"
   },
-  t: {
+  emerald: {
     num: 50000000,
     str: "5",
     name: "Emerald"
   },
-  s: {
+  gem: {
     num: 100000000,
     str: "10.000",
     name: "Ruby"
