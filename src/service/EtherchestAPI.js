@@ -1,20 +1,20 @@
 import axios from "axios";
 
 export class EtherchestAPI {
-  baseUrl = "https://etherchest-backend.herokuapp.com/"; // main api
+  baseUrl = 'https://etherchest-backend.herokuapp.com/'; // main api
   
   get(suffix) {
     return axios.get(this.baseUrl + suffix).then(res => res.data);
   }
 
   getTrending() {
-    return this.gethiveAPI("get_discussions_by_trending", [
+    return this.gethiveAPI('get_discussions_by_trending', [
       { tag: "leofinance", limit: 20 }
     ]);
   }
 
   getTrendingHome() {
-    return this.gethiveAPI("get_discussions_by_trending", [
+    return this.gethiveAPI('get_discussions_by_trending', [
       { tag: "leofinance", limit: 1 }
     ]);
   }
@@ -25,6 +25,10 @@ export class EtherchestAPI {
 
   getUserLand(username) {
     return this.get(`a/${username}`);
+  }
+
+  getGemPrices() {
+    return this.get(`prices`);
   }
 
   getUserDiamonds(username) {
@@ -48,11 +52,11 @@ export class EtherchestAPI {
   }
 
   getStats() {
-    return this.get("stats");
+    return this.get('stats');
   }
 
   getAll() {
-    return this.get("");
+    return this.get('');
   }
 
   gethiveAPI(method, params) {
@@ -128,11 +132,24 @@ export class EtherchestAPI {
   }
 }
 
-export const gemNames = {
+export const DiamondNames = {
   gd:  "diamond",
+  bl: ""
+};
+
+export const SapphireNames = {
   sp:  "sapphire",
+  bl: ""
+};
+
+export const EmeraldNames = {
   em:  "emerald",
-  rb:  "ruby"
+  bl: ""
+};
+
+export const RubyNames = {
+  rb:  "ruby",
+  bl: ""
 };
 
 export const gemTypes = {

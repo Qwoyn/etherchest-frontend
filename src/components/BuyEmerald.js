@@ -1,12 +1,12 @@
 import React, {useContext, useState} from "react";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-import {EtherchestAPI, gemNames, gemTypes} from "../service/EtherchestAPI";
+import {EtherchestAPI, EmeraldNames, gemTypes} from "../service/EtherchestAPI";
 import {StateContext} from "../App";
 import {sign} from "hivesigner";
 import useHiveKeychain from "../hooks/useHiveKeychain";
 
-export default function BuyGem({type}) {
+export default function BuyEmerald({type}) {
   const etherchestApi = new EtherchestAPI();
   const {username} = useContext(StateContext);
   const [gem, setGem] = useState();
@@ -77,9 +77,9 @@ export default function BuyGem({type}) {
           optionLabel="name"
           value={gem}
           id="name"
-          options={Object.keys(gemNames).map(key => ({
+          options={Object.keys(EmeraldNames).map(key => ({
             id: key,
-            name: gemNames[key]
+            name: EmeraldNames[key]
           }))}
           style={{width: "100%"}}
           onChange={e => {

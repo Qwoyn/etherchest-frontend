@@ -8,6 +8,9 @@ import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
+import FooterPage from './FooterPage';
+import InformationPage from './InformationPage';
+import MoreInformation from './MoreInformation';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -107,8 +110,16 @@ if (!isDesktop) {
         </Grid>
       </Grid>
       <br/>
+      <br/>
+      <br/>
+      <br/>
+      <InformationPage />
+      <br/>
+      <br/>
+      <MoreInformation />
       <hr/>
       <br/>
+    <FooterPage />
       </Container>
     </div>
     </Parallax>
@@ -134,6 +145,8 @@ if (!isDesktop) {
       <br/>
       <hr/>
       <br/>
+
+    <FooterPage />
       </Container>
     </div>
     </Parallax>
