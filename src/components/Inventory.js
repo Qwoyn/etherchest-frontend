@@ -367,10 +367,10 @@ export default function Inventory() {
     const response = await fetch(urlAPI);
     const pricedata = await response.json();
 
-    var diamondPrice = pricedata.stats.prices.listed.gems.diamond;
-    var sapphirePrice = pricedata.stats.prices.listed.gems.sapphire;
-    var emeraldPrice = pricedata.stats.prices.listed.gems.emerald;
-    var rubyPrice = pricedata.stats.prices.listed.gems.ruby;
+    var diamondPrice = pricedata.stats.prices.listed.gems.diamond / 1000;
+    var sapphirePrice = pricedata.stats.prices.listed.gems.sapphire / 1000;
+    var emeraldPrice = pricedata.stats.prices.listed.gems.emerald / 1000;
+    var rubyPrice = pricedata.stats.prices.listed.gems.ruby / 1000;
     setDiamondPrices(diamondPrice);
     setSapphirePrices(sapphirePrice);
     setEmeraldPrices(emeraldPrice);
@@ -590,8 +590,8 @@ export default function Inventory() {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/dashboard`
-            : "http://localhost:3000/dashboard"
+            ? `${process.env.REACT_APP_URL}/`
+            : "https://localhost:3000/"
         );
       }
     }
@@ -875,8 +875,8 @@ export default function Inventory() {
           className={classes.background}
           centered
         >
-          <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(0)} className={classes.font} disabled />
-          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font} disabled />
+          <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(0)} className={classes.font}  />
+          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font}  />
           <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
         </Tabs>
       <SwipeableViews
@@ -1397,7 +1397,7 @@ export default function Inventory() {
           </Card>
         </Paper>
     </Grid>
-    
+
     {registered === undefined &&
         <Dialog
         open={open}

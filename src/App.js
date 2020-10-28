@@ -159,10 +159,6 @@ class App extends Component {
         label: "Ecosystem",
         items: [
           {
-            label: "User Dashboard",
-            to: "/dashboard"
-          },
-          {
             label: "Trending Posts",
             to: "/trending"
           },
@@ -283,7 +279,6 @@ class App extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
-            <Route path="/dashboard" component={Inventory } />
             <Route path="/register" component={RegisterPage} />
           </div>
           <div className="layout-mask"></div>
