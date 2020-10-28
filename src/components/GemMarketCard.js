@@ -43,9 +43,9 @@ export default function GemMarketCard() {
         <CardContent>
           <Link component={Link1} to="/">
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-            <u>Gem Market</u>
+            Gem Market
           </Typography> 
-          <font color="red">(Under Construction)</font>
+          <font color="red">(Coming Soon)</font>
         </Link><br/>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           Find all of our available <a href="https://cointelegraph.com/explained/non-fungible-tokens-explained" target="_blank">non-fungible tokens (NFTs)</a> available in our Ecosystem in one convenient location.

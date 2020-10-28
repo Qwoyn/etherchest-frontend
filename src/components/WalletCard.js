@@ -43,6 +43,7 @@ export default function WalletCard() {
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
             <a href="/dashboard">User Dashboard</a>
           </Typography>
+          <font color="red">(Coming Soon)</font>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
             The portal to everything EtherChest. Visit your Wallet and view Gems, Ducat payouts and other information or check out your Guild stats!
           </Typography>
