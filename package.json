@@ -10,6 +10,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.8.2",
@@ -65,7 +66,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/layout/ -o src/layout/ --watch --recursive | node-sass-chokidar public/assets/layout/ -o public/assets/layout/ --watch --recursive",
     "start-js": "react-scripts start",
     "start:dev": "npm-run-all -p watch-css start-js",
-    "start": "node server.js",
+    "start": "node --experimental-modules server.js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test",
