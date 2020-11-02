@@ -46,10 +46,6 @@ export default function MoreInformation() {
         <Grid item xs={2}> 
         </Grid> 
         <Grid item xs={8}>
-        <ResponsiveImage
-                src="https://i.imgur.com/HP1HOzr.png"
-                width={ 800 }
-                height={ 800 } />
         </Grid>
         <Grid item xs={2}> 
         </Grid> 
