@@ -113,10 +113,10 @@ if (!isDesktop) {
       <br/>
       <br/>
       <br/>
-      <InformationPage />
-      <br/>
-      <br/>
       <MoreInformation />
+      <br/>
+      <br/>
+      <InformationPage />
       <hr/>
       <br/>
     <FooterPage />
