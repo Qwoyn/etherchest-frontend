@@ -131,15 +131,19 @@ if (!isDesktop) {
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-      
           <br/>
         </Grid>
-        
         <Grid item xs>
           <GemMarketCard />
         </Grid>
         <Grid item xs>
           <WalletCard />
+        </Grid>
+        <Grid>
+          <MoreInformation/>
+        </Grid>
+        <Grid>
+          <InformationPage/>
         </Grid>
       </Grid>
       <br/>
