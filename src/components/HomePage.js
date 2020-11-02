@@ -139,12 +139,6 @@ if (!isDesktop) {
         <Grid item xs>
           <WalletCard />
         </Grid>
-        <Grid>
-          <MoreInformation/>
-        </Grid>
-        <Grid>
-          <InformationPage/>
-        </Grid>
       </Grid>
       <br/>
       <hr/>
