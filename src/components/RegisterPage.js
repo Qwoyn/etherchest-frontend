@@ -110,6 +110,7 @@ export const RegisterPage = ({history}) => {
         custom_JSON,
         registered
       );
+      
     }
   };
 

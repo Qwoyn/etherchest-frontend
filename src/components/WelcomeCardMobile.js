@@ -39,7 +39,7 @@ export default function WelcomeCard() {
     <div>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-        <Paper className={paper.classes}>
+        <Paper className={classes.paper}>
       <center>
     <img src="https://i.imgur.com/8e2rVV9.png"></img>
     <Typography color="textSecondary" gutterBottom variant="h1" component="h1" className={classes.font}>
