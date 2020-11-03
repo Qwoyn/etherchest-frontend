@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import GemMarketCard from './GemMarketCard';
 import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
+import WelcomeCardMobile from './WelcomeCardMobile';
 import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
 import { Parallax } from 'react-parallax';
@@ -132,6 +133,7 @@ if (!isDesktop) {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <br/>
+        <WelcomeCardMobile />
         </Grid>
         <Grid item xs>
           <GemMarketCard />
@@ -140,10 +142,7 @@ if (!isDesktop) {
           <WalletCard />
         </Grid>
         <Grid item xs>
-          <InformationPageMobile/><WelcomeCard />
-        </Grid>
-        <Grid item xs>
-        <WelcomeCard />
+          <InformationPageMobile/>
         </Grid>
       </Grid>
       <br/>
