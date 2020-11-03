@@ -11,6 +11,7 @@ import { Parallax } from 'react-parallax';
 import FooterPage from './FooterPage';
 import InformationPage from './InformationPage';
 import MoreInformation from './MoreInformation';
+import InformationPageMobile from './InformationPageMobile';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -138,6 +139,9 @@ if (!isDesktop) {
         </Grid>
         <Grid item xs>
           <WalletCard />
+        </Grid>
+        <Grid item xs>
+          <InformationPageMobile/>
         </Grid>
       </Grid>
       <br/>
