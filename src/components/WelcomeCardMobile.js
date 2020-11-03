@@ -41,7 +41,7 @@ export default function WelcomeCard() {
         <Paper className={classes.paper}>
       <center>
     <img src="https://i.imgur.com/8e2rVV9.png"></img>
-    <Typography color="textSecondary" gutterBottom variant="h1" component="h1" className={classes.font}>
+    <Typography color="textSecondary" gutterBottom variant="h4" component="h4" className={classes.font}>
                 <font color="#dd9933">
                 EtherChest Ecosystem
                 </font>
@@ -57,7 +57,7 @@ export default function WelcomeCard() {
     <br/>
     <center>
     <img src="https://i.imgur.com/igeZjtO.png"></img>
-    <Typography color="textSecondary" gutterBottom variant="h1" component="h1" className={classes.font}>
+    <Typography color="textSecondary" gutterBottom variant="h5" component="h5" className={classes.font}>
                 <font color="#F7F0F0">
                 <Countdown date={Date.now() + 760000000}>
     <Completionist />
