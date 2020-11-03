@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import Countdown from "react-countdown";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 1200,
   },
@@ -21,13 +21,13 @@ const useStyles = makeStyles({
   },
   paper: {
     padding: theme.spacing(1),
-    textAlign: 'left',
+    textAlign: 'center',
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "transparent",
   },
-});
+}));
 
 export default function WelcomeCard() {
   const classes = useStyles();
