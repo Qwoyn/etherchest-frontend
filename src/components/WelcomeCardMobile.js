@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { ParallaxBanner } from 'react-scroll-parallax';
 import Countdown from "react-countdown";
 
 const useStyles = makeStyles(theme => ({
