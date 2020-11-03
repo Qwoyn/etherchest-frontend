@@ -6,7 +6,6 @@ import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
 import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
-import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
 import FooterPage from './FooterPage';
 import InformationPage from './InformationPage';
@@ -141,13 +140,15 @@ if (!isDesktop) {
           <WalletCard />
         </Grid>
         <Grid item xs>
-          <InformationPageMobile/>
+          <InformationPageMobile/><WelcomeCard />
+        </Grid>
+        <Grid item xs>
+        <WelcomeCard />
         </Grid>
       </Grid>
       <br/>
       <hr/>
       <br/>
-
     <FooterPage />
       </Container>
     </div>

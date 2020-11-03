@@ -39,7 +39,8 @@ export default function WelcomeCard() {
     </center>
     <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
                 <font color="#F7F0F0">
-                Powered by <a href="https://www.coindesk.com/research/reports/ethereum-2-0-how-it-works-and-why-it-matters" target="_blank">Ethereum 2.0</a> and <a href="https://peakd.com/@etherchest" target="_blank">Hive</a> Blockchain
+                Powered by <a href="https://www.coindesk.com/research/reports/ethereum-2-0-how-it-works-and-why-it-matters" target="_blank">
+                Ethereum 2.0</a> and <a href="https://peakd.com/@etherchest" target="_blank">Hive</a> Blockchain
                 </font>
     </Typography>
     <hr/>
