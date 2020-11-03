@@ -280,6 +280,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
             <Route path="/register" component={RegisterPage} />
+            <Route path="/dashboard" component={Inventory} />
           </div>
           <div className="layout-mask"></div>
         </div> 
