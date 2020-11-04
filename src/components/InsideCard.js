@@ -17,7 +17,7 @@ export default function MediaCard() {
   return (
     <div>
     <Box boxShadow={0}>
-    <iframe width="600" height="315" src="https://www.youtube.com/embed/CL2fi6Yfh0w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IuxTMRXLsNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </Box>
     </div>
   );
