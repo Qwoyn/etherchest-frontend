@@ -12,6 +12,7 @@ import { Parallax } from 'react-parallax';
 import FooterPage from './FooterPage';
 import InformationPage from './InformationPage';
 import MoreInformation from './MoreInformation';
+import MoreInformationMobile from './MoreInformationMobile';
 import InformationPageMobile from './InformationPageMobile';
 
 const useStyles = makeStyles(theme => ({
@@ -140,7 +141,7 @@ if (!isDesktop) {
           <InsideCardMobile />
         </Grid>
         <Grid item xs>
-          <WalletCard />
+          <MoreInformationMobile />
         </Grid>
         <Grid item xs>
           <InformationPageMobile/>

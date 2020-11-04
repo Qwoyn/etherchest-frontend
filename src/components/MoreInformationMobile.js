@@ -11,9 +11,10 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: 'left',
     whiteSpace: 'wrap',
     color: theme.palette.text.secondary,
+    backgroundColor: "transparent",
   },
   font: {
     fontFamily: '"Orbitron", sans-serif',
@@ -42,18 +43,11 @@ export default function MoreInformationMobile() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item xs={2}> 
-        </Grid> 
-        <Grid item xs={8}>
-        </Grid>
-        <Grid item xs={2}> 
-        </Grid> 
-      </Grid>
       <br/>
       <br/>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Paper className={classes.paper}>
+        <Grid item xs>
         <Typography color="textSecondary" gutterBottom variant="h3" component="h3" className={classes.font} align="left">
                 <font color="#dd9933">
                 EtherChest Staking
@@ -94,7 +88,7 @@ export default function MoreInformationMobile() {
                 </font>
             </Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs>
             <br/>
             <br/>
             <br/>
@@ -134,6 +128,7 @@ export default function MoreInformationMobile() {
             <br/>
             <br/>
         </Grid>
+        </Paper>
       </Grid>
       <br/>
     </div>
