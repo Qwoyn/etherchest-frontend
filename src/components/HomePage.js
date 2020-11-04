@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import GemMarketCard from './GemMarketCard';
 import InsideCard from './InsideCard';
+import InsideCardMobile from './InsideCardMobile';
 import WelcomeCard from './WelcomeCard';
 import WelcomeCardMobile from './WelcomeCardMobile';
 import WalletCard from './WalletCard';
@@ -136,7 +137,7 @@ if (!isDesktop) {
         <WelcomeCardMobile />
         </Grid>
         <Grid item xs>
-          <InsideCard />
+          <InsideCardMobile />
         </Grid>
         <Grid item xs>
           <WalletCard />
