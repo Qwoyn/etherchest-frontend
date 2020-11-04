@@ -136,7 +136,7 @@ if (!isDesktop) {
         <WelcomeCardMobile />
         </Grid>
         <Grid item xs>
-          <GemMarketCard />
+          <InsideCard />
         </Grid>
         <Grid item xs>
           <WalletCard />
