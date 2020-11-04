@@ -9,6 +9,12 @@ const useStyles = makeStyles({
   media: {
     height: 360,
   },
+  paper: {
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    backgroundColor: "transparent",
+  },
 });
 
 export default function MediaCard() {
@@ -16,9 +22,13 @@ export default function MediaCard() {
 
   return (
     <div>
+      <center>
+    <Paper className={classes.paper}>
     <Box boxShadow={0}>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/IuxTMRXLsNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </Box>
+    </Paper>
+    </center>
     </div>
   );
 }
