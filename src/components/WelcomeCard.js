@@ -49,9 +49,7 @@ export default function WelcomeCard() {
     <img src="https://i.imgur.com/igeZjtO.png"></img>
     <Typography color="textSecondary" gutterBottom variant="h1" component="h1" className={classes.font}>
                 <font color="#F7F0F0">
-                <Countdown date={Date.now() + 760000000}>
-    <Completionist />
-    </Countdown>
+                November 11, 2020!
                 </font>
     </Typography>
     </center>
