@@ -1218,8 +1218,8 @@ export default function Inventory() {
     {registered === undefined &&
         <Dialog
         open={open}
-        aria-labelledby="Please Register"
-        aria-describedby="Please Register"
+        aria-labelledby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
+        aria-describedby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
       >
         <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
         <DialogContent>
