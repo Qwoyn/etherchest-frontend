@@ -6,6 +6,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -18,8 +19,17 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#154A4A',
   },
   text: {
-    color: "#DFB17B"
-  }
+    color: "#DFB17B",
+    fontFamily: '"Orbitron", sans-serif',
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "transparent",
+  },
 }));
 
 export const FAQPage = () => {
@@ -32,6 +42,7 @@ export const FAQPage = () => {
   
     return (
       <div className="card-blank-sand-3">
+        <Paper className={classes.paper}>
       <font color="#DFB17B">
 		  <h3><b>Hashkings is an independently developed Ethereum 2.0 staking service running on the HIVE blockchain. </b></h3></font>
       <font color="#DFB17B">
@@ -187,6 +198,7 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      </Paper>
 	  </div>
     );
 };

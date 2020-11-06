@@ -23,12 +23,13 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#294A0B",
+    backgroundColor: "transparent",
   },
   text: {
     color: "#DFB17B"
   },
   font: {
+    color: "#DFB17B",
     fontFamily: '"Orbitron", sans-serif',
   }
 }));
