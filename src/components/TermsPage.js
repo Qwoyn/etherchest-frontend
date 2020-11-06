@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   },
   text: {
     color: "#DFB17B"
+  },
+  font: {
+    fontFamily: '"Orbitron", sans-serif',
   }
 }));
 
@@ -36,7 +39,7 @@ export const TermsPage = () => {
     return (
       <div>
           <Paper className={classes.paper}>
-          <Typography className={classes.heading}>
+          <Typography color="textSecondary" gutterBottom variant="body1" component="body1" className={classes.font}>
           Etherchest is an application that utilizes the Hive blockchain network enabling users to own, transfer, and trade unique digital collectibles, which can then be visualized on a website or mobile application that the user can interact with (the “App”). Using the App, users can view their collectibles and acquire non-fungible tokens, which grant users a stake in Ethereum 2.0 Validators. ETHERCHEST LLC. d/b/a EtherChest.com("Etherchest.com", "we", or "us") is making the App available to you. Before you use the App or the Site, however, you will need to review these Terms of Use and any terms and conditions incorporated herein by reference (collectively, these “Terms").
           PLEASE READ THESE TERMS CAREFULLY BEFORE USING THE APP OR THE SITE. THESE TERMS GOVERN YOUR USE OF THE APP, THE SITE, AND ANY PURCHASES YOU MAKE, UNLESS WE HAVE EXECUTED A SEPARATE WRITTEN AGREEMENT WITH YOU FOR THAT PURPOSE. WE ARE ONLY WILLING TO MAKE THE APP AND THE SITE AVAILABLE TO YOU IF YOU ACCEPT ALL OF THESE TERMS. BY USING THE APP AND/OR THE SITE, OR ANY PART OF EACH, YOU ARE CONFIRMING YOU UNDERSTAND AND AGREE TO BE BOUND BY ALL OF THESE TERMS. IF YOU ARE ACCEPTING THESE TERMS ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO ACCEPT THESE TERMS ON THAT ENTITY’S BEHALF, IN WHICH CASE “YOU” WILL MEAN THAT ENTITY. IF YOU DO NOT HAVE SUCH AUTHORITY, OR IF YOU DO NOT ACCEPT ALL OF THESE TERMS, THEN WE ARE UNWILLING TO MAKE THE APP OR THE SITE AVAILABLE TO YOU. IF YOU DO NOT AGREE TO THESE TERMS, YOU MAY NOT ACCESS OR USE THE APP OR THE SITE.
           KEY DEFINITIONS
