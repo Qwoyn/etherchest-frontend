@@ -54,6 +54,8 @@ import ReactGA from 'react-ga';
 import Trending from './components/Trending';
 import Inventory from "./components/Inventory";
 import RegisterPage from "./components/RegisterPage";
+import { FAQPage } from "./components/FAQPage";
+import { TermsPage } from "./components/TermsPage";
     
 const trackingID ="UA-111263990-4"     
   
@@ -281,6 +283,8 @@ class App extends Component {
             <Route path="/trending" component={Trending} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/dashboard" component={Inventory} />
+            <Route path="/faq" component={FAQPage} />
+            <Route path="/terms" component={TermsPage} />
           </div>
           <div className="layout-mask"></div>
         </div> 
