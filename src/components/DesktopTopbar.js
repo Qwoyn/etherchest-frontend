@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
     font: {
       fontFamily: '"Orbitron", sans-serif',
+      color: "#1ad986"
     },
   }));
 
@@ -60,7 +61,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="primary" className={classes.font}>EtherChest.com</Typography>
+                  <Typography className={classes.font}>EtherChest.com</Typography>
                 </React.Fragment>
               }
               placement="top"
@@ -76,7 +77,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="primary" className={classes.font}>Trending Posts</Typography>
+                  <Typography className={classes.font}>Trending Posts</Typography>
                 </React.Fragment>
               }
               placement="top"

@@ -1221,7 +1221,7 @@ export default function Inventory() {
         aria-labelledby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
         aria-describedby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
       >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard then wait 2 minutes for the transaction to propogate on HIVE"}</DialogTitle>
         <DialogContent>
         <Fab
                     variant="outline" 
