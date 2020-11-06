@@ -95,21 +95,6 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')} className={classes.background}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography className={classes.heading}><b>Does it cost money to play?</b></Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.text}>
-          <Typography>
-		  Yes, there is an initial leasing fee and a 20 SP delegation for each plot
-			  gems also cost a small amount of HIVE to purchase.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
 	  <ExpansionPanel expanded={expanded === 'panel5'} onChange={handleChange('panel5')} className={classes.background}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -120,8 +105,8 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-		      After signing in head on over to the<a href="/">
-          dashbard (coming Nov 11, 2020)</a> by following the link or clicking the "Dashboard" icon in the top left hand corner. 
+		      After signing in head on over to the <a href="/">
+          dashboard (coming Nov 11, 2020)</a> by following the link or clicking the "Dashboard" icon in the top left hand corner. 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
