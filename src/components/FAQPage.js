@@ -59,7 +59,7 @@ export const FAQPage = () => {
         >
           <Typography className={classes.heading}><b>What is Etherchest?</b></Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails className={classes.text}>
           <Typography>
           The Etherchest.com Ecosystem provides easy, affordable access to get you involved with staking on ETH2. 
           Our Ecosystem is community driven, which aims to play an important role in supporting new projects, 
