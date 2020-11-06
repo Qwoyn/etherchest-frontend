@@ -884,92 +884,6 @@ export default function Inventory() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-    <Paper className={classes.paper}>
-    <TabPanel value={value} index={1} dir={theme.direction}>
-    <Grid container spacing={2}>
-        <Grid item xs={6}>
-        <Card className={classes.root} variant="outlined">
-      <CardContent>
-          <Paper className={classes.fontPurchase}>
-        <Typography variant="h5" component="h5" className={classes.font}>
-         Purchase Hive Ducats
-        </Typography>
-        <br/>
-        <Paper className={classes.fontBox}> 
-        <TextField id="filled-basic" label="Enter Amount" variant="outlined" color="secondary" className={classes.font}/>
-        </Paper>
-        <br/><br/>
-        
-        <br/>
-        <br/>
-        </Paper>
-      </CardContent>
-    </Card>
-    </Grid>
-    <Grid item xs={6}>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-          <Paper className={classes.paperBlack}>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <u>Ducat Balance</u>
-        </Typography>
-        <Typography variant="h5" component="h2" className={classes.font}>
-          0
-        </Typography>
-        </Paper>
-      </CardContent>
-    </Card>
-    <ResponsiveImage
-      src="https://i.imgur.com/GAbKp9R.png"
-       width={ 1000 }
-       height={ 210 } />
-    </Grid>
-    <Grid item xs={6}>
-    <hr/>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-      <Paper className={classes.fontPurchase}>
-        <Typography variant="h5" component="h5" className={classes.font}>
-         Convert HIVE Ducats to ETH Ducats
-        </Typography>
-        <br/>
-        <Paper className={classes.fontBox}> 
-        <TextField id="filled-basic" label="Enter Amount" variant="filled" color="primary" className={classes.font}/>
-        <TextField id="filled-basic" label="Enter Eth Address" variant="filled" color="secondary" className={classes.font}/>
-        </Paper>
-        <br/><br/>
-      
-        <br/>
-        <br/>
-        </Paper>
-      </CardContent>
-    </Card>
-    </Grid>
-    <Grid item xs={6}>
-        <hr/>
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-      <Paper className={classes.fontPurchase}>
-        <Typography variant="h5" component="h5" className={classes.font}>
-         Send Ducats to Hive User
-        </Typography>
-        <br/><br/>
-        <Paper className={classes.fontBox}> 
-        <TextField id="filled-basic" label="Enter Amount" variant="filled" color="primary" className={classes.font}/>
-        <TextField id="filled-basic" label="Enter Hive User" variant="filled" color="secondary" className={classes.font}/>
-        </Paper>
-        <br/><br/>
-        
-        <br/>
-        <br/>
-        </Paper>
-      </CardContent>
-    </Card>
-    </Grid>
-   </Grid>
-    </TabPanel>
-    </Paper>
-
     <TabPanel value={value} index={0} dir={theme.direction}>
     <Grid container spacing={1}>
     <Grid item xs={3}>
@@ -1126,9 +1040,94 @@ export default function Inventory() {
         </CardActions>
         </Card>
     </Grid>
-
     </Grid>
     </TabPanel>
+
+    <Paper className={classes.paper}>
+    <TabPanel value={value} index={1} dir={theme.direction}>
+    <Grid container spacing={2}>
+        <Grid item xs={6}>
+        <Card className={classes.root} variant="outlined">
+      <CardContent>
+          <Paper className={classes.fontPurchase}>
+        <Typography variant="h5" component="h5" className={classes.font}>
+         Purchase Hive Ducats
+        </Typography>
+        <br/>
+        <Paper className={classes.fontBox}> 
+        <TextField id="filled-basic" label="Enter Amount" variant="outlined" color="secondary" className={classes.font}/>
+        </Paper>
+        <br/><br/>
+        
+        <br/>
+        <br/>
+        </Paper>
+      </CardContent>
+    </Card>
+    </Grid>
+    <Grid item xs={6}>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+          <Paper className={classes.paperBlack}>
+        <Typography className={classes.font} color="textSecondary" gutterBottom>
+          <u>Ducat Balance</u>
+        </Typography>
+        <Typography variant="h5" component="h2" className={classes.font}>
+          0
+        </Typography>
+        </Paper>
+      </CardContent>
+    </Card>
+    <ResponsiveImage
+      src="https://i.imgur.com/GAbKp9R.png"
+       width={ 1000 }
+       height={ 210 } />
+    </Grid>
+    <Grid item xs={6}>
+    <hr/>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Paper className={classes.fontPurchase}>
+        <Typography variant="h5" component="h5" className={classes.font}>
+         Convert HIVE Ducats to ETH Ducats
+        </Typography>
+        <br/>
+        <Paper className={classes.fontBox}> 
+        <TextField id="filled-basic" label="Enter Amount" variant="filled" color="primary" className={classes.font}/>
+        <TextField id="filled-basic" label="Enter Eth Address" variant="filled" color="secondary" className={classes.font}/>
+        </Paper>
+        <br/><br/>
+      
+        <br/>
+        <br/>
+        </Paper>
+      </CardContent>
+    </Card>
+    </Grid>
+    <Grid item xs={6}>
+        <hr/>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Paper className={classes.fontPurchase}>
+        <Typography variant="h5" component="h5" className={classes.font}>
+         Send Ducats to Hive User
+        </Typography>
+        <br/><br/>
+        <Paper className={classes.fontBox}> 
+        <TextField id="filled-basic" label="Enter Amount" variant="filled" color="primary" className={classes.font}/>
+        <TextField id="filled-basic" label="Enter Hive User" variant="filled" color="secondary" className={classes.font}/>
+        </Paper>
+        <br/><br/>
+        
+        <br/>
+        <br/>
+        </Paper>
+      </CardContent>
+    </Card>
+    </Grid>
+   </Grid>
+    </TabPanel>
+    </Paper>
 
     <TabPanel value={value} index={2} dir={theme.direction}>
     <Grid container spacing={2}>
