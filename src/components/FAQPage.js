@@ -33,21 +33,19 @@ export const FAQPage = () => {
     return (
       <div className="card-blank-sand-3">
       <font color="#DFB17B">
-		  <h3><b>Hashkings is an independently developed game and decentralized application (dApp) running on the HIVE blockchain. 
-			The project officially started in October 2018 on the Ethereum blockchain but migrated to HIVE in January 2019 in an effort 
-			to expand into a growing new platform.</b></h3></font>
+		  <h3><b>Hashkings is an independently developed Ethereum 2.0 staking service running on the HIVE blockchain. </b></h3></font>
       <font color="#DFB17B">
-			<h3><b>The development team consists of three core members: Daniel Pittman, Steven Ettinger and J. Rawsthorne. Their 
-			background experience includes Cannabis Cultivation, Ethereum Smart Contracts, Steemjs, Dlux VR, Node, Frontend and Backend api 
+			<h3><b>The EtherChest team consists of three core members: Daniel Pittman, AJ Brockman and W. Moglia. Their 
+			background experience includes Business Management, Ethereum Smart Contracts, HiveJS, Dlux VR, Node, Frontend and Backend api 
 			design.</b></h3></font>
       <font color="#DFB17B">
-			<h3><b>Designed to be a virtual Cannabis farming game that implements HIVE tokens on the blockchain, Hashkings intends to 
-			be educational as well as interactive. The internal game mechanics allow you to stake your HIVE in return for beneficiary 
-			rewards. These returns are generated through the HIVE blockchain rewards pool and paid out to players over time. This 
-			creates a micro-economy within the dApp that evolves and grows with the game itself.</b></h3>
+			<h3><b>Designed to be an Ethereum staking service that implements fungible and non-fungible HIVE tokens on the blockchain, EtherChest intends to 
+			be an affordable and easy way to Stake on Ethereum 2.0. The internal mechanics allow you to stake your HIVE in return for Ethereum staking 
+			rewards. These returns are generated through transaction validation on the Ethereum 2.0 blockchain paid out to users using our fungible currency called Ducats. 
+      This creates a micro-economy within the dApp that evolves and grows as the number of users grows.</b></h3>
       </font>
       <font color="#DFB17B">
-			<h3><b>Our vision is to create the next generation of dApps powered by blockchain technologies. Not only to entertain but to 
+			<h3><b>Our vision is to create the next generation of dApps powered by blockchain technologies. Not only to earn passive income but to 
 			educate and enrich the community. Help us to continue creating quality independently developed software in the future.</b></h3>
 			</font>
       <font color="#DFB17B">
@@ -59,13 +57,14 @@ export const FAQPage = () => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className={classes.heading}><b>What is Hashkings?</b></Typography>
+          <Typography className={classes.heading}><b>What is Etherchest?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-		  Hashkings is a virtual Cannabis farming game on the HIVE blockchain. 
-		  You can lease plots of land, buy gems and grow your own plants which are then 
-		  harvested and sold at market. 
+          The Etherchest.com Ecosystem provides easy, affordable access to get you involved with staking on ETH2. 
+          Our Ecosystem is community driven, which aims to play an important role in supporting new projects, 
+          stability inside the network, and validating transactions; a "triple fusion". 
+          Etherchest.com is committed to growth for Ethereum's community and evolving future projects.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -75,19 +74,13 @@ export const FAQPage = () => {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography className={classes.heading}><b>How do you earn from the game?</b></Typography>   
+          <Typography className={classes.heading}><b>How do you earn from Ethereum staking with Etherchest?</b></Typography>   
 		  </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			When farmers take care of their plants they grow points toward votes... 
-			distributing the inflation 
-			controlled by our collective HIVE power. This is done by placing our growers as 
-			beneficiaries on 
-			semi-automated posts, and then voting on these posts. 
-			Additionally, any extra game mechanics purchased contribute to our SP... 
-			increasing over time the benefits for everybody involved. In short, 
-			contribute to the SP and earn the 
-			benefactor rewards off the semi-automated posts everyday.
+			EtherChest stakes Ethereum inside a number of Ethereum 2.0 validators on the ETH beacon chain.  Similar to a proof-of-work blockchain, 
+      in proof-of-stake when transactions are verified by our validators the Ecosystem earns the block reward.  Rewards are then distributed
+      Depending on the type and number of NFTs (Etherchest Gems) a user owns.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -116,8 +109,8 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-		      Head on over to the<a href="/tutorial">
-          tutorial</a> by following the link or click "New to Hashkings?" in the top right hand corner. 
+		      After signing in head on over to the<a href="/">
+          dashbard (coming Nov 11, 2020)</a> by following the link or clicking the "Dashboard" icon in the top left hand corner. 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -127,11 +120,12 @@ export const FAQPage = () => {
           aria-controls="panel6bh-content"
           id="panel6bh-header"
         >
-          <Typography className={classes.heading}><b>What should I do after I plant my gems?</b></Typography>
+          <Typography className={classes.heading}><b>What should I do after I purchase my gems?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			Go to "Ganja Farm" and click "Farming". There you will find the Watering function.
+			  Give the blockchain a minute or so to process the transaction and reload your Dashboard.  You will then see your Gems, Ducats and your earnings for the day.  
+        Check back everyday to see your earnings which are updated every 24 hours.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -141,11 +135,12 @@ export const FAQPage = () => {
           aria-controls="panel7bh-content"
           id="panel7bh-header"
         >
-          <Typography className={classes.heading}><b>How often should I water my plants?</b></Typography>
+          <Typography className={classes.heading}><b>Is there an advantage to owning Diamonds over Rubys and the others?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			No more than once per day is fine.
+			Yes, the size of your stake determines your payouts.  If you own a diamond which is valued at the equivalent of 1 Ethereum in HIVE earns more than the rest of the
+      Gems.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -155,12 +150,12 @@ export const FAQPage = () => {
           aria-controls="panel8bh-content"
           id="panel8bh-header"
         >
-          <Typography className={classes.heading}><b>What happens if I forget to water?</b></Typography>
+          <Typography className={classes.heading}><b>Can I cash out my Gems and Ducats immediately?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			If you forget to water, your plants will not grow and your 
-			payouts will also stop for that day.
+			Ethereum 2.0 is just beginning and in phase 0 all Ethereum is locked in the validators.  This includes the original amount staked and the rewards earned.
+      Nobody can touch them, not even Etherchest.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -174,9 +169,7 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-            Please visit 
-          <a href="https://steempeak.com/hashkings/@hashkings/hashkings-gems-small-overview">
-            Our gems overview</a> on steempeak to learn more.
+           Our Gems have their own value.  Diamonds are worth 1 ETH, Sapphires are worth 0.5 ETH, Emeralds are worth 0.25 ETH and Rubys are worth 0.1 ETH.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -186,11 +179,11 @@ export const FAQPage = () => {
           aria-controls="panel10bh-content"
           id="panel10bh-header"
         >
-          <Typography className={classes.heading}><b>How many garden plots/gems can I own?</b></Typography>
+          <Typography className={classes.heading}><b>How many garden gems can I own?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			There are a total of 2520 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many gems as your green thumb can handle.
+			You can own as many Gems as you would like and the more you own the more you earn.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
