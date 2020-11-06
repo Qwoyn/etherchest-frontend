@@ -875,8 +875,8 @@ export default function Inventory() {
           className={classes.background}
           centered
         >
-          <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(0)} className={classes.font}  />
-          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(1)} className={classes.font}  />
+          <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(0)} className={classes.font}  />
+          <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(1)} className={classes.font} disabled />
           <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
         </Tabs>
       <SwipeableViews
@@ -885,7 +885,7 @@ export default function Inventory() {
         onChangeIndex={handleChangeIndex}
       >
     <Paper className={classes.paper}>
-    <TabPanel value={value} index={0} dir={theme.direction}>
+    <TabPanel value={value} index={1} dir={theme.direction}>
     <Grid container spacing={2}>
         <Grid item xs={6}>
         <Card className={classes.root} variant="outlined">
@@ -970,7 +970,7 @@ export default function Inventory() {
     </TabPanel>
     </Paper>
 
-    <TabPanel value={value} index={1} dir={theme.direction}>
+    <TabPanel value={value} index={0} dir={theme.direction}>
     <Grid container spacing={1}>
     <Grid item xs={3}>
     <Card className={classes.root} variant="outlined">

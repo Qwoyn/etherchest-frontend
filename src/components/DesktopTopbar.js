@@ -86,7 +86,24 @@ export default function DesktopTopbar(){
             <BlogIcon />
             </IconButton>
             </HtmlTooltip>
-            </Grid>      
+            </Grid>    
+
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="primary" className={classes.font}>Dashboard</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" component={Link1} to="/dashboard">
+            <BlogIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid>       
+
 
         </Grid>
     </Grid>
