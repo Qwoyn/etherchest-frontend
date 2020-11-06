@@ -41,7 +41,7 @@ export const FAQPage = () => {
 	};
   
     return (
-      <div className="card-blank-sand-3">
+      <div>
         <Paper className={classes.paper}>
       <font color="#DFB17B">
 		  <h3><b>Etherchest is an independently developed Ethereum 2.0 staking service running on the HIVE blockchain. </b></h3></font>
