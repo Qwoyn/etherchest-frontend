@@ -99,7 +99,7 @@ export default function DesktopTopbar(){
               TransitionComponent={Zoom}
               >
             <IconButton className="layout-menu-button" component={Link1} to="/dashboard">
-            <BlogIcon />
+            <MarketIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>       
