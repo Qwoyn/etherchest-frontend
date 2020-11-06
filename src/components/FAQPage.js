@@ -44,7 +44,7 @@ export const FAQPage = () => {
       <div className="card-blank-sand-3">
         <Paper className={classes.paper}>
       <font color="#DFB17B">
-		  <h3><b>Hashkings is an independently developed Ethereum 2.0 staking service running on the HIVE blockchain. </b></h3></font>
+		  <h3><b>Etherchest is an independently developed Ethereum 2.0 staking service running on the HIVE blockchain. </b></h3></font>
       <font color="#DFB17B">
 			<h3><b>The EtherChest team consists of three core members: Daniel Pittman, AJ Brockman and W. Moglia. Their 
 			background experience includes Business Management, Ethereum Smart Contracts, HiveJS, Dlux VR, Node, Frontend and Backend api 
