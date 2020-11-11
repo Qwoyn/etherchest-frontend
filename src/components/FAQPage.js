@@ -151,7 +151,7 @@ export const FAQPage = () => {
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
 			Ethereum 2.0 is just beginning and in phase 0 all Ethereum is locked in the validators.  This includes the original amount staked and the rewards earned.
-      Nobody can touch them, not even Etherchest.
+      Nobody can touch them, not even Etherchest. However you will be able to withdraw your Ducats as they are distributed.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -197,10 +197,10 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel11'} onChange={handleChange('panel11')} className={classes.background}>
+      <ExpansionPanel expanded={expanded === 'panel12'} onChange={handleChange('panel12')} className={classes.background}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel11bh-content"
+          aria-controls="panel12bh-content"
           id="panel11bh-header"
         >
           <Typography className={classes.heading}><b>Can I purchase more than one Gem at a time</b></Typography>
@@ -211,9 +211,23 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel13'} onChange={handleChange('panel13')} className={classes.background}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel13bh-content"
+          id="panel11bh-header"
+        >
+          <Typography className={classes.heading}><b></b>How are Ducats valued?</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.text}>
+          <Typography>
+			   Our Ducats are essentially wrapped ethereum which gives the user liquidity while the rewards are locked and are pegged at one Ducat to 0.00001 ETH.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       </Paper>
 	  </div>
     );
 };
-
+Do you have the token/NFT pegged prices/ratios sorted out?
 export default withRouter(FAQPage);
