@@ -50,14 +50,10 @@ export default function FooterPage() {
                         <Grid item xs={6}>
                            <br/>
                            <br/>
-                           <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="right">
+                           <br/>
+                           <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="center">
                                 <font color="#F7F0F0">
                                 <a href="https://www.etherchest.com/terms">Terms of Service</a>                
-                                </font>
-                                </Typography>
-                                <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="right">
-                                <font color="#F7F0F0">
-                                <a href="https://www.etherchest.com/privacy">Privacy Policy</a>                
                                 </font>
                                 </Typography>
                         </Grid>
@@ -66,7 +62,14 @@ export default function FooterPage() {
                 <Grid item xs={6}>
                     <Grid container spacing={3}>
                         <Grid item xs={6}>
-                            
+                          <br/>
+                          <br/>
+                          <br/>
+                        <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="center">
+                                <font color="#F7F0F0">
+                                <a href="https://www.etherchest.com/privacy">Privacy Policy</a>                
+                                </font>
+                                </Typography>
                         </Grid>
                         <Grid item xs={6}>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
