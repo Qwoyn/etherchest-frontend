@@ -899,7 +899,7 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
-        <Dropdown
+        <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
           value={diamonds}
@@ -938,7 +938,7 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
-        <Dropdown
+        <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
           value={sapphires}
@@ -977,7 +977,7 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
-        <Dropdown
+        <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
           value={emeralds}
@@ -1016,7 +1016,7 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
-        <Dropdown
+        <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
           value={rubys}
