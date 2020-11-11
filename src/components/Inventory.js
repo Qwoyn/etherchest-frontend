@@ -920,7 +920,11 @@ export default function Inventory() {
         label={buttonLabel}
         onClick={handleSubmit}
       />
+      <br/>
+        <br/>
         </CardActions>
+        <br/>
+        <br/>
         </Card>
     </Grid>
 
@@ -959,7 +963,11 @@ export default function Inventory() {
         label={buttonLabel}
         onClick={handleSubmitSapphire}
       />
+      <br/>
+        <br/>
         </CardActions>
+        <br/>
+        <br/>
         </Card>
     </Grid>
 
@@ -998,7 +1006,11 @@ export default function Inventory() {
         label={buttonLabel}
         onClick={handleSubmitEmerald}
       />
+      <br/>
+        <br/>
         </CardActions>
+        <br/>
+        <br/>
         </Card>
     </Grid>
 
@@ -1037,7 +1049,11 @@ export default function Inventory() {
         label={buttonLabel}
         onClick={handleSubmitRuby}
       />
+      <br/>
+        <br/>
         </CardActions>
+        <br/>
+        <br/>
         </Card>
     </Grid>
     </Grid>
