@@ -175,7 +175,7 @@ export const FAQPage = () => {
           aria-controls="panel10bh-content"
           id="panel10bh-header"
         >
-          <Typography className={classes.heading}><b>How many garden gems can I own?</b></Typography>
+          <Typography className={classes.heading}><b>How many Gems can I own?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
@@ -194,6 +194,20 @@ export const FAQPage = () => {
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
 			    We charge a 10% maintenance fee on daily rewards. These fees cover the continued operation of etherchest and all of the costs associated with running a staking service.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel11'} onChange={handleChange('panel11')} className={classes.background}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel11bh-content"
+          id="panel11bh-header"
+        >
+          <Typography className={classes.heading}><b>Can I purchase more than one Gem at a time</b></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.text}>
+          <Typography>
+			   Currently you can only purchase one Gem at a time but we will be upgrading these feature soon.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
