@@ -229,5 +229,5 @@ export const FAQPage = () => {
 	  </div>
     );
 };
-Do you have the token/NFT pegged prices/ratios sorted out?
+
 export default withRouter(FAQPage);
