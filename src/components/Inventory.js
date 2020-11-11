@@ -714,19 +714,8 @@ export default function Inventory() {
                 width={ 1000 }
                 height={ 210 } />
               </Paper>
-            </Grid>
-        
-          <Grid item xs={12}>
-            <Paper>
-            <InventoryChart />
-            </Paper>
-            <Paper className={classes.paper}>
-          <InventoryChartSwitch />
-          </Paper>
-          </Grid>
-            
+            </Grid>            
         </Grid>
-            
         </Grid>
         <Grid item xs={4}>
         <Paper className={classes.paper}>
@@ -807,7 +796,7 @@ export default function Inventory() {
           <u>Guild</u>
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Etherchest <font color="green">(Merchants)</font>
+          Etherchest
         </Typography>
           </Paper>
         </Grid>
