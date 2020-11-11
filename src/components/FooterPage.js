@@ -50,12 +50,12 @@ export default function FooterPage() {
                         <Grid item xs={6}>
                            <br/>
                            <br/>
-                           <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="center">
+                           <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="right">
                                 <font color="#F7F0F0">
                                 <a href="https://www.etherchest.com/terms">Terms of Service</a>                
                                 </font>
                                 </Typography>
-                                <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="center">
+                                <Typography color="textSecondary" gutterBottom variant="body1" className={classes.font} align="right">
                                 <font color="#F7F0F0">
                                 <a href="https://www.etherchest.com/privacy">Privacy Policy</a>                
                                 </font>
