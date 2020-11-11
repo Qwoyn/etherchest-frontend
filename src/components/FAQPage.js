@@ -183,6 +183,20 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel10'} onChange={handleChange('panel10')} className={classes.background}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel10bh-content"
+          id="panel10bh-header"
+        >
+          <Typography className={classes.heading}><b>Are there fees associated with staking</b></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.text}>
+          <Typography>
+			    We charge a 10% maintenance fee on daily rewards. These fees ensure that we can continue to operate and all costs associated with running a staking service.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       </Paper>
 	  </div>
     );
