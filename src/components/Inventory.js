@@ -1028,6 +1028,9 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
+        <Typography variant="caption" className={classes.font}>
+        By clicking purchase you agree to our <a href="https://www.etherchest.com/terms">terms of service</a>
+        </Typography>
         <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
