@@ -119,7 +119,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#566173",
+    backgroundColor: "#000000",
   },
   paperPurple: {
     padding: theme.spacing(2),
