@@ -899,6 +899,10 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
+        <Typography variant="caption" className={classes.font}>
+        By clicking purchase you agree to our <a href="https://www.etherchest.com/terms">terms of service</a>
+        </Typography>
+        <br/>
         <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
@@ -912,7 +916,7 @@ export default function Inventory() {
           onChange={e => {
             setDiamond(e.value);
           }}
-          placeholder="Choose a diamond..."
+          placeholder="Choose Diamond..."
         />     
         <br/><br/>   
         <Button
@@ -942,6 +946,10 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
+        <Typography variant="caption" className={classes.font}>
+        By clicking purchase you agree to our <a href="https://www.etherchest.com/terms">terms of service</a>
+        </Typography>
+        <br/>
         <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
@@ -955,7 +963,7 @@ export default function Inventory() {
           onChange={e => {
             setSapphire(e.value);
           }}
-          placeholder="Choose a Sapphire..."
+          placeholder="Choose Sapphire..."
         />     
         <br/><br/>   
         <Button
@@ -985,6 +993,10 @@ export default function Inventory() {
         </Typography>
         </CardContent>
         <CardActions>
+        <Typography variant="caption" className={classes.font}>
+        By clicking purchase you agree to our <a href="https://www.etherchest.com/terms">terms of service</a>
+        </Typography>
+        <br/>
         <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
@@ -1031,6 +1043,7 @@ export default function Inventory() {
         <Typography variant="caption" className={classes.font}>
         By clicking purchase you agree to our <a href="https://www.etherchest.com/terms">terms of service</a>
         </Typography>
+        <br/>
         <Dropdown className="p-dropdown"
           disabled={isSubmitting || !username}
           optionLabel="name"
