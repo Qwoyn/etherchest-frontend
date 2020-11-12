@@ -45,14 +45,6 @@ export default function WelcomeCard() {
     </Typography>
     <hr/>
     <br/>
-    <center>
-    <img src="https://i.imgur.com/igeZjtO.png"></img>
-    <Typography color="textSecondary" gutterBottom variant="h1" component="h1" className={classes.font}>
-                <font color="#F7F0F0">
-                November 11, 2020!
-                </font>
-    </Typography>
-    </center>
     <hr/>
     </div>
   );
