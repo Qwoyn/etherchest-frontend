@@ -109,7 +109,7 @@ export default function Trending() {
         const images = JSON.parse(post.json_metadata).image;
         const voting = () => {
           const weight = 5000;
-          console.dir(username);
+          
           steemConnectAPI.vote(username, post.author, post.permlink, weight);
         };
         return (
@@ -153,7 +153,6 @@ export default function Trending() {
                 </HtmlTooltip>
               }
               actionPosition="left"
-              
             />
           </GridListTile>)
       } )}

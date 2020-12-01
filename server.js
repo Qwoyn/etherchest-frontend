@@ -2,6 +2,11 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+var Ddos = require('ddos')
+var ddos = new Ddos({burst:15, limit:20})
+
+//ddos protection
+app.use(ddos.express);
 
 //redirect to ssl
 if(process.env.NODE_ENV === 'production') {
