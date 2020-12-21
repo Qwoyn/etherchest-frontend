@@ -102,14 +102,8 @@ if (!isDesktop) {
       <Grid item xs={3}>
       </Grid>
     </Grid>
-        <Grid item xs={3}>
-          <GemMarketCard />
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <InsideCard />
-        </Grid>
-        <Grid item xs={3}>
-          <WalletCard />
         </Grid>
       </Grid>
       <br/>
