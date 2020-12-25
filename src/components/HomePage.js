@@ -103,14 +103,14 @@ if (!isDesktop) {
       </Grid>
     </Grid>
         <Grid item xs={12}>
-          <InsideCard />
+          <MoreInformation />
         </Grid>
       </Grid>
       <br/>
       <br/>
       <br/>
       <br/>
-      <MoreInformation />
+      <InsideCard />
       <br/>
       <br/>
       <InformationPage />
