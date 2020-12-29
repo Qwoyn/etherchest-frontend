@@ -113,6 +113,8 @@ if (!isDesktop) {
       <InsideCard />
       <br/>
       <br/>
+      <br/>
+      <br/>
       <InformationPage />
       <hr/>
       <br/>

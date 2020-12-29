@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import {  HiveSVGIcon, 
+import {  GemSvgIcon, 
           BlogIcon,
           InformationIcon, 
           FarmIcon,
@@ -69,6 +69,22 @@ export default function DesktopTopbar(){
               >
             <IconButton className="layout-menu-button" href="/">
             <FarmIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid>
+
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography className={classes.font}>Dashboard</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" href="/dashboard">
+            <GemSvgIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
