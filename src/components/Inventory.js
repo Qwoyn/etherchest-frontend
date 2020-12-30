@@ -320,7 +320,6 @@ export default function Inventory() {
   const [totalGems, setTotalGems] = useState([0]);
   const [totalDucats, setTotalDucats] = useState([0]);
   const [totalEthValues, setTotalEthValues] = useState([0]);
-  const [registered, setRegistered] = useState(true)
 
   const [diamondPrice, setDiamondPrices] = useState([0]);
   const [sapphirePrice, setSapphirePrices] = useState([0]);
@@ -348,7 +347,6 @@ export default function Inventory() {
     const response = await fetch(urlAPI);
     const data = await response.json();
     
-    setRegistered(data.length < 1);
 
     if (data.diamond) {
     setDiamonds(data.diamond.length);
@@ -360,7 +358,6 @@ export default function Inventory() {
     var sapphireValue = data.sapphire.length * .5;
     var emeraldValue = data.emerald.length * .25;
     var rubyValue = data.ruby.length * .1;
-    var ducatValue = data.ducats
 
     setDiamondValues(diamondValue);
     setSapphireValues(sapphireValue);
@@ -1182,25 +1179,6 @@ export default function Inventory() {
         
       </Grid>
     </Grid>
-    
-    {registered === undefined &&
-        <Dialog
-        open={open}
-        aria-labelledby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
-        aria-describedby="Please Register and wait 2 minutes for the transaction to propogate on HIVE"
-      >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard then wait 2 minutes for the transaction to propogate on HIVE"}</DialogTitle>
-        <DialogContent>
-        <Fab
-                    variant="outline" 
-                    color="primary"
-                    href="/register"
-                    className={classes.button}
-                  >Register
-                  </Fab>
-        </DialogContent>
-      </Dialog>
-      }
     </div>
   );
     } else {
@@ -1222,9 +1200,6 @@ export default function Inventory() {
           <Paper className={classes.paper}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
           Please use a desktop browser to interact with Etherchest!
-        </Typography>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalGems}
         </Typography>
           </Paper>
         </Grid>
@@ -1314,25 +1289,6 @@ export default function Inventory() {
           </Card>
         </Paper>
     </Grid>
-
-    {registered === undefined &&
-        <Dialog
-        open={open}
-        aria-labelledby="Please Register"
-        aria-describedby="Please Register"
-      >
-        <DialogTitle id="alert-dialog-title">{"Please register to view your dashboard"}</DialogTitle>
-        <DialogContent>
-        <Fab
-                    variant="outline" 
-                    color="primary"
-                    href="/register"
-                    className={classes.button}
-                  >Register
-                  </Fab>
-        </DialogContent>
-      </Dialog>
-      }
   </div>
 );
 }}
