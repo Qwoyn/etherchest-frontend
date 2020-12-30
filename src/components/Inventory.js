@@ -708,102 +708,7 @@ export default function Inventory() {
             </Grid>
 
             <Grid item xs={12}>
-            </Grid>            
-        </Grid>
-        </Grid>
-        <Grid item xs={4}>
-        <Paper className={classes.paper}>
-        <Card className={classes.root} variant="outlined">
-            <CardContent>
-        <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>
-              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
-          </Paper>
-        </Grid>
-        <Grid item xs={3}>
-        <Paper className={classes.paper}>
-     
-        </Paper>
-        </Grid>
-
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-          <Typography className={classes.font} color="textSecondary">
-          <b>Total ETH: {totalEthValues}</b>
-          </Typography>
-          </Paper>
-          
-        </Grid>
-        <Grid item xs={8}>
-          </Grid>
-
-        <Grid item xs={12}>
-          <hr/>
-        </Grid>
-        
-
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Total Gold
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Total Gems
-        </Typography>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalGems}
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Total Ducats
-            </Typography>
-            <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalDucats}
-        </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <u>Banking Sector</u>
-        </Typography>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Etherchest
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Staked Gems
-        </Typography>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalGems}
-        </Typography>
-          </Paper>
-        </Grid>
-        
-        <Grid item xs={12}>
-        <hr/>
-        </Grid> 
-      </Grid>
-      
-        </CardContent>
-        </Card>
-        
-        </Paper>
-        </Grid>
-        <Grid item xs>
-        <Tabs
+            <Tabs
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
@@ -1181,6 +1086,102 @@ export default function Inventory() {
     </Grid>
     </TabPanel>
       </SwipeableViews>
+            </Grid>            
+        </Grid>
+        </Grid>
+        <Grid item xs={4}>
+        <Paper className={classes.paper}>
+        <Card className={classes.root} variant="outlined">
+            <CardContent>
+        <Grid container spacing={3}>
+        <Grid item xs={3}>
+          <Paper className={classes.paper}>
+              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
+          </Paper>
+        </Grid>
+        <Grid item xs={3}>
+        <Paper className={classes.paper}>
+     
+        </Paper>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+          <Typography className={classes.font} color="textSecondary">
+          <b>Total ETH: {totalEthValues}</b>
+          </Typography>
+          </Paper>
+          
+        </Grid>
+        <Grid item xs={8}>
+          </Grid>
+          
+        <Grid item xs={12}>
+          <hr/>
+        </Grid>
+        
+
+        <Grid item xs={4}>
+          <Paper className={classes.paperProfile}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          Total Gold
+        </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paperProfile}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          Total Gems
+        </Typography>
+        <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalGems}
+        </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paperProfile}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+                Total Ducats
+            </Typography>
+            <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalDucats}
+        </Typography>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={4}>
+          <Paper className={classes.paperProfile}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          <u>Banking Sector</u>
+        </Typography>
+        <Typography className={classes.font} color="textSecondary" gutterBottom>
+          Etherchest
+        </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paperProfile}>
+          <Typography className={classes.font} color="textSecondary" gutterBottom>
+          Staked Gems
+        </Typography>
+        <Typography className={classes.font} color="textSecondary" gutterBottom>
+          {totalGems}
+        </Typography>
+          </Paper>
+        </Grid>
+        
+        <Grid item xs={12}>
+        <hr/>
+        </Grid> 
+      </Grid>
+      
+        </CardContent>
+        </Card>
+        
+        </Paper>
+        </Grid>
+        <Grid item xs>
+        
       </Grid>
     </Grid>
     
