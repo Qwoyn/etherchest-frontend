@@ -188,6 +188,7 @@ const useStyles = makeStyles(theme => ({
     height: 250,
   },
   mediaDucat: {
+    width: "auto",
     height: 450,
   },
   paperFarming: {
