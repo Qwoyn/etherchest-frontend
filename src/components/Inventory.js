@@ -343,12 +343,12 @@ export default function Inventory() {
 
   const loadData = async (ourUsername) => {
     
-    const urlAPI = 'https://etherchest-backend.herokuapp.com/u/'+ourUsername;
+    const urlAPI = 'https://etherchest-backend.herokuapp.com/u/'+ ourUsername;
     
     const response = await fetch(urlAPI);
     const data = await response.json();
     
-    setRegistered(data.diamond);
+    setRegistered(data.length < 1);
 
     if (data.diamond) {
     setDiamonds(data.diamond.length);
@@ -1211,48 +1211,21 @@ export default function Inventory() {
           <Paper className={classes.paper}>
         <Card className={classes.root} variant="outlined">
             <CardContent>
-        <Grid container spacing={3}>
-        <Grid item xs={3}>
+        <Grid container spacing={1}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
               <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <b>{username}</b>
-        </Typography>
-        <hr/>
-        <Typography className={classes.font} color="textSecondary">
-        <b>Total ETH: {totalEthValues}</b>
-        </Typography>
-          </Paper>
-        </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Total Gems
+          Please use a desktop browser to interact with Etherchest!
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
           {totalGems}
         </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Total Ducats
-            </Typography>
-            <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalDucats}
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
           </Paper>
         </Grid>
         <Grid item xs={12}>
