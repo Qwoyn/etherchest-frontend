@@ -1151,7 +1151,7 @@ export default function Inventory() {
         <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <u>Status</u>
+          Status
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
           VIP
