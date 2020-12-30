@@ -188,7 +188,7 @@ const useStyles = makeStyles(theme => ({
     height: 250,
   },
   mediaDucat: {
-    height: 350,
+    height: 450,
   },
   paperFarming: {
     padding: theme.spacing(1),
