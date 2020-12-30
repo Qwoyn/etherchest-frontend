@@ -1142,15 +1142,7 @@ export default function Inventory() {
           <hr/>
         </Grid>
         
-
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Total Gold
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
           Total Gems
@@ -1160,7 +1152,7 @@ export default function Inventory() {
         </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
                 Total Ducats
@@ -1171,23 +1163,13 @@ export default function Inventory() {
           </Paper>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
           <u>Banking Sector</u>
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
           Etherchest
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Staked Gems
-        </Typography>
-        <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalGems}
         </Typography>
           </Paper>
         </Grid>
