@@ -818,16 +818,14 @@ export default function Inventory() {
             setSapphire(e.value);
           }}
           placeholder="Choose Sapphire..."
-        />     
-        <br/><br/>   
+        />
+        <br/>
+        </CardActions>
         <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmitSapphire}
       />
-      <br/>
-        <br/>
-        </CardActions>
         <br/>
         <br/>
         </Card>
