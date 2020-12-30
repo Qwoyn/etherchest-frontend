@@ -772,15 +772,13 @@ export default function Inventory() {
           }}
           placeholder="Choose Diamond..."
         />     
-        <br/><br/>   
+        <br/>
+        </CardActions>
         <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmit}
       />
-      <br/>
-        <br/>
-        </CardActions>
         <br/>
         <br/>
         </Card>
@@ -863,16 +861,14 @@ export default function Inventory() {
             setEmerald(e.value);
           }}
           placeholder="Choose Emerald..."
-        />     
-        <br/><br/>   
+        />
+        <br/>
+        </CardActions>
         <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmitEmerald}
       />
-      <br/>
-        <br/>
-        </CardActions>
         <br/>
         <br/>
         </Card>
@@ -911,15 +907,13 @@ export default function Inventory() {
           }}
           placeholder="Choose Ruby..."
         />     
-        <br/><br/>   
+        <br/>  
+        </CardActions>
         <Button
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmitRuby}
       />
-      <br/>
-        <br/>
-        </CardActions>
         <br/>
         <br/>
         </Card>
