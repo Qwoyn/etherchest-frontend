@@ -187,6 +187,9 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 250,
   },
+  mediaDucat: {
+    height: 350,
+  },
   paperFarming: {
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -1111,7 +1114,7 @@ export default function Inventory() {
                 Total Ducats
                 </Typography>
                 <CardMedia
-                className={classes.media}
+                className={classes.mediaDucat}
                 image="/assets/layout/images/Ducat_Card.png"
                 title="1 Ducat = 0.00001 ETH"
                 />
