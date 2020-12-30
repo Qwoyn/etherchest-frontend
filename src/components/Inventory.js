@@ -1258,29 +1258,6 @@ export default function Inventory() {
         <Grid item xs={12}>
         <hr/>
         </Grid>
-
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Badges
-            </Typography>
-            <hr/>
-          </Paper>
-        </Grid>
-        <Paper className={classes.paper}>
-        <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paperBadge}>
-          <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paperBadge}>
-              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
-          </Paper>
-        </Grid>
-        </Grid>
-        </Paper>
       </Grid>
         </CardContent>
         </Card>
