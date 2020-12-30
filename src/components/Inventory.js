@@ -1116,7 +1116,7 @@ export default function Inventory() {
                 title="1 Ducat = 0.00001 ETH"
                 />
                  <br/>
-                <Typography variant="h2" component="h2" className={classes.fontRed}>
+                <Typography variant="h2" component="h2" className={classes.fontGold}>
                 {ruby}
                 </Typography>
                 </CardContent>
@@ -1126,11 +1126,6 @@ export default function Inventory() {
                 </Card>
             </Paper>
             </Grid>
-        <Grid item xs={3}>
-        <Paper className={classes.paper}>
-     
-        </Paper>
-        </Grid>
           
         <Grid item xs={12}>
           <hr/>
@@ -1139,10 +1134,10 @@ export default function Inventory() {
         <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Total Gems
+          Total ETH:
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
-          {totalGems}
+        {totalEthValues}
         </Typography>
           </Paper>
         </Grid>
