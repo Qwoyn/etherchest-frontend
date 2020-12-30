@@ -341,12 +341,16 @@ export default function Inventory() {
     var sapphireValue = data.sapphire.length * .5;
     var emeraldValue = data.emerald.length * .25;
     var rubyValue = data.ruby.length * .1;
+    var ducatValue = data.ducats
+
     setDiamondValues(diamondValue);
     setSapphireValues(sapphireValue);
     setEmeraldValues(emeraldValue);
     setRubyValues(rubyValue);
 
-    var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue;
+    setDucatValues(ducatValue)
+
+    var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue + (ducactvalue * 0.00001);
     setTotalEthValues(totalEthValue);
 
     var gemTotal = data.diamond.length + data.sapphire.length + data.emerald.length + data.ruby.length;
@@ -1095,10 +1099,28 @@ export default function Inventory() {
             <CardContent>
         <Grid container spacing={3}>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>
-              <Avatar alt="Remy Sharp" src="https://i.imgur.com/TJP9RZ0.png" className={classes.large} />
-          </Paper>
-        </Grid>
+                <Paper className={classes.paper}>
+                    <Card className={classes.root} variant="outlined">
+                <CardContent>
+                <Typography className={classes.fontRed} color="textSecondary" gutterBottom>
+                Total Ducats
+                </Typography>
+                <CardMedia
+                className={classes.media}
+                image="/assets/layout/images/Ducate_Card.png"
+                title="1 Ducat = 0.00001 ETH"
+                />
+                 <br/>
+                <Typography variant="h2" component="h2" className={classes.fontRed}>
+                {ruby}
+                </Typography>
+                </CardContent>
+                <Typography className={classes.fontRed} color="textSecondary" gutterBottom>
+                Value: {totalDucats} ETH
+                </Typography>
+                </Card>
+            </Paper>
+            </Grid>
         <Grid item xs={3}>
         <Paper className={classes.paper}>
      
