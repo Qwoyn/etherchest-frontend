@@ -121,6 +121,15 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
   },
+  paperDucat: {
+    marginTop: theme.spacing(1),
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
   paperPurple: {
     padding: theme.spacing(2),
     textAlign: 'center',
@@ -1100,7 +1109,7 @@ export default function Inventory() {
             <CardContent>
         <Grid container spacing={1}>
         <Grid item xs={12}>
-                <Paper className={classes.paper}>
+                <Paper className={classes.paperDucat}>
                     <Card className={classes.root} variant="outlined">
                 <CardContent>
                 <Typography className={classes.fontGold} color="textSecondary" gutterBottom>
