@@ -348,9 +348,8 @@ export default function Inventory() {
     setEmeraldValues(emeraldValue);
     setRubyValues(rubyValue);
 
-    setDucatValues(ducatValue)
 
-    var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue + (ducactvalue * 0.00001);
+    var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue + (totalDucats * 0.00001);
     setTotalEthValues(totalEthValue);
 
     var gemTotal = data.diamond.length + data.sapphire.length + data.emerald.length + data.ruby.length;
