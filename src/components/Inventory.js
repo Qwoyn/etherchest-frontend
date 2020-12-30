@@ -1097,7 +1097,7 @@ export default function Inventory() {
         <Card className={classes.root} variant="outlined">
             <CardContent>
         <Grid container spacing={3}>
-        <Grid item xs={3}>
+        <Grid item xs>
                 <Paper className={classes.paper}>
                     <Card className={classes.root} variant="outlined">
                 <CardContent>
@@ -1106,7 +1106,7 @@ export default function Inventory() {
                 </Typography>
                 <CardMedia
                 className={classes.media}
-                image="/assets/layout/images/Ducate_Card.png"
+                image="/assets/layout/images/Ducat_Card.png"
                 title="1 Ducat = 0.00001 ETH"
                 />
                  <br/>
