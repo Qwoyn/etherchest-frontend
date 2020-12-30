@@ -229,6 +229,12 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     scrollable: true
   }, 
+  fontGold: {
+    fontFamily: '"Orbitron", sans-serif',
+    color: '#ebb734',
+    whiteSpace: 'wrap',
+    scrollable: true
+  }, 
   fontBlue: {
     fontFamily: '"Orbitron", sans-serif',
     color: '#0068D2',
@@ -1101,7 +1107,7 @@ export default function Inventory() {
                 <Paper className={classes.paper}>
                     <Card className={classes.root} variant="outlined">
                 <CardContent>
-                <Typography className={classes.fontRed} color="textSecondary" gutterBottom>
+                <Typography className={classes.fontGold} color="textSecondary" gutterBottom>
                 Total Ducats
                 </Typography>
                 <CardMedia
@@ -1114,8 +1120,8 @@ export default function Inventory() {
                 {ruby}
                 </Typography>
                 </CardContent>
-                <Typography className={classes.fontRed} color="textSecondary" gutterBottom>
-                Value: {totalDucats} ETH
+                <Typography className={classes.fontGold} color="textSecondary" gutterBottom>
+                Value: {totalDucats * 0.00001} ETH
                 </Typography>
                 </Card>
             </Paper>
@@ -1125,17 +1131,6 @@ export default function Inventory() {
      
         </Paper>
         </Grid>
-
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-          <Typography className={classes.font} color="textSecondary">
-          <b>Total ETH: {totalEthValues}</b>
-          </Typography>
-          </Paper>
-          
-        </Grid>
-        <Grid item xs={8}>
-          </Grid>
           
         <Grid item xs={12}>
           <hr/>
