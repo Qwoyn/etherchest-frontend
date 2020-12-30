@@ -708,12 +708,6 @@ export default function Inventory() {
             </Grid>
 
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-              <ResponsiveImage
-                src="https://i.imgur.com/GAbKp9R.png"
-                width={ 1000 }
-                height={ 210 } />
-              </Paper>
             </Grid>            
         </Grid>
         </Grid>
@@ -735,27 +729,14 @@ export default function Inventory() {
 
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-          <Grid item xs={12}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Rank
-            </Typography>
-            <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Captain
-        </Typography>
-          </Paper>
-        </Grid>
-        <hr/>
-        <Typography className={classes.font} color="textSecondary">
-        <b>Total ETH: {totalEthValues}</b>
-        </Typography>
+          <Typography className={classes.font} color="textSecondary">
+          <b>Total ETH: {totalEthValues}</b>
+          </Typography>
           </Paper>
           
         </Grid>
         <Grid item xs={8}>
           </Grid>
-
-        
 
         <Grid item xs={12}>
           <hr/>
@@ -793,7 +774,7 @@ export default function Inventory() {
         <Grid item xs={4}>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <u>Guild</u>
+          <u>Banking Sector</u>
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
           Etherchest
@@ -807,16 +788,6 @@ export default function Inventory() {
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
           {totalGems}
-        </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paperProfile}>
-          <Typography className={classes.font} color="textSecondary" gutterBottom>
-                Rank
-            </Typography>
-            <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Captain
         </Typography>
           </Paper>
         </Grid>
