@@ -782,8 +782,8 @@ export default function Inventory() {
         <br/>
         </CardActions>
         <Grid container spacing={1}>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={6}>
         <Button
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
@@ -791,6 +791,7 @@ export default function Inventory() {
         onClick={handleSubmit}
       />
         </Grid>
+        <Grid item xs={4}></Grid>
         </Grid>
         <br/>
         <br/>
@@ -833,8 +834,8 @@ export default function Inventory() {
         <br/>
         </CardActions>
         <Grid container spacing={1}>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={6}>
         <Button
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
@@ -842,6 +843,7 @@ export default function Inventory() {
         onClick={handleSubmitSapphire}
       />
         </Grid>
+        <Grid item xs={4}></Grid>
         </Grid>
         <br/>
         <br/>
@@ -884,8 +886,8 @@ export default function Inventory() {
         <br/>
         </CardActions>
         <Grid container spacing={1}>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={6}>
         <Button
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
@@ -893,6 +895,7 @@ export default function Inventory() {
         onClick={handleSubmitEmerald}
       />
       </Grid>
+      <Grid item xs={4}></Grid>
       </Grid>
         <br/>
         <br/>
@@ -935,8 +938,8 @@ export default function Inventory() {
         <br/>  
         </CardActions>
         <Grid container spacing={1}>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={6}>
         <Button
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
@@ -944,7 +947,7 @@ export default function Inventory() {
         onClick={handleSubmitRuby}
       />
       </Grid>
-      <Grid item xs={2}></Grid>
+      <Grid item xs={4}></Grid>
       </Grid>
         <br/>
         <br/>
