@@ -917,6 +917,7 @@ export default function Inventory() {
         <br/>  
         </CardActions>
         <Button
+        className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmitRuby}
