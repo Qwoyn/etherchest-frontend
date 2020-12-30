@@ -719,7 +719,7 @@ export default function Inventory() {
         >
           <Tab label="Gems" icon={<CrystalIcon />} {...a11yProps(0)} className={classes.font} disabled/>
           <Tab label="Ducats" icon={<DucatIcon />} {...a11yProps(1)} className={classes.font} disabled />
-          <Tab label="Guild" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
+          <Tab label="Market" icon={<LandIcon />} {...a11yProps(2)} className={classes.font} disabled />
         </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
