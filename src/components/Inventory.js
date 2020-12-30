@@ -916,12 +916,18 @@ export default function Inventory() {
         />     
         <br/>  
         </CardActions>
+        <Grid container spacing={1}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
         <Button
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
         label={buttonLabel}
         onClick={handleSubmitRuby}
       />
+      </Grid>
+      <Grid item xs={4}></Grid>
+      </Grid>
         <br/>
         <br/>
         </Card>
