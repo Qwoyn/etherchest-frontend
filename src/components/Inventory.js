@@ -1102,8 +1102,8 @@ export default function Inventory() {
         <Paper className={classes.paper}>
         <Card className={classes.root} variant="outlined">
             <CardContent>
-        <Grid container spacing={3}>
-        <Grid item xs>
+        <Grid container spacing={1}>
+        <Grid item xs={12}>
                 <Paper className={classes.paper}>
                     <Card className={classes.root} variant="outlined">
                 <CardContent>
