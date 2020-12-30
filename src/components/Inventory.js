@@ -1151,10 +1151,10 @@ export default function Inventory() {
         <Grid item xs>
           <Paper className={classes.paperProfile}>
           <Typography className={classes.font} color="textSecondary" gutterBottom>
-          <u>Banking Sector</u>
+          <u>Status</u>
         </Typography>
         <Typography className={classes.font} color="textSecondary" gutterBottom>
-          Etherchest
+          VIP
         </Typography>
           </Paper>
         </Grid>
