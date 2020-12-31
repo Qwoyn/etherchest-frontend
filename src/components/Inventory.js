@@ -8,9 +8,7 @@ import {sign} from "hivesigner";
 import useHiveKeychain from "../hooks/useHiveKeychain";
 import { EtherchestAPI, DiamondNames, SapphireNames, EmeraldNames, RubyNames } from "../service/EtherchestAPI";
 import Tooltip from '@material-ui/core/Tooltip';
-import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SubdivisionIcon, gemSvgIcon, DnaIcon, BongIcon, GiftIcon, LandIcon, CrystalIcon, DucatIcon } from './Icons';
-import AppBar from '@material-ui/core/AppBar';
+import { LandIcon, CrystalIcon, DucatIcon } from './Icons';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
@@ -21,21 +19,12 @@ import Badge from '@material-ui/core/Badge';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import InventoryChart from './InventoryChart';
 import CardActions from '@material-ui/core/CardActions';
-import InventoryNav from "./InventoryNav";
-import InventoryChartSwitch from './InventoryChartSwitch'; 
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-import { Redirect } from 'react-router';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import Fab from '@material-ui/core/Fab';
-import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 
 function TabPanel(props) {
@@ -72,33 +61,15 @@ const useStyles = makeStyles(theme => ({
   flex: {
     flexGrow: 1,
   },
-  rootField: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
   root: {
     flexGrow: 1,
     backgroundColor: "#000000",
-  },
-  rootCard: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
   },
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
-  },
-  small: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
   },
   large: {
     width: theme.spacing(20),
@@ -130,43 +101,12 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
   },
-  paperPurple: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#220050",
-  },
   paperProfile: {
     padding: theme.spacing(1),
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#00002e",
-  },
-  paperLeft: {
-    padding: theme.spacing(1),
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#073232",
-  },
-  paperRight: {
-    padding: theme.spacing(1),
-    textAlign: 'right',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#073232",
-  },
-  paperBadge: {
-    padding: theme.spacing(1),
-    textAlign: 'right',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#3D1289",
   },
   button: {
     margin: theme.spacing(1),
@@ -178,14 +118,6 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
-  },
-  margin: {
-    margin: theme.spacing(2),
-    whiteSpace: 'wrap',
-    scrollable: true
-  },
-  padding: {
-    padding: theme.spacing(0, 2),
   },
   card: {
     backgroundColor: "#001E1E",
@@ -199,15 +131,6 @@ const useStyles = makeStyles(theme => ({
   mediaDucat: {
     width: "auto",
     height: 450,
-  },
-  paperFarming: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#515e90",
-    height: "240px"
   },
   font: {
     fontFamily: '"Orbitron", sans-serif',
@@ -259,19 +182,7 @@ const useStyles = makeStyles(theme => ({
     color: '#ffffff',
     whiteSpace: 'wrap',
     scrollable: true
-  },
-  fontRight: {
-    fontFamily: '"Orbitron", sans-serif',
-    color: '#DFB17B',
-    whiteSpace: 'wrap',
-    textAlign: 'right',
-    scrollable: true
-  },
-  extension: {
-    backgroundColor: "DFB17B",
-    whiteSpace: 'wrap',
-    height: "47px"
-  },
+  }
 }));
 
 function ResponsiveImage( { src, width, height } ) {
@@ -291,23 +202,11 @@ function ResponsiveImage( { src, width, height } ) {
   );
 }
 
-const HtmlTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: '#000000',
-    color: '#DFB17B',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}))(Tooltip);
-
 export default function Inventory() {
   const {username} = useContext(StateContext);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
-
-  const [registerModal, setRegisterModal] = useState(false);
 
   const [diamond, setDiamonds] = useState([0]);
   const [sapphire, setSapphires] = useState([0]);
@@ -334,11 +233,7 @@ export default function Inventory() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasHiveKeychain = useHiveKeychain();
 
-  const [open, setOpen] = React.useState(true);
-
   const isDesktop = window.innerWidth < 1000;
-
-  const etherchestApi = new EtherchestAPI();
 
   const loadData = async (ourUsername) => {
     
@@ -346,7 +241,6 @@ export default function Inventory() {
     
     const response = await fetch(urlAPI);
     const data = await response.json();
-    
 
     if (data.diamond) {
     setDiamonds(data.diamond.length);
@@ -363,7 +257,6 @@ export default function Inventory() {
     setSapphireValues(sapphireValue);
     setEmeraldValues(emeraldValue);
     setRubyValues(rubyValue);
-
 
     var totalEthValue = diamondValue + sapphireValue + emeraldValue + rubyValue + (totalDucats * 0.00001);
     setTotalEthValues(totalEthValue);
@@ -408,7 +301,7 @@ export default function Inventory() {
     setValue(index);
   };
 
-  const handleSubmit = async e => {
+  const handleSubmitDiamond = async e => {
     e.preventDefault();
     if (diamonds && username) {
       setIsSubmitting(true);
@@ -788,7 +681,7 @@ export default function Inventory() {
         className="p-button-rounded p-button-success"
         disabled={isSubmitting || !username}
         label={buttonLabel}
-        onClick={handleSubmit}
+        onClick={handleSubmitDiamond}
       />
         </Grid>
         <Grid item xs={4}></Grid>
