@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,23 +17,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: '"Orbitron", sans-serif',
   },
 }));
-
-function ResponsiveImage( { src, width, height } ) {
-    return (
-      <div
-        style={ { 
-          width,
-        } }
-        className="responsive-image">
-        <div style={ {
-            paddingBottom: ( height / width * 100 ) + '%'
-          } } />
-        <img
-          src={ src }
-          className="responsive-image__image" />
-      </div>
-    );
-  }
 
 export default function MoreInformation() {
   const classes = useStyles();
@@ -100,7 +81,7 @@ export default function MoreInformation() {
             <br/>
             <Typography color="textSecondary" gutterBottom variant="body1" component="body1" className={classes.font} align="center">
                 <font color="#F7F0F0">
-                Staking is a fairly new concept. <a href="https://cointelegraph.com/explained/ethereum-20-staking-explained#:~:text=1.-,What%20is%20Ethereum%202.0%20staking%3F,blockchain%20in%20return%20for%20rewards." target="_blank">Click Here</a> to learn more about ethereum staking and keep up to date with any latest 
+                Staking is a fairly new concept. <a href="https://cointelegraph.com/explained/ethereum-20-staking-explained#:~:text=1.-,What%20is%20Ethereum%202.0%20staking%3F,blockchain%20in%20return%20for%20rewards." target="_blank" rel="noopener noreferrer">Click Here</a> to learn more about ethereum staking and keep up to date with any latest 
                 information from the Core Dev team.
                 </font>
             </Typography>

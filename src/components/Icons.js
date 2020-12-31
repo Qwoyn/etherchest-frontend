@@ -300,7 +300,7 @@ export function WaterIcon(props) {
 
     export function CurationIcon(props) {
       return(
-    <SvgIcon version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <SvgIcon version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
     viewBox="0 0 399.888 399.888" xml="preserve" htmlColor="#ffffff">
    <path d="M322.833,381.871c-0.258-0.005-26.109-0.57-53.849-7.807c-24.776-6.463-56.088-19.696-64.552-46.03
      c-15.083-46.925,34.861-113.407,74.992-166.826c30.772-40.96,55.077-73.313,53.277-95.816
@@ -417,19 +417,19 @@ export function WaterIcon(props) {
 
     export function SteemIcon() {
       return(
-    <img src="https://i.imgur.com/ICnn2By.png"></img>
+    <img src="https://i.imgur.com/ICnn2By.png" alt="steem icon"></img>
       );
     }
 
     export function DucatIcon() {
       return(
-    <img src="https://i.imgur.com/mAcyElL.png"></img>
+    <img src="https://i.imgur.com/mAcyElL.png" alt="Ducat Icon"></img>
       );
     }
 
     export function InventoryBanner() {
       return(
-    <img src="https://i.imgur.com/FoJlHAu.png"></img>
+    <img src="https://i.imgur.com/FoJlHAu.png" alt="Etherchest inventory banner"></img>
       );
     }
 

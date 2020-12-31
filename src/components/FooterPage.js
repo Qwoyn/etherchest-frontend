@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -33,12 +32,12 @@ export default function FooterPage() {
                         <Grid item xs={6}>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="left">
                                 <font color="#F7F0F0">
-                                <a href="https://www.etherchest.com" target="_blank">EtherChest.com</a>
+                                <a href="https://www.etherchest.com">EtherChest.com</a>
                                 </font>
                                 </Typography>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="left">
                                 <font color="#F7F0F0">
-                                © 2020 EtherChest.com 
+                                © 2021 EtherChest.com 
                                 </font>
                                 </Typography>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="left">
@@ -74,17 +73,17 @@ export default function FooterPage() {
                         <Grid item xs={6}>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
                                 <font color="#F7F0F0">
-                                <a href="https://twitter.com/etherchest" target="_blank">Twitter</a>                
+                                <a href="https://twitter.com/etherchest" target="_blank" rel="noopener noreferrer">Twitter</a>                
                                 </font>
                                 </Typography>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
                                 <font color="#F7F0F0">
-                                <a href="https://facebook.com/etherchest" target="_blank">Facebook</a>                
+                                <a href="https://facebook.com/etherchest" target="_blank" rel="noopener noreferrer">Facebook</a>                
                                 </font>
                                 </Typography>
                                 <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
                                 <font color="#F7F0F0">
-                                <a href="https://discord.gg/P4NbDaV" target="_blank">Discord</a>                
+                                <a href="https://discord.gg/P4NbDaV" target="_blank" rel="noopener noreferrer">Discord</a>                
                                 </font>
                                 </Typography>
                         </Grid>
