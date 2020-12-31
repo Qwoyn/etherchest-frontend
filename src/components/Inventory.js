@@ -1,13 +1,12 @@
 import React, {useContext, useState, useEffect} from "react";
 import {StateContext} from "../App";
-import {  makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
+import {  makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import {sign} from "hivesigner";
 import useHiveKeychain from "../hooks/useHiveKeychain";
-import { EtherchestAPI, DiamondNames, SapphireNames, EmeraldNames, RubyNames } from "../service/EtherchestAPI";
-import Tooltip from '@material-ui/core/Tooltip';
+import { DiamondNames, SapphireNames, EmeraldNames, RubyNames } from "../service/EtherchestAPI";
 import { LandIcon, CrystalIcon, DucatIcon } from './Icons';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -24,8 +23,6 @@ import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
-
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
