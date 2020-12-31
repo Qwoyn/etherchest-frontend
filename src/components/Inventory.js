@@ -1100,6 +1100,10 @@ export default function Inventory() {
         
       </Grid>
     </Grid>
+    <br/>
+    <hr/>
+    <br/>
+    <FooterPage />
     </div>
   );
     } else {
@@ -1210,10 +1214,6 @@ export default function Inventory() {
           </Card>
         </Paper>
     </Grid>
-    <br/>
-    <hr/>
-    <br/>
-    <FooterPage />
   </div>
 );
 }}
