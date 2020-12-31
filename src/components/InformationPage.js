@@ -30,6 +30,7 @@ function ResponsiveImage( { src, width, height } ) {
             paddingBottom: ( height / width * 100 ) + '%'
           } } />
         <img
+          alt=""
           src={ src }
           className="responsive-image__image" />
       </div>
@@ -78,7 +79,7 @@ export default function InformationPage() {
             </Typography>
             <br/>
             <br/>
-            <Button variant="outlined" color="secondary" href="#outlined-buttons" href="https://peakd.com/introduceyourself/@etherchest/the-etherchest-com-ecosystem-finds-a-home-on-hive">
+            <Button variant="outlined" color="secondary" href="https://peakd.com/introduceyourself/@etherchest/the-etherchest-com-ecosystem-finds-a-home-on-hive">
                 Read our Whitepaper
             </Button>
         </Grid>

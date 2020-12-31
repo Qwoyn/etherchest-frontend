@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -31,6 +30,7 @@ function ResponsiveImage( { src, width, height } ) {
             paddingBottom: ( height / width * 100 ) + '%'
           } } />
         <img
+          alt=""
           src={ src }
           className="responsive-image__image" />
       </div>
@@ -79,7 +79,7 @@ export default function InformationPageMobile() {
             </Typography>
             <br/>
             <br/>
-            <Button variant="outlined" color="secondary" href="#outlined-buttons" href="https://peakd.com/introduceyourself/@etherchest/the-etherchest-com-ecosystem-finds-a-home-on-hive">
+            <Button variant="outlined" color="secondary" href="https://peakd.com/introduceyourself/@etherchest/the-etherchest-com-ecosystem-finds-a-home-on-hive">
                 Read our Whitepaper
             </Button>
         </Grid>

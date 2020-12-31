@@ -5,25 +5,10 @@ import { Lock } from '@material-ui/icons';
 import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { EtherchestAPI } from "./service/EtherchestAPI.js";
 
 const access_token = localStorage.getItem("sc_token");
-
-/*function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}*/
-
-function getModalStyle() {
-  const top = 50;
-  const left = 50;
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
 
 const handleClick = () => {
   window.location = '/login';
