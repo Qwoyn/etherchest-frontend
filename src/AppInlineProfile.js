@@ -1,13 +1,12 @@
 import React, {useState, useContext, useEffect} from "react";
 import { StateContext } from "./App";
 import Chip from '@material-ui/core/Chip';
-import { LockOpen, Lock } from '@material-ui/icons';
+import { Lock } from '@material-ui/icons';
 import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { EtherchestAPI } from "./service/EtherchestAPI.js";
-import api from './service/SteemConnectAPI';
 
 const access_token = localStorage.getItem("sc_token");
 
@@ -30,16 +29,6 @@ const handleClick = () => {
   window.location = '/login';
 };
 
-const HtmlTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: '#000000',
-    color: 'rgba(0, 0, 0, 0.87)',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}))(Tooltip);
-
 const useStyles = makeStyles(theme => ({
 font: {
   fontFamily: '"Orbitron", sans-serif',
@@ -60,14 +49,6 @@ export const AppInlineProfile = () => {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [validatedTo, setValidatedTo] = useState();
-
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
 
   useEffect(() => {
     etherchestApi.hiveUserExists(username).then(username => {

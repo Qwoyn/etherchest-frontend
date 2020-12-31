@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Countdown from "react-countdown";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -31,16 +30,13 @@ const useStyles = makeStyles(theme => ({
 export default function WelcomeCard() {
   const classes = useStyles();
 
-  // Random component
-  const Completionist = () => <img src="https://i.imgur.com/8e2rVV9.png"></img>;
-
   return (
     <div>
       <Grid container spacing={3}>
         <Grid item xs={12}>
         <Paper className={classes.paper}>
       <center>
-    <img src="https://i.imgur.com/8e2rVV9.png"></img>
+    <img src="https://i.imgur.com/8e2rVV9.png" alt="Etherchest Logo"></img>
     <Typography color="textSecondary" gutterBottom variant="h4" component="h4" className={classes.font}>
                 <font color="#dd9933">
                 EtherChest Ecosystem
@@ -49,8 +45,8 @@ export default function WelcomeCard() {
     </center>
     <Typography color="textSecondary" gutterBottom variant="body2" className={classes.font} align="right">
                 <font color="#F7F0F0">
-                Powered by <a href="https://www.coindesk.com/research/reports/ethereum-2-0-how-it-works-and-why-it-matters" target="_blank">
-                Ethereum 2.0</a> and <a href="https://peakd.com/@etherchest" target="_blank">Hive</a> Blockchain
+                Powered by <a href="https://www.coindesk.com/research/reports/ethereum-2-0-how-it-works-and-why-it-matters" alt="Ethereum 2.0"target="_blank" rel="noopener noreferrer">
+                Ethereum 2.0</a> and <a href="https://peakd.com/@etherchest" target="_blank" rel="noopener noreferrer">Hive</a> Blockchain
                 </font>
     </Typography>
     <hr/>

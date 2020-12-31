@@ -3,14 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import {  GemSvgIcon, 
-          BlogIcon,
+import {  BlogIcon,
           InformationIcon, 
-          FarmIcon,
-          MarketIcon,
-          FarmingIcon, GemIcon, LandIcon, CrystalIcon } from './Icons';
+          FarmIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
 
@@ -31,12 +28,6 @@ const useStyles = makeStyles(theme => ({
       color: "#1ad986"
     },
   }));
-
-const theme = createMuiTheme({
-    palette: {
-      primary: { 500: '#00211B' }, // custom color in hex 
-    },
-  });
   
   const HtmlTooltip = withStyles(theme => ({
     tooltip: {

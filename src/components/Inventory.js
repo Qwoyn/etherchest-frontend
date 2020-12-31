@@ -193,6 +193,7 @@ function ResponsiveImage( { src, width, height } ) {
           paddingBottom: ( height / width * 100 ) + '%'
         } } />
       <img
+        alt="responsive image"
         src={ src }
         className="responsive-image__image" />
     </div>

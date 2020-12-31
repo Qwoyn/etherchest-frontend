@@ -31,11 +31,11 @@ export class EtherchestAPI {
     return this.get(`prices`);
   }
 
-  getUserDiamonds(username) {
+  getUserDiamondss(username) {
     return this.get(`diamonds/${username}`);
   }
 
-  getUserSappires(username) {
+  getUserSapphiress(username) {
     return this.get(`sapphires/${username}`);
   }
 
@@ -43,7 +43,7 @@ export class EtherchestAPI {
     return this.get(`emeralds/${username}`);
   }
 
-  getUserRubys(username) {
+  getUserRubyss(username) {
     return this.get(`rubys/${username}`);
   }
 
