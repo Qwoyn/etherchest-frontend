@@ -1,12 +1,10 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import GemMarketCard from './GemMarketCard';
 import InsideCard from './InsideCard';
 import InsideCardMobile from './InsideCardMobile';
 import WelcomeCard from './WelcomeCard';
 import WelcomeCardMobile from './WelcomeCardMobile';
-import WalletCard from './WalletCard';
 import Container from '@material-ui/core/Container';
 import { Parallax } from 'react-parallax';
 import FooterPage from './FooterPage';
@@ -16,11 +14,6 @@ import MoreInformationMobile from './MoreInformationMobile';
 import InformationPageMobile from './InformationPageMobile';
 
 const useStyles = makeStyles(theme => ({
-  navWidth: {
-    width: "auto",
-    backgroundColor: "transparent",
-    borderColor: "#000000"
-  },
   root: {
     flexGrow: 1,
     height: "auto",
@@ -29,53 +22,6 @@ const useStyles = makeStyles(theme => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(3),
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#294A0B",
-  },
-  paperBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#000000",
-  },
-  paperBlack: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A"
-  },
-  paperBlacky: {
-    padding: theme.spacing(1),
-    backgroundColor: "#000000",
-  },
-  card: {
-    maxWidth: 'auto',
-    backgroundColor: "transparent",
-  },
-  media: {
-    height: 140,
-    width: 270,
-  },
-  mediaTwo: {
-    height: 100,
-    width: 270,
-  },
-  background: {
-    width: "auto",
-    height: "auto",
-  },
-  font: {
-    fontFamily: '"Orbitron", sans-serif',
   }
 }));
 
