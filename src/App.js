@@ -282,7 +282,6 @@ class App extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/trending" component={Trending} />
-            <Route path="/register" component={RegisterPage} />
             <Route path="/dashboard" component={Inventory} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/terms" component={TermsPage} />
