@@ -15,7 +15,7 @@ import SwipeableViews from 'react-swipeable-views';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import Badge from '@material-ui/core/Badge';
+import FooterPage from './FooterPage';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -1210,6 +1210,10 @@ export default function Inventory() {
           </Card>
         </Paper>
     </Grid>
+    <br/>
+    <hr/>
+    <br/>
+    <FooterPage />
   </div>
 );
 }}
