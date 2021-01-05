@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { EtherchestAPI } from "../service/EtherchestAPI";
+import { ReactComponent as MetaMask } from "./metamask.svg"
 
 function Copyright() {
   return (
@@ -68,10 +69,31 @@ const useStyles = makeStyles(theme => ({
   font: {
     fontFamily: '"Orbitron", sans-serif',
   },
+  separator: {
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: '15px 0',
+
+    '&::before, &::after': {
+        content: '""',
+        flex: 1,
+        borderBottom: '1px solid #1212'
+    },
+    '&::before': {
+      marginRight: '.25em'
+    },
+    '&::after': {
+      marginLeft: '.25em'
+    }
+  }
 }));
 
 export const LoginPage = ({history}) => {
+  const ethUtil = require('ethereumjs-util')
+  const Eth = require('ethjs')
   const etherchestApi = new EtherchestAPI();
+
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
@@ -119,6 +141,47 @@ export const LoginPage = ({history}) => {
     setLoggingIn(true);
     steemConnectAPI.login({username}, keychainLoggedIn);
   };
+
+  const LoginMetamask = (e) => {
+    e.preventDefault()
+    setLoggingIn(true);
+
+    const text = "By signing this message you agree to all terms and conditions found at: https://www.etherchest.com/terms"
+    const msg = ethUtil.bufferToHex(new Buffer.from(text, 'utf8'))
+    const from = window.web3.eth.accounts[0]
+    if (!from) return connectMetamask()
+
+    // Now with Eth.js
+    const eth = new Eth(window.web3.currentProvider)
+
+    eth.personal_sign(msg, from)
+      .then((signed) => {
+        console.log('Signed!  Result is: ', signed)
+        console.log('Recovering...')
+
+        return eth.personal_ecRecover(msg, signed)
+      })
+      .then((recovered) => {
+        setLoggingIn(false)
+        if (recovered === from) {
+          console.log('Ethjs recovered the message signer!')
+        } else {
+          console.log('Ethjs failed to recover the message signer!')
+          console.dir({ recovered })
+        }
+      }).catch((e) => {
+        setLoggingIn(false)
+        console.log(e)
+      })
+  };
+
+
+const connectMetamask = () => {
+  if (typeof ethereum !== 'undefined') {
+    window.ethereum.enable()
+    .catch(console.error)
+  }
+}
 
   const loginLabelPrefix = loggingIn ? "Logging in with" : "Login with";
   const loginLabelSuffix = hasHiveKeychain()
@@ -186,6 +249,16 @@ export const LoginPage = ({history}) => {
               </Link>
             </Grid>
           </Grid>
+          <div className={`${classes.separator} ${classes.font}`}>OR</div>
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={LoginMetamask}
+            className={classes.font}
+            disabled={loggingIn}
+          >
+            <MetaMask width="32px" /> Login With MetaMask
+          </Button>
           <center>
           <Box mt={5} className={classes.font}>
             <Copyright />
